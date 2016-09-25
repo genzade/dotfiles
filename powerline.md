@@ -14,6 +14,9 @@ in this guide) and thus instead of `Bundle 'Lokaltog/powerline', {'rtp': 'powerl
 `Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}` Vundler (or your vim plugin manager of choice, I use
 Vundler and I'm not saying you should use Vundler but you should use Vundler)
 
+Also a lighter alternative is to install Bailey Ling’s [vim-airline](https://github.com/vim-airline/vim-airline)
+project.
+
 ## TMUX
 In your `.tmux.conf` file put the following line
 

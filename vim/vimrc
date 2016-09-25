@@ -1,0 +1,88 @@
+set nocompatible
+" start Vundle plugin manager
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" core plugins
+Bundle 'VundleVim/Vundle.vim'
+Bundle 'flazz/vim-colorschemes'
+
+" main plugins
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'myusuf3/numbers.vim'
+Bundle 'christoomey/vim-tmux-navigator'
+
+" lang specific plugins
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'heartsentwined/vim-emblem'
+Bundle 'slim-template/vim-slim.git'
+Bundle 'airblade/vim-gitgutter'
+
+" experimental plugins
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
+
+call vundle#end()            " required
+
+syntax enable
+filetype plugin indent on    " required
+
+set nu
+set colorcolumn=120             " ruler
+set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
+set expandtab                   " use spaces, not tabs (optional)
+set backspace=indent,eol,start  " backspace through everything in insert mode
+set background=dark
+set foldcolumn=1
+
+colorscheme Benokai
+
+" highlight repeat occurences of charecter or value above cursor
+nnoremap , :mat Error "<C-R><C-W>"<CR>
+
+" easier pane navigation easy navigation between splits to save a keystroke. So just ctrl-j instead of ctrl-w then j
+
+if exists('$TMUX')
+  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
+    let previous_winnr = winnr()
+    silent! execute "wincmd " . a:wincmd
+    if previous_winnr == winnr()
+      call system("tmux select-pane -" . a:tmuxdir)
+      redraw!
+    endif
+  endfunction
+
+  let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
+  let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
+  let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
+
+  nnoremap <silent> <C-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
+  nnoremap <silent> <C-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
+  nnoremap <silent> <C-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
+  nnoremap <silent> <C-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
+else
+  map <C-h> <C-w>h
+  map <C-j> <C-w>j
+  map <C-k> <C-w>k
+  map <C-l> <C-w>l
+endif
+
+" open new split panes to right and bottom, which feels more natural than Vim’s default
+set splitbelow
+set splitright
+
+" airline theme
+let g:airline_theme='base16'
+let g:airline_powerline_fonts = 1
+
+set guifont=Inconsolata\ for\ Powerline:h15
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+set laststatus=2

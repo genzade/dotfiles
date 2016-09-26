@@ -1,6 +1,7 @@
 " BASE SETTINGS
 
-set nu
+set nocompatible                " I WILL BE V-IMPROVED
+set nu                          " let's see what line I'm on in normal mode
 set colorcolumn=120             " ruler
 set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
 set expandtab                   " use spaces, not tabs (optional)

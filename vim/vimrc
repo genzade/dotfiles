@@ -1,5 +1,3 @@
-set nocompatible
-
 " start Vundle plugin manager
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim

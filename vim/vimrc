@@ -24,15 +24,18 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 
+"TODO
+"get multicursor, ruby block
+
 call vundle#end()            " required
 
 syntax enable
 filetype plugin indent on    " required
 
 " place general settings in config/base
-source ~/dotfiles/vim/config/base.vim
+source $HOME/dotfiles/vim/config/base.vim
 
 " place plugin specific settings in config/<NAME-OF-PLUGIN>.vim
-source ~/dotfiles/vim/config/plugins/vim-colorschemes.vim
-source ~/dotfiles/vim/config/plugins/vim-tmux-navigator.vim
-source ~/dotfiles/vim/config/plugins/vim-airline.vim
+source $HOME/dotfiles/vim/config/plugins/vim-colorschemes.vim
+source $HOME/dotfiles/vim/config/plugins/vim-tmux-navigator.vim
+source $HOME/dotfiles/vim/config/plugins/vim-airline.vim

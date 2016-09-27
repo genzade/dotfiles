@@ -23,6 +23,8 @@ Bundle 'airblade/vim-gitgutter'
 " experimental plugins
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
+Bundle 'tpope/vim-endwise'
+Bundle 'ervandew/supertab'
 
 "TODO
 "get multicursor, ruby block

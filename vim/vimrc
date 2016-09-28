@@ -25,6 +25,8 @@ Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'tpope/vim-endwise'
 Bundle 'ervandew/supertab'
+Bundle 'jiangmiao/auto-pairs'
+Bundle 'kien/ctrlp.vim'
 
 "TODO
 "get multicursor, ruby block

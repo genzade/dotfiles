@@ -1,6 +1,5 @@
 " BASE SETTINGS
 
-set nocompatible                " I WILL BE V-IMPROVED
 set nu                          " let's see what line I'm on in normal mode
 set numberwidth=5
 set colorcolumn=120             " ruler

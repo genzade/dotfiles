@@ -1,4 +1,5 @@
 " start Vundle plugin manager
+set nocompatible                " I WILL BE V-IMPROVED
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()

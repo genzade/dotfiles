@@ -18,4 +18,3 @@ export UPDATE_ZSH_DAYS=13
 # Increase history size
 export SAVEHIST=10000
 export HISTSIZE=10000
-

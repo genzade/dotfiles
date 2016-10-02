@@ -3,6 +3,8 @@
 " airline theme
 let g:airline_theme='base16'
 let g:airline_powerline_fonts = 1
+let g:Powerline_symbols = 'fancy'
+
 " uncomment the following lines if you do not have patched fonts, I happen to
 " have patched fonts already but if you want a fall back...
 "
@@ -38,7 +40,6 @@ let g:airline_powerline_fonts = 1
 " ---TO ABOVE THIS LINE---
 
 set guifont=Inconsolata\ for\ Powerline:h15
-let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set termencoding=utf-8
 set t_Co=256

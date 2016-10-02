@@ -17,7 +17,7 @@ bindkey '^N' down-history
 bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
-bindkey '^r' history-incremental-search-backward
+bindkey '^R' history-incremental-search-backward
 
 precmd() { RPROMPT="khjgfkajhsdgfakjhdfg" }
 function zle-line-init zle-keymap-select {

@@ -4,7 +4,6 @@ let mapleader=" "                     " I use space as my leader key
 
 map <Leader>d :NERDTreeToggle<CR>     " Open/close NERDTree
 
-nnoremap <Leader>o :CtrlP<CR>         " Quick open a file
 nnoremap <Leader>w :w<CR>             " Write
 noremap <Leader>q :q<CR>              " Quit
 

@@ -5,38 +5,39 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " core plugins
-Bundle 'VundleVim/Vundle.vim'
-Bundle 'flazz/vim-colorschemes'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " main plugins
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'myusuf3/numbers.vim'
-Bundle 'christoomey/vim-tmux-navigator'
+Plugin 'scrooloose/nerdtree'
+Plugin 'myusuf3/numbers.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tpope/vim-endwise'
+Plugin 'miyakogi/conoline.vim'
+Plugin 'vim-scripts/gitignore'
 
 " lang specific plugins
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'heartsentwined/vim-emblem'
-Bundle 'slim-template/vim-slim.git'
-Bundle 'airblade/vim-gitgutter'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'heartsentwined/vim-emblem'
+Plugin 'slim-template/vim-slim.git'
+Plugin 'airblade/vim-gitgutter'
 
 " experimental plugins
-Bundle 'vim-airline/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
-Bundle 'tpope/vim-endwise'
-Bundle 'ervandew/supertab'
-Bundle 'jiangmiao/auto-pairs'
-Bundle 'kien/ctrlp.vim'
-Bundle 'miyakogi/conoline.vim'
-Bundle 'vim-scripts/gitignore'
+Plugin 'ervandew/supertab'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-commentary'
 Plugin 'garbas/vim-snipmate'
 
 " works with vim-snipmate
 Plugin 'honza/vim-snippets'
 
-"TODO
-"get multicursor, ruby block
+" snipmate dependancies
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
 
 call vundle#end()            " required
 

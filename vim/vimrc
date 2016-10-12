@@ -45,6 +45,7 @@ syntax enable
 filetype plugin indent on    " required
 
 " place general settings in config/base
+source $HOME/dotfiles/vim/config/autocmds.vim
 source $HOME/dotfiles/vim/config/mappings.vim
 source $HOME/dotfiles/vim/config/base.vim
 
@@ -55,4 +56,3 @@ source $HOME/dotfiles/vim/config/plugins/vim-tmux-navigator.vim
 source $HOME/dotfiles/vim/config/plugins/vim-airline.vim
 source $HOME/dotfiles/vim/config/plugins/conoline.vim
 source $HOME/dotfiles/vim/config/plugins/ctrlp.vim
-

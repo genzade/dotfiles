@@ -7,6 +7,8 @@ call vundle#begin()
 " core plugins
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-commentary'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
@@ -14,7 +16,6 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'tpope/vim-endwise'
 Plugin 'miyakogi/conoline.vim'
 Plugin 'vim-scripts/gitignore'
 
@@ -29,8 +30,9 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'ervandew/supertab'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-commentary'
+Plugin 'Yggdroot/indentLine'
 Plugin 'garbas/vim-snipmate'
+Plugin 'ConradIrwin/vim-bracketed-paste'
 
 " works with vim-snipmate
 Plugin 'honza/vim-snippets'
@@ -56,3 +58,4 @@ source $HOME/dotfiles/vim/config/plugins/vim-tmux-navigator.vim
 source $HOME/dotfiles/vim/config/plugins/vim-airline.vim
 source $HOME/dotfiles/vim/config/plugins/conoline.vim
 source $HOME/dotfiles/vim/config/plugins/ctrlp.vim
+source $HOME/dotfiles/vim/config/plugins/indentline.vim

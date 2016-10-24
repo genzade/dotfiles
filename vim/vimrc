@@ -33,6 +33,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'garbas/vim-snipmate'
 Plugin 'ConradIrwin/vim-bracketed-paste'
+Plugin 'mileszs/ack.vim'
 
 " works with vim-snipmate
 Plugin 'honza/vim-snippets'
@@ -59,3 +60,4 @@ source $HOME/dotfiles/vim/config/plugins/vim-airline.vim
 source $HOME/dotfiles/vim/config/plugins/conoline.vim
 source $HOME/dotfiles/vim/config/plugins/ctrlp.vim
 source $HOME/dotfiles/vim/config/plugins/indentline.vim
+source $HOME/dotfiles/vim/config/plugins/ack.vim

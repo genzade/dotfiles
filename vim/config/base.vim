@@ -12,3 +12,8 @@ set foldcolumn=1
 " open new split panes to right and bottom, which feels more natural than Vim’s default
 set splitbelow
 set splitright
+
+" write vim's temporary files elsewhere to prevent frequent rebuild issues (ember was complaining)
+" note that these files will have to be made as well so in terminal (cd ~ && mkdir ~/.vim/backup && mkdir ~/.vim/swp)
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swp//

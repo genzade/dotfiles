@@ -5,6 +5,14 @@ let g:airline_theme='base16'
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = 'fancy'
 
+" " Tabline option
+
+" " Enable the list of buffers
+" let g:airline#extensions#tabline#enabled = 1
+
+" " Show just the filename
+" let g:airline#extensions#tabline#fnamemod = ':t'
+
 " uncomment the following lines if you do not have patched fonts, I happen to
 " have patched fonts already but if you want a fall back...
 "

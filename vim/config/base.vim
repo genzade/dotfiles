@@ -1,7 +1,7 @@
 " BASE SETTINGS
 
 " load my functions
-source $HOME/dotfiles/vim/config/my-functions.vim
+" source $HOME/dotfiles/vim/config/my-functions.vim
 
 set nu                          " let's see what line I'm on in normal mode
 set numberwidth=5
@@ -21,4 +21,4 @@ set splitright
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swp//
 
-set tabline=%!MyTabLine()
+" set tabline=%!MyTabLine()

@@ -5,47 +5,53 @@ let g:airline_theme='base16'
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = 'fancy'
 
-" " Tabline option
+" Tabline option
 
-" " Enable the list of buffers
-" let g:airline#extensions#tabline#enabled = 1
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
 
-" " Show just the filename
-" let g:airline#extensions#tabline#fnamemod = ':t'
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 
-" uncomment the following lines if you do not have patched fonts, I happen to
+" Modified symbols options
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.modified = ' ✚'           " bald cross option
+" let g:airline_symbols.modified = '⊕'          " circled cross option
+" let g:airline_symbols.modified = "*"          " star option
+
+" Uncomment the following lines if you do not have patched fonts, I happen to
 " have patched fonts already but if you want a fall back...
 "
 " ---FROM BELOW THIS LINE---
-"let g:airline_powerline_fonts = 1
-
-"if !exists('g:airline_symbols')
-  "let g:airline_symbols = {}
-"endif
+" let g:airline_powerline_fonts = 1
 
 " unicode symbols
-"let g:airline_left_sep = '»'
-"let g:airline_left_sep = '▶'
-"let g:airline_right_sep = '«'
-"let g:airline_right_sep = '◀'
-"let g:airline_symbols.linenr = '␊'
-"let g:airline_symbols.linenr = '␤'
-"let g:airline_symbols.linenr = '¶'
-"let g:airline_symbols.branch = '⎇'
-"let g:airline_symbols.paste = 'ρ'
-"let g:airline_symbols.paste = 'Þ'
-"let g:airline_symbols.paste = '∥'
-"let g:airline_symbols.whitespace = 'Ξ'
+" let g:airline_left_sep = '»'
+" let g:airline_left_sep = '▶'
+" let g:airline_right_sep = '«'
+" let g:airline_right_sep = '◀'
+" let g:airline_symbols.linenr = '␊'
+" let g:airline_symbols.linenr = '␤'
+" let g:airline_symbols.linenr = '¶'
+" let g:airline_symbols.branch = '⎇'
+" let g:airline_symbols.paste = 'ρ'
+" let g:airline_symbols.paste = 'Þ'
+" let g:airline_symbols.paste = '∥'
+" let g:airline_symbols.whitespace = 'Ξ'
 
-""" airline symbols
-"let g:airline_left_sep = ''
-"let g:airline_left_alt_sep = ''
-"let g:airline_right_sep = ''
-"let g:airline_right_alt_sep = ''
-"let g:airline_symbols.branch = ''
-"let g:airline_symbols.readonly = ''
-"let g:airline_symbols.linenr = ''"
-" ---TO ABOVE THIS LINE---
+" airline symbols
+" let g:airline_left_sep = ''
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_alt_sep = ''
+" let g:airline_symbols.branch = ''
+" let g:airline_symbols.readonly = ''
+" let g:airline_symbols.linenr = ''"
+"  ---TO ABOVE THIS LINE---
 
 set guifont=Inconsolata\ for\ Powerline:h15
 set encoding=utf-8

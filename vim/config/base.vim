@@ -3,6 +3,8 @@
 " load my functions
 " source $HOME/dotfiles/vim/config/my-functions.vim
 
+" set tabline=%!MyTabLine()
+
 set nu                          " let's see what line I'm on in normal mode
 set numberwidth=5
 set colorcolumn=120             " ruler
@@ -20,5 +22,3 @@ set splitright
 " note that these files will have to be made as well so in terminal (cd ~ && mkdir ~/.vim/backup && mkdir ~/.vim/swp)
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swp//
-
-" set tabline=%!MyTabLine()

@@ -4,43 +4,46 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" core plugins
+" plugins
+
+" core
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'flazz/vim-colorschemes'
+
+" main utils
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-commentary'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-
-" main plugins
-Plugin 'scrooloose/nerdtree'
-Plugin 'myusuf3/numbers.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'miyakogi/conoline.vim'
 Plugin 'vim-scripts/gitignore'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'mileszs/ack.vim'
+Plugin 'myusuf3/numbers.vim'
+Plugin 'ConradIrwin/vim-bracketed-paste'
+Plugin 'garbas/vim-snipmate'
+" vim-snipmate dependancies
+Plugin 'honza/vim-snippets'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
 
-" lang specific plugins
+" navigation
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+
+" syntax specific
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'heartsentwined/vim-emblem'
 Plugin 'slim-template/vim-slim.git'
-Plugin 'airblade/vim-gitgutter'
 
-" experimental plugins
+" style
+Plugin 'flazz/vim-colorschemes'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'miyakogi/conoline.vim'
+
+" experimental
 Plugin 'ervandew/supertab'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'kien/ctrlp.vim'
 Plugin 'Yggdroot/indentLine'
-Plugin 'garbas/vim-snipmate'
-Plugin 'ConradIrwin/vim-bracketed-paste'
-Plugin 'mileszs/ack.vim'
-
-" works with vim-snipmate
-Plugin 'honza/vim-snippets'
-
-" snipmate dependancies
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
 
 call vundle#end()            " required
 

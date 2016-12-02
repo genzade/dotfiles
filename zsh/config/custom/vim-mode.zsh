@@ -1,6 +1,6 @@
 # VIM STYLE COMMAND LINE
 
-export KEYTIMEOUT=1
+export KEYTIMEOUT=0
 
 bindkey -v
 

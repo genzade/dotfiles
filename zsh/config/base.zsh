@@ -11,10 +11,13 @@ prompt_context() {
     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
   fi
 }
+export DISABLE_AUTO_TITLE=true
+# Editor of choice
+export EDITOR='vim'
 
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=13
 
 # Increase history size
-export SAVEHIST=10000
-export HISTSIZE=10000
+export SAVEHIST=100000
+export HISTSIZE=100000

@@ -44,6 +44,7 @@ Plugin 'miyakogi/conoline.vim'
 Plugin 'ervandew/supertab'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'Yggdroot/indentLine'
+Plugin 'mustache/vim-mustache-handlebars'
 
 call vundle#end()            " required
 

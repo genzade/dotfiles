@@ -8,8 +8,8 @@ oh-my-zsh.
 ###...IT'S A BEAUTIFUL DOTLife
 
 Make sure your terminal is lookin' good. This [insert link to my powerline
-setup] or check (this general guide)
-[http://powerline.readthedocs.io/en/master/installation/osx.html]
+setup] or check [this general guide]
+(http://powerline.readthedocs.io/en/master/installation/osx.html)
 
 ## CONFIG TIPS AND TRICKS
 

@@ -3,13 +3,27 @@
 This is my basic dotfile, I like to use vim with tmux in a z shell specifically
 oh-my-zsh.
 
-## setup
+## SETUP
 
-###...it's a beautiful DOTLife
+###...IT'S A BEAUTIFUL DOTLife
 
 Make sure your terminal is lookin' good. This [insert link to my powerline
 setup] or check (this general guide)
 [http://powerline.readthedocs.io/en/master/installation/osx.html]
+
+## CONFIG TIPS AND TRICKS
+
+Installing (chriskempson's base16 project) [https://github.com/chriskempson/base16] means you can change the terminal
+color scheme with considerable ease from the command line.
+
+Just choose a base16 theme and type in your terminal;
+
+```
+$ base16_<coloersheme_of_your_choice>
+```
+
+This will set your $BASE16_THEME to the coloersheme_of_your_choice chosen from
+the base16 project.
 
 ## useful vim tips and tricks
 

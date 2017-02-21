@@ -53,7 +53,7 @@ let g:airline_symbols.modified = ' ✚'           " bald cross option
 " let g:airline_symbols.linenr = ''"
 "  ---TO ABOVE THIS LINE---
 
-set guifont=Inconsolata\ for\ Powerline:h15
+" set guifont=Inconsolata\ for\ Powerline:h15
 set encoding=utf-8
 set termencoding=utf-8
 set t_Co=256

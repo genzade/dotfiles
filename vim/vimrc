@@ -36,7 +36,7 @@ Plugin 'heartsentwined/vim-emblem'
 Plugin 'slim-template/vim-slim.git'
 
 " style
-Plugin 'flazz/vim-colorschemes'
+Plugin 'chriskempson/base16-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'miyakogi/conoline.vim'
@@ -60,7 +60,7 @@ source $HOME/dotfiles/vim/config/mappings.vim
 source $HOME/dotfiles/vim/config/base.vim
 
 " place plugin specific settings in config/plugins/<NAME-OF-PLUGIN>.vim
-source $HOME/dotfiles/vim/config/plugins/vim-colorschemes.vim
+source $HOME/dotfiles/vim/config/plugins/base16.vim
 source $HOME/dotfiles/vim/config/plugins/nerdtree.vim
 source $HOME/dotfiles/vim/config/plugins/vim-tmux-navigator.vim
 source $HOME/dotfiles/vim/config/plugins/vim-airline.vim

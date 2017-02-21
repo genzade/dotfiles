@@ -86,6 +86,7 @@ source $HOME/.bin/tmuxinator.zsh
 
 source $HOME/dotfiles/zsh/config/base.zsh
 source $HOME/dotfiles/zsh/config/custom/vim-mode.zsh
+source $HOME/dotfiles/zsh/config/custom/base16.zsh
 
 # local node modules
 export PATH="node_modules/.bin:$PATH"

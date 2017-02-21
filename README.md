@@ -8,12 +8,11 @@ oh-my-zsh.
 ###...IT'S A BEAUTIFUL DOTLife
 
 Make sure your terminal is lookin' good. This [insert link to my powerline
-setup] or check [this general guide]
-(http://powerline.readthedocs.io/en/master/installation/osx.html)
+setup] or check [this general guide](http://powerline.readthedocs.io/en/master/installation/osx.html)
 
 ## CONFIG TIPS AND TRICKS
 
-Installing (chriskempson's base16 project) [https://github.com/chriskempson/base16] means you can change the terminal
+Installing [chriskempson's base16 project]( https://github.com/chriskempson/base16 ) means you can change the terminal
 color scheme with considerable ease from the command line.
 
 Just choose a base16 theme and type in your terminal;

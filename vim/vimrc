@@ -48,11 +48,13 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'lervag/vimtex' "  for zathura
 Plugin 'thoughtbot/vim-rspec'
+Plugin 'junegunn/fzf'
 
 call vundle#end()            " required
 
 syntax enable
 filetype plugin indent on    " required
+set rtp+=/usr/local/opt/fzf  " for fzf in vim
 
 " place general settings in config/base
 source $HOME/dotfiles/vim/config/autocmds.vim
@@ -60,12 +62,6 @@ source $HOME/dotfiles/vim/config/mappings.vim
 source $HOME/dotfiles/vim/config/base.vim
 
 " place plugin specific settings in config/plugins/<NAME-OF-PLUGIN>.vim
-source $HOME/dotfiles/vim/config/plugins/base16.vim
-source $HOME/dotfiles/vim/config/plugins/nerdtree.vim
-source $HOME/dotfiles/vim/config/plugins/vim-tmux-navigator.vim
-source $HOME/dotfiles/vim/config/plugins/vim-airline.vim
-source $HOME/dotfiles/vim/config/plugins/conoline.vim
-source $HOME/dotfiles/vim/config/plugins/ctrlp.vim
-source $HOME/dotfiles/vim/config/plugins/indentline.vim
-source $HOME/dotfiles/vim/config/plugins/ack.vim
-source $HOME/dotfiles/vim/config/plugins/vim-rspec.vim
+for file in split(glob('$HOME/dotfiles/vim/config/plugins/*.vim'), '\n')
+  exe 'source' file
+endfor

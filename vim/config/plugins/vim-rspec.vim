@@ -1,5 +1,8 @@
 " RSpec.vim mappings
 
+" use spring to run rspec
+let g:rspec_command = "!clear && bin/rspec {spec}"
+
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>

@@ -54,3 +54,27 @@ as well as saving (writing) each file with `| w` and finally visit youtube to
 research what the best microphone available to purchase on the market, make
 the order and upon delivery of said microphone, drop that bad boy because your
 search-and-replace-headache-having-days are done.
+
+### function vimfix
+
+Lets say you are working on a project with in version control and you have a
+merge conflict. Of course you would first type;
+
+```
+$ git status
+```
+
+in order to see which files are affected and thus which files need some special
+attention. Then you would make the necessary changes in your favourite editor
+whatever that may be (I know for some of you it's not vim, it's okay, I'm not
+judging you. I just think you need to reevaluate some of the decisions you make
+in your life).
+
+Well this is where I found `vimfix` to be something of a game-changer because
+now if there is a merge conflict I can just type
+
+```
+$ vimfix
+```
+
+which will open up all files with merge conflicts with vim in separate tabs.

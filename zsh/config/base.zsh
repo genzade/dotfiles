@@ -1,16 +1,7 @@
 # MY FUNCTIONS
 
-# Make a directory and change into it in one command
-mkcd () {
-  mkdir -p "$@" && cd "$@"
-}
+source $HOME/dotfiles/zsh/config/my-functions.zsh
 
-# Redefine prompt_context for hiding user@hostname
-prompt_context() {
-  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
-  fi
-}
 export DISABLE_AUTO_TITLE=true
 # Editor of choice
 export EDITOR='vim'

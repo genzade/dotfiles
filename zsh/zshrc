@@ -88,5 +88,18 @@ source $HOME/dotfiles/zsh/config/base.zsh
 source $HOME/dotfiles/zsh/config/custom/vim-mode.zsh
 source $HOME/dotfiles/zsh/config/custom/base16.zsh
 
+# add rbenv to your path
+export PATH="$HOME/.rbenv/bin:$PATH"
+
 # local node modules
 export PATH="node_modules/.bin:$PATH"
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
+# fzf fuzzy finder (all hail https://github.com/junegunn)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# it's none of your what my local settings are
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

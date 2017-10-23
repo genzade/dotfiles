@@ -25,3 +25,11 @@ gcgb() {
 gbD() {
   git branch -D $(git branch | fzf)
 }
+
+rbsme() {
+  gcm && gl && git rev-parse HEAD | tr -d '\n' | pbcopy && gco - && grbi $(pbpaste)
+}
+
+s() {
+  source ~/.zshrc
+}

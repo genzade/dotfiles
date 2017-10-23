@@ -3,7 +3,8 @@
 let mapleader="\<Space>"                 " I use space as my leader key
 
 " Files
-nnoremap <Leader>w :w<CR>                " Write
+nnoremap <Leader>w ma:w<CR>`a                " Write
+" ma:w^M`a
 nnoremap <Leader>q :q<CR>                " Quit
 
 " Tabs: open a new/specified file in a new tab eg. <Leader>n <CR> to open a no
@@ -13,6 +14,9 @@ nnoremap <Leader>k :tabnext<CR>          " Next tab
 nnoremap <Leader>j :tabprev<CR>          " Previous tab
 nnoremap <Leader>h :tabfirst<CR>         " First tab
 nnoremap <Leader>l :tablast<CR>          " Last tab
+
+nnoremap <Leader>v :source $MYVIMRC<CR>
+" vmap Y "*y
 
 " nnoremap <C-q>q :%s/'\(\([^']*\)\)'/"\1"/g <CR>          " Change all single quotes to double
 " nnoremap <C-q>  :%s/"\(\([^"]*\)\)"/'\1'/g <CR>          " Change all double quotes to single

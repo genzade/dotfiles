@@ -20,6 +20,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'garbas/vim-snipmate'
+
 " vim-snipmate dependancies
 Plugin 'honza/vim-snippets'
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -30,6 +31,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 
 " syntax specific
+Plugin 'vim-syntastic/syntastic'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'heartsentwined/vim-emblem'
@@ -49,10 +51,14 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'lervag/vimtex' "  for zathura
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'junegunn/fzf'
+Plugin 'metakirby5/codi.vim'
+Plugin 'yaasita/edit-slack.vim'
 
 call vundle#end()            " required
 
 syntax enable
+" hi Normal ctermbg=none
+" highlight NonText ctermbg=none
 filetype plugin indent on    " required
 set rtp+=/usr/local/opt/fzf  " for fzf in vim
 

@@ -46,7 +46,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rbenv rails tmuxinator z vi-mode safe-paste)
+plugins=(git rails tmuxinator z vi-mode safe-paste)
 
 # User configuration
 
@@ -85,21 +85,20 @@ source $HOME/.bin/tmuxinator.zsh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source $HOME/dotfiles/zsh/config/base.zsh
-source $HOME/dotfiles/zsh/config/custom/vim-mode.zsh
-source $HOME/dotfiles/zsh/config/custom/base16.zsh
 
-# add rbenv to your path
-export PATH="$HOME/.rbenv/bin:$PATH"
+for file in $HOME/dotfiles/zsh/config/custom/*.zsh; do
+  source $file
+done
 
-# local node modules
-export PATH="node_modules/.bin:$PATH"
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+# # local node modules
+# export PATH="node_modules/.bin:$PATH"
 
 # fzf fuzzy finder (all hail https://github.com/junegunn)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# it's none of your what my local settings are
+# it's none of your business what my local settings are
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+. $HOME/.asdf/asdf.sh
+
+. $HOME/.asdf/completions/asdf.bash

@@ -27,6 +27,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 
 " navigation
+Plugin 'junegunn/fzf.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 
@@ -48,9 +49,7 @@ Plugin 'ervandew/supertab'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'Yggdroot/indentLine'
 Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'lervag/vimtex' "  for zathura
 Plugin 'thoughtbot/vim-rspec'
-Plugin 'junegunn/fzf'
 Plugin 'metakirby5/codi.vim'
 Plugin 'yaasita/edit-slack.vim'
 

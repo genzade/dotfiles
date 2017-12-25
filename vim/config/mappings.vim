@@ -9,11 +9,11 @@ nnoremap <Leader>q :q<CR>                " Quit
 
 " Tabs: open a new/specified file in a new tab eg. <Leader>n <CR> to open a no
 " name buffer or <Leader>n name_that_buffer<CR> to open a named buffer
-nnoremap <Leader>n :tabnew<Space>
-nnoremap <Leader>k :tabnext<CR>          " Next tab
-nnoremap <Leader>j :tabprev<CR>          " Previous tab
-nnoremap <Leader>h :tabfirst<CR>         " First tab
-nnoremap <Leader>l :tablast<CR>          " Last tab
+nnoremap tn :tabnew<Space>
+nnoremap tk :tabnext<CR>          " Next tab
+nnoremap tj :tabprev<CR>          " Previous tab
+nnoremap th :tabfirst<CR>         " First tab
+nnoremap tl :tablast<CR>          " Last tab
 
 nnoremap <Leader>v :source $MYVIMRC<CR>
 " vmap Y "*y

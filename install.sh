@@ -8,6 +8,13 @@ if [[ "$(uname)" == "Darwin" ]]; then
   # echo 'install base16'
   # git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
+  # vim installation (mac comes pre-installed with vim but it compiled with clipboard)
+  # this step is not needed if you have a version of vim that has system clipboard functionality
+  # you can check this by running `vim --version | grep clipboard` in you terminal
+  # if you see `+clipboard` then you're fine
+  echo 'installing vim\n'
+  brew install vim
+
   # fuzzy finder setup
   echo 'installing fzf\n'
   brew install fzf
@@ -59,8 +66,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
   echo 'installing MySQL'
   brew install mysql
 
-  # A code searching tool similar to ack, with a focus on speed.
-  # echo 'installing the_silver_searcher'
-  # brew install the_silver_searcher
+  A code searching tool.
+  echo 'installing ripgrep'
+  brew install ripgrep
 
 fi

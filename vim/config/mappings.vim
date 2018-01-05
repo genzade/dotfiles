@@ -3,12 +3,12 @@
 let mapleader="\<Space>"                 " I use space as my leader key
 
 " Files
-nnoremap <Leader>w ma:w<CR>`a                " Write
+nnoremap <Leader>w ma:w<CR>`a            " Write
 " ma:w^M`a
 nnoremap <Leader>q :q<CR>                " Quit
 
-" Tabs: open a new/specified file in a new tab eg. <Leader>n <CR> to open a no
-" name buffer or <Leader>n name_that_buffer<CR> to open a named buffer
+" Tabs: open a new/specified file in a new tab eg. tn <CR> to open a no
+" name buffer or tn name_that_buffer<CR> to open a named buffer
 nnoremap tn :tabnew<Space>
 nnoremap tk :tabnext<CR>          " Next tab
 nnoremap tj :tabprev<CR>          " Previous tab

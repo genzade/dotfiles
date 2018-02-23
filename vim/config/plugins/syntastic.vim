@@ -1,4 +1,4 @@
-" recommended steeings
+" recommended settings
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}

@@ -2,6 +2,7 @@
 
 echo '---------INSTALLATION-SCRIPT---------\n'
 
+echo 'install'
 if [[ "$(uname)" == "Darwin" ]]; then
 
   # colorscheme setup
@@ -69,5 +70,10 @@ if [[ "$(uname)" == "Darwin" ]]; then
   A code searching tool.
   echo 'installing ripgrep'
   brew install ripgrep
+
+
+  # colorscheme setup
+  echo 'base16'
+  git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
 fi

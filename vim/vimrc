@@ -16,7 +16,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/gitignore'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'myusuf3/numbers.vim'
+" Plugin 'myusuf3/numbers.vim'
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'garbas/vim-snipmate'
 
@@ -36,20 +36,25 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'heartsentwined/vim-emblem'
 Plugin 'slim-template/vim-slim.git'
+Plugin 'tpope/vim-markdown'
+Plugin 'vim-scripts/SyntaxRange'
 
 " style
 Plugin 'chriskempson/base16-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'miyakogi/conoline.vim'
+" Plugin 'miyakogi/conoline.vim'
 
 " experimental
 Plugin 'ervandew/supertab'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'Yggdroot/indentLine'
+" Plugin 'Yggdroot/indentLine'
 Plugin 'mustache/vim-mustache-handlebars'
 
 call vundle#end()            " required
+
+" highlight ColorColumn ctermfg=208 ctermbg=Black
+" call matchadd('ColorColumn', '\%81v', 100)
 
 syntax enable
 " hi Normal ctermbg=none

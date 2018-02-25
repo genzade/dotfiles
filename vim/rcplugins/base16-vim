@@ -1,0 +1,5 @@
+" BASE16 SETTINGS
+
+Plug 'chriskempson/base16-vim'
+
+" vim:ft=vim

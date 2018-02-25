@@ -1,0 +1,8 @@
+" ALE
+
+Plug 'w0rp/ale'
+
+" see the status for ALE in a nice format, recommended to use vim-airline with ALE.
+" The airline extension can be enabled with the following;
+
+" vim:ft=vim

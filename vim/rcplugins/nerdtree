@@ -1,0 +1,24 @@
+" NERDTree SETTINGS
+
+Plug 'scrooloose/nerdtree' , { 'on':  'NERDTreeFind' }
+
+" Open/close NERDTree
+map <Leader>d :NERDTreeToggle<CR>
+
+" Show current buffer in NERDTree
+map <Leader>f :NERDTreeFind<CR>
+
+" I like you you NERD but I don't want to see you anymore
+let NERDTreeQuitOnOpen=1
+
+" NERD autocmds
+augroup AUTONERDS
+
+  autocmd!
+
+  " easier navigation for big file structures
+  autocmd FileType nerdtree setlocal relativenumber
+
+augroup end
+
+" vim:ft=vim

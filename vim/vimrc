@@ -1,73 +1,58 @@
-" start Vundle plugin manager
-set nocompatible                " I WILL BE V-IMPROVED
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" plugins
-
-" core
-Plugin 'VundleVim/Vundle.vim'
-
-" main utils
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-scripts/gitignore'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'airblade/vim-gitgutter'
-" Plugin 'myusuf3/numbers.vim'
-Plugin 'ConradIrwin/vim-bracketed-paste'
-Plugin 'garbas/vim-snipmate'
-
-" vim-snipmate dependancies
-Plugin 'honza/vim-snippets'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-
-" navigation
-Plugin 'junegunn/fzf.vim'
-Plugin 'scrooloose/nerdtree'
-
-" syntax specific
-Plugin 'vim-syntastic/syntastic'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'heartsentwined/vim-emblem'
-Plugin 'slim-template/vim-slim.git'
-Plugin 'tpope/vim-markdown'
-Plugin 'vim-scripts/SyntaxRange'
-
-" style
-Plugin 'chriskempson/base16-vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'miyakogi/conoline.vim'
-
-" experimental
-Plugin 'ervandew/supertab'
-Plugin 'jiangmiao/auto-pairs'
-" Plugin 'Yggdroot/indentLine'
-Plugin 'mustache/vim-mustache-handlebars'
-
-call vundle#end()            " required
-
-" highlight ColorColumn ctermfg=208 ctermbg=Black
-" call matchadd('ColorColumn', '\%81v', 100)
+" VIMRC
 
 syntax enable
-" hi Normal ctermbg=none
-" highlight NonText ctermbg=none
-filetype plugin indent on    " required
-set rtp+=/usr/local/opt/fzf  " for fzf in vim
 
-" place general settings in config/base
-source $HOME/dotfiles/vim/config/autocmds.vim
-source $HOME/dotfiles/vim/config/mappings.vim
-source $HOME/dotfiles/vim/config/base.vim
+" I WILL BE V-IMPROVED
+set nocompatible
 
-" place plugin specific settings in config/plugins/<NAME-OF-PLUGIN>.vim
-for file in split(glob('$HOME/dotfiles/vim/config/plugins/*.vim'), '\n')
-  exe 'source' file
-endfor
+" required
+filetype plugin indent on
+
+" make sure vim plug is installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+  augroup SETUP
+    autocmd!
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  augroup END
+endif
+
+" I use space as my leader key
+let mapleader="\<Space>"
+
+function! s:SourceConfigFilesIn(directory)
+  let directory_splat = '$HOME/dotfiles/vim/' . a:directory . '/*'
+
+  for config_file in split(glob(directory_splat), '\n')
+    if filereadable(config_file)
+      execute 'source' config_file
+    endif
+  endfor
+endfunction
+
+function! s:MakeVimDir(directory)
+  let s:vim_cache = expand('~/.vim/' . a:directory)
+
+  if filewritable(s:vim_cache) == 0 && exists('*mkdir')
+    call mkdir(s:vim_cache, 'p')
+  endif
+endfunction
+
+call plug#begin('~/.vim/bundle')
+call s:SourceConfigFilesIn('rcplugins')
+call plug#end()
+call s:MakeVimDir('backup')
+call s:MakeVimDir('swp')
+call s:SourceConfigFilesIn('rcfiles')
+
+" backup and store all swapfiles in one location
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swp//
+
+" consistent background theme everywhere
+if filereadable(expand('~/.vimrc_background'))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif

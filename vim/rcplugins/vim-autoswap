@@ -1,0 +1,8 @@
+" AUTOSWAP
+
+Plug 'gioele/vim-autoswap'
+
+" required for plugin to find correct swapfiles
+set title titlestring=
+
+" vim:ft=vim

@@ -30,6 +30,10 @@ rbsme() {
   gcm && gl && git rev-parse HEAD | tr -d '\n' | pbcopy && gco - && grbi $(pbpaste)
 }
 
+fvi() {
+  vim $(fzf)
+}
+
 s() {
   source ~/.zshrc
 }

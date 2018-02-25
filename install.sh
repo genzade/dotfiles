@@ -9,9 +9,9 @@ if [[ "$(uname)" == "Darwin" ]]; then
   # echo 'install base16'
   # git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
-  # vim installation (mac comes pre-installed with vim but it compiled with clipboard)
+  # vim installation (mac comes pre-installed with vim but it is compiled without clipboard)
   # this step is not needed if you have a version of vim that has system clipboard functionality
-  # you can check this by running `vim --version | grep clipboard` in you terminal
+  # you can check this by running `vim --version | grep clipboard` in your terminal
   # if you see `+clipboard` then you're fine
   echo 'installing vim\n'
   brew install vim

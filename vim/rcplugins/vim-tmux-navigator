@@ -2,6 +2,8 @@
 
 " easier pane navigation easy navigation between splits to save a keystroke. So just ctrl-j instead of ctrl-w then j
 
+Plug 'christoomey/vim-tmux-navigator'
+
 if exists('$TMUX')
   function! TmuxOrSplitSwitch(wincmd, tmuxdir)
     let previous_winnr = winnr()
@@ -26,3 +28,5 @@ else
   map <C-k> <C-w>k
   map <C-l> <C-w>l
 endif
+
+" vim:ft=vim

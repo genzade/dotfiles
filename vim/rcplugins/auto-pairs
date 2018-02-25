@@ -1,0 +1,5 @@
+" AUTO PAIRS
+
+Plug 'jiangmiao/auto-pairs'
+
+" vim:ft=vim

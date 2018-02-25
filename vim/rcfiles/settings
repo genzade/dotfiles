@@ -1,0 +1,18 @@
+" SETTINGS
+
+" show line numbers
+set number
+
+" horizontal splits below, vertical splits right
+set splitbelow splitright
+
+" no tabs source file, all tab characters are 2 spaces
+set tabstop=2 shiftwidth=2 expandtab
+
+" visual autocomplete for command menu
+set wildmenu
+
+" redraw only when we need to.
+set lazyredraw
+
+" vim:ft=vim

@@ -1,0 +1,14 @@
+" VIM RSPEC
+
+Plug 'thoughtbot/vim-rspec'
+
+" use bundle exec to run rspec
+let g:rspec_command = "!clear && bundle exec rspec {spec}"
+let g:rspec_runner = "os_x_iterm"
+
+map <silent> <Leader>t :call RunCurrentSpecFile()<CR>
+map <silent> <Leader>s :call RunNearestSpec()<CR>
+map <silent> <Leader>l :call RunLastSpec()<CR>
+map <silent> <Leader>A :call RunAllSpecs()<CR>
+
+" vim:ft=vim

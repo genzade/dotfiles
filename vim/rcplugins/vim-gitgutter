@@ -1,0 +1,7 @@
+" vim git gutter config
+
+Plug 'airblade/vim-gitgutter'
+
+set signcolumn=yes
+
+" vim:ft=vim

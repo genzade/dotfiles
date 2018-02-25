@@ -1,5 +1,8 @@
 " VIM-AIRLINE
 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 " airline theme
 let g:airline_theme='base16'
 let g:airline_powerline_fonts = 1
@@ -59,3 +62,5 @@ set termencoding=utf-8
 set t_Co=256
 set term=xterm-256color
 set laststatus=2
+
+" vim:ft=vim

@@ -1,0 +1,34 @@
+" FZF
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" for fzf in vim
+set rtp+=/usr/local/opt/fzf
+
+" set vimgrep to use ripgrep
+set grepprg=rg\ --vimgrep
+
+" set fzf to use ripgrep instead of ag
+command! -bang -nargs=* Rg
+\  call fzf#vim#grep(
+\    'rg --column --line-number --no-heading --color=always '
+\    .shellescape(<q-args>), 1,
+\    <bang>0 ? fzf#vim#with_preview('up:60%')
+\            : fzf#vim#with_preview('right:50%', '?'),
+\    <bang>0)
+
+command! -bang -nargs=* Find
+\  call fzf#vim#grep(
+\    'rg --column --line-number --no-heading --fixed-strings --ignore-case --follow --glob "!.git/*" --color=always '
+\    .shellescape(<q-args>).'| tr -d "\017"', 1,
+\    <bang>0)
+
+" Likewise, Files command with preview window
+command! -bang -nargs=? -complete=dir Files
+\  call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+" fuzzy find the file you are looking for
+nnoremap <leader>F :Files<cr>
+
+" vim:ft=vim

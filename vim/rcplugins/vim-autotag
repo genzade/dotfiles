@@ -1,0 +1,5 @@
+" VIM AUTOTAG
+
+Plug 'craigemery/vim-autotag'
+
+" vim:ft=vim

@@ -2,6 +2,13 @@
 
 Plug 'airblade/vim-gitgutter'
 
-set signcolumn=yes
+" By default the sign column will appear when there are signs to show and
+" disappear when none. To always have the sign column
+
+if exists('&signcolumn')  " Vim 7.4.2201
+  set signcolumn=yes
+else
+  let g:gitgutter_sign_column_always = 1
+endif
 
 " vim:ft=vim

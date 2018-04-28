@@ -22,6 +22,8 @@ command! -bang -nargs=* Find
 \  call fzf#vim#grep(
 \    'rg --column --line-number --no-heading --fixed-strings --ignore-case --follow --glob "!.git/*" --color=always '
 \    .shellescape(<q-args>).'| tr -d "\017"', 1,
+\    <bang>0 ? fzf#vim#with_preview('up:60%')
+\            : fzf#vim#with_preview('right:50%', '?'),
 \    <bang>0)
 
 " Likewise, Files command with preview window

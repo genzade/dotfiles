@@ -18,6 +18,12 @@ nnoremap th :tabfirst<CR>
 " Last tab
 nnoremap tl :tablast<CR>
 
+" open current buffer in new tab
+nnoremap T :tabnew %<CR>
+
+" netrw command Buffers
+map <silent> <Leader>b :Buffers<CR>
+
 " source my vimrc
 nnoremap <Leader>v :source $MYVIMRC<CR>
 

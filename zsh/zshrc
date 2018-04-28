@@ -55,6 +55,7 @@ plugins=(git rails tmuxinator z vi-mode safe-paste)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.bin/tmuxinator.zsh
+# source $HOME/dotfiles/tmux/battery
 
 # powerline theme and fonts
 #source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh

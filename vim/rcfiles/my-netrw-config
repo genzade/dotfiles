@@ -1,0 +1,10 @@
+" NETRW
+" Network Oriented Reading, Writing, and Browsing (comes with vim by defualt)
+
+" remove the banner
+let g:netrw_banner=0
+
+" use the tree view
+let g:netrw_liststyle = 3
+
+" vim:ft=vim

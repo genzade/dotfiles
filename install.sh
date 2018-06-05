@@ -24,14 +24,6 @@ if [[ "$(uname)" == "Darwin" ]]; then
   # To install useful key bindings and fuzzy completion:
   $(brew --prefix)/opt/fzf/install
 
-  # tmux installation
-  echo 'installing tmux\n'
-  brew install tmux
-
-  # ReattachToUserNamespace installation
-  echo 'installing ReattachToUserNamespace\n'
-  brew install reattach-to-user-namespace
-
   # asdf version manager. Supported languages include Ruby, Node.js, Elixir and more.
   echo 'installing asdf, the extendable version manager\n'
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.4.0

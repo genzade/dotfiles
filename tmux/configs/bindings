@@ -1,0 +1,19 @@
+# vim bindings in tmux copy mode
+# set-window-option -g mode-keys vi
+bind-key -T copy-mode-vi 'v' send -X begin-selection
+bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
+
+# reload tmux.conf with prefix-r
+bind r source-file ~/.tmux.conf \; display "Reloaded ~/.tmux.conf"
+
+# more intuitive keybindings for splitting
+bind \ split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
+
+# Resize panes with SHIFT UP, DOWN, LEFT, RIGHT (thank you christoomey)
+bind -n S-Left resize-pane -L 4
+bind -n S-Right resize-pane -R 4
+bind -n S-Down resize-pane -D 2
+bind -n S-Up resize-pane -U 2
+
+# vim:ft=tmux

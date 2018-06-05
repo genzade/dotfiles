@@ -1,0 +1,28 @@
+# session name on the left
+set-window-option -g status-left " 【#S】"
+
+# keep window name fixed
+set-window-option -g automatic-rename off
+
+# modes
+set-window-option -g clock-mode-colour colour135
+set-window-option -g mode-attr bold
+set-window-option -g mode-fg colour196
+set-window-option -g mode-bg colour238
+
+# statusbar
+set-window-option -g window-status-current-fg colour81
+set-window-option -g window-status-current-bg colour238
+set-window-option -g window-status-current-attr bold
+set-window-option -g window-status-current-format ' #I#[fg=colour250]:#[fg=colour255]#W#[fg=colour50,bold]#F '
+
+set-window-option -g window-status-fg colour138
+set-window-option -g window-status-bg colour235
+set-window-option -g window-status-attr none
+set-window-option -g window-status-format ' #I#[fg=colour237]:#[fg=colour250]#W#[fg=colour244]#F '
+
+set-window-option -g window-status-bell-attr bold
+set-window-option -g window-status-bell-fg colour255
+set-window-option -g window-status-bell-bg colour1
+
+# vim:ft=tmux

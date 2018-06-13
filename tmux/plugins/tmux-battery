@@ -1,0 +1,8 @@
+# TMUX BATTERY PLUGIN
+
+set-option -g @plugin 'tmux-plugins/tmux-battery'
+
+# battery info on the tright hand side
+set-option -g status-right '#{battery_status_bg} Batt: #{battery_icon} #{battery_percentage} #{battery_remain} | %a %h-%d %H:%M '
+
+# vim:ft=tmux

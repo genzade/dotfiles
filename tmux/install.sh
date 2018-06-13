@@ -1,8 +1,11 @@
 #!/bin/sh
 
-echo '---------INSTALLATION-SCRIPT---------\n'
+cat << ShellMessage
+------------------------------------
+                 tmux install script
+------------------------------------
+ShellMessage
 
-echo '\n\n---------------\ninstalling tmux\n---------------\n\n'
 if [[ "$(uname)" == "Darwin" ]]; then
 
   # tmux installation

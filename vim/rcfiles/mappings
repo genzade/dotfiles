@@ -30,8 +30,14 @@ nnoremap ; :
 " move to beginning
 nnoremap B ^
 
+" yank link with cursor anywhere on the line
+nnoremap <leader>y mxviWy`x
+
 " resize all splits on the fly
 nnoremap <leader>w :wincmd=<cr>
+
+" copy file name to system clipboard
+nnoremap cp :let @* = expand("%")<cr>
 
 " Change all single quotes to double
 " nnoremap <C-q>q :%s/'\(\([^']*\)\)'/"\1"/g <CR>

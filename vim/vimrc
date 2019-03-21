@@ -20,7 +20,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 " I use space as my leader key
-let mapleader="\<Space>"
+let g:mapleader="\<Space>"
 
 function! s:SourceConfigFilesIn(directory)
   let directory_splat = '$HOME/dotfiles/vim/' . a:directory . '/*'
@@ -45,7 +45,6 @@ call s:SourceConfigFilesIn('rcplugins')
 call plug#end()
 call s:MakeVimDir('backup')
 call s:MakeVimDir('swp')
-call s:SourceConfigFilesIn('rcfiles')
 
 " backup and store all swapfiles in one location
 set backupdir=~/.vim/backup//
@@ -56,3 +55,5 @@ if filereadable(expand('~/.vimrc_background'))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
+
+call s:SourceConfigFilesIn('rcfiles')

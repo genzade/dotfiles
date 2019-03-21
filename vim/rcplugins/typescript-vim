@@ -1,0 +1,5 @@
+" Typescript
+
+Plug 'leafgarland/typescript-vim'
+
+" vim:ft=vim

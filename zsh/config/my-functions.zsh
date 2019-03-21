@@ -27,7 +27,11 @@ gbD() {
 }
 
 rbsme() {
-  gcm && gl && git rev-parse HEAD | tr -d '\n' | pbcopy && gco - && grbi $(pbpaste)
+  git checkout master &&
+    git pull &&
+    git rev-parse HEAD | tr -d '\n' | pbcopy &&
+    git checkout - &&
+    git rebase -i $(pbpaste)
 }
 
 fvi() {

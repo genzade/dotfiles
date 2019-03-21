@@ -1,52 +1,66 @@
 #!/bin/sh
 
-cat << ShellMessage
+shell_message() {
+cat << Output
+------------------------------------
+$1
+------------------------------------
+}
+
+shell_message('tmux install script')
+
+cat << Output
 ------------------------------------
                  tmux install script
 ------------------------------------
-ShellMessage
+Output
 
-if [[ "$(uname)" == "Darwin" ]]; then
+# if [[ "$(uname)" == "Darwin" ]]; then
 
-  # tmux installation
-cat << ShellMessage
-------------------------------------
-                     installing tmux
-------------------------------------
-ShellMessage
-  brew install tmux
+#   # tmux installation
+# cat << Output
+#                                     ------------------------------------
+#                                     installing tmux
+#                                     ------------------------------------
+# Output
+#   brew install tmux
 
-cat << ShellMessage
+# cat << Output
 
-done!
-ShellMessage
+# ------------------------------------
+#                                done!
+# ------------------------------------
+# Output
 
-  # tmux plugin manager setup
-cat << ShellMessage
-------------------------------------
-      setting up tmux plugin manager
-------------------------------------
-ShellMessage
+#   # tmux plugin manager setup
+# cat << Output
+# ------------------------------------
+#       setting up tmux plugin manager
+# ------------------------------------
+# Output
 
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+#   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+# cat << Output
 
-cat << ShellMessage
+# ------------------------------------
+#                                done!
+# ------------------------------------
+# Output
 
-done!
-ShellMessage
+#   # ReattachToUserNamespace installation
+# cat << Output
+#                                     ------------------------------------
+#                                     installing ReattachToUserNamespace
+#                                     ------------------------------------
+# Output
+#   brew install reattach-to-user-namespace
 
-  # ReattachToUserNamespace installation
-cat << ShellMessage
-------------------------------------
-  installing ReattachToUserNamespace
-------------------------------------
-ShellMessage
-  brew install reattach-to-user-namespace
+# cat << Output
 
-cat << ShellMessage
+# ------------------------------------
+#                                done!
+# ------------------------------------
+# Output
 
-done!
-ShellMessage
-
-fi
+# fi

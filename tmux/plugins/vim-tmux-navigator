@@ -1,0 +1,5 @@
+# Smart pane switching with awareness of Vim splits.
+
+set -g @plugin 'christoomey/vim-tmux-navigator'
+
+# # vim:ft=tmux

@@ -3,6 +3,9 @@
 " show line numbers
 set number
 
+" show relative numbers
+set rnu
+
 " horizontal splits below, vertical splits right
 set splitbelow splitright
 

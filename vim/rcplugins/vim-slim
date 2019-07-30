@@ -3,10 +3,8 @@
 Plug 'slim-template/vim-slim'
 
 augroup SLIM
-
-	autocmd!
-
-	autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
-
+  autocmd!
+  autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 augroup end
+
 " vim:ft=vim

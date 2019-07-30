@@ -1,0 +1,5 @@
+" Golang vim plugin
+
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+
+" vim:ft=vim

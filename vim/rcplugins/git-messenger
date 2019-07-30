@@ -1,0 +1,5 @@
+" show git blame info (with history) in the floating window
+
+Plug 'rhysd/git-messenger.vim'
+
+" vim:ft=vim

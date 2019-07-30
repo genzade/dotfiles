@@ -33,6 +33,11 @@ rbsme() {
     git rebase -i $(pbpaste)
 }
 
+# git checkout helper
+gco() {
+  git checkout "$@"
+}
+
 fvi() {
   vim $(fzf)
 }

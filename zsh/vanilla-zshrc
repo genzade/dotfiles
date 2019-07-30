@@ -179,6 +179,10 @@ for file in $HOME/dotfiles/zsh/config/custom/*.zsh; do
   source $file
 done
 
+# Golang Workspace
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 # fzf fuzzy finder (all hail https://github.com/junegunn)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

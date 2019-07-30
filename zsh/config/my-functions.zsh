@@ -3,10 +3,9 @@ mkcd () {
   mkdir -p "$@" && cd "$@"
 }
 
-# quickly resolve merge conflicts, opens files in multiple tabs
-# (remember that vim only allows 10 tabs to be open at one time)
+# quickly resolve merge conflicts, opens files in vim buffer
 vimfix () {
-  vim -p $(git status | grep 'both modified' | cut -d: -f2)
+  vim $(git status | grep 'both modified' | cut -d: -f2)
 }
 
 # Redefine prompt_context for hiding user@hostname

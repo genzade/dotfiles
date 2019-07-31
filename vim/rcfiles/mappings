@@ -39,6 +39,9 @@ nnoremap <leader>w :wincmd=<cr>
 " copy file name to system clipboard
 nnoremap cp :let @* = expand("%")<cr>
 
+" close quickfix window
+nnoremap <leader>a :cclose<CR>
+
 " Change all single quotes to double
 " nnoremap <C-q>q :%s/'\(\([^']*\)\)'/"\1"/g <CR>
 " Change all double quotes to single

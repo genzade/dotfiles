@@ -38,6 +38,14 @@ gco() {
   git checkout "$@"
 }
 
+gst() {
+  git status
+}
+
+gd() {
+  git diff "$@"
+}
+
 fvi() {
   vim $(fzf)
 }

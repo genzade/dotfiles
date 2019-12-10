@@ -18,10 +18,12 @@ set wildmenu
 " redraw only when we need to.
 set lazyredraw
 
-" show trailing spaces
+" show trailing spaces and tab spaces
 set list
-set listchars=trail:⋅
-
+" set listchars=trail:⋅,tab:……
+" set listchars=trail:⋅,tab:……
+" set listchars=trail:⋅,tab:˚˚
+set listchars=trail:⋅,tab:⋅⋅
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE (won't see much unless we disable Airline)

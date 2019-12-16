@@ -14,18 +14,6 @@ Output
 
 if [[ "$(uname)" == "Darwin" ]]; then
 
-  # vim installation (mac comes pre-installed with vim but it is compiled without clipboard)
-  # this step is not needed if you have a version of vim that has system clipboard functionality
-  # you can check this by running `vim --version | grep clipboard` in your terminal
-  # if you see `+clipboard` then you're fine
-cat << Output
-                                    ------------------------------------
-                                    installing vim
-                                    ------------------------------------
-Output
-
-  brew install vim
-
   # fuzzy finder setup
 cat << Output
 ------------------------------------

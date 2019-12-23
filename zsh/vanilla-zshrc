@@ -170,9 +170,6 @@ prompt_agnoster_setup "$@"
 
 ################################
 
-# tmuxinator
-source $HOME/.bin/tmuxinator.zsh
-
 # all custom config sourced here
 source $HOME/dotfiles/zsh/config/base.zsh
 for file in $HOME/dotfiles/zsh/config/custom/*.zsh; do

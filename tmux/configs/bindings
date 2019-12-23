@@ -7,7 +7,7 @@ bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
 bind r source-file ~/.tmux.conf \; display "Reloaded ~/.tmux.conf"
 
 # more intuitive keybindings for splitting
-bind \ split-window -h -c "#{pane_current_path}"
+bind '\' split-window -h -c "#{pane_current_path}"
 bind - split-window -v -c "#{pane_current_path}"
 
 # Resize panes with SHIFT UP, DOWN, LEFT, RIGHT (thank you christoomey)

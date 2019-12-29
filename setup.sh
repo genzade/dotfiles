@@ -27,6 +27,12 @@ if [[ "$(uname)" == "Darwin" ]]; then
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf
   cd ~/.asdf; git checkout "$(git describe --abbrev=0 --tags)"
   echo '. . . . . . . . . Done!'
+
+  echo 'installing more brews; openssl, libyaml and coreutils'
+  brew install openssl
+  brew install libyaml # should come after openssl
+  brew install coreutils
+  echo '. . . . . . . . . Done!'
 fi
 
 echo 'installing terminal colours'

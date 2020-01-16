@@ -49,6 +49,7 @@ call s:MakeVimDir('swp')
 " backup and store all swapfiles in one location
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swp//
+set tags=./tags,tags;$HOME
 
 " consistent background theme everywhere
 if filereadable(expand('~/.vimrc_background'))

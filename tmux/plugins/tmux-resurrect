@@ -1,0 +1,5 @@
+# TMUX RESURRECT PLUGIN
+
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+
+# vim:ft=tmux

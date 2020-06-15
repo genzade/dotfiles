@@ -5,6 +5,8 @@ syntax enable
 " I WILL BE V-IMPROVED
 set nocompatible
 
+set redrawtime=10000
+
 " required
 filetype plugin indent on
 

@@ -1,7 +1,7 @@
 # MY FUNCTIONS
 
-source $HOME/dotfiles/zsh/config/my-aliases.zsh
-source $HOME/dotfiles/zsh/config/my-functions.zsh
+source ~/dotfiles/zsh/config/my-aliases.zsh
+source ~/dotfiles/zsh/config/my-functions.zsh
 
 export DISABLE_AUTO_TITLE=true
 # Editor of choice

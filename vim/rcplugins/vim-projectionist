@@ -7,6 +7,12 @@ augroup PROJECTIONIST
   autocmd User ProjectionistDetect
   \ call projectionist#append(getcwd(),
   \ {
+  \    "lib/*.rb": {
+  \      "alternate": "spec/lib/{}_spec.rb"
+  \    },
+  \    "spec/lib/*_spec.rb": {
+  \      "alternate": "lib/{}.rb"
+  \    },
   \    "app/authorizers/*_authorizer.rb": {
   \      "alternate": "spec/support/matchers/authorize_{}.rb"
   \    },

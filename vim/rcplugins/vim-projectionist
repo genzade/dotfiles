@@ -24,6 +24,18 @@ augroup PROJECTIONIST
   \    },
   \    "spec/*_spec.rb": {
   \      "alternate": "app/{}.rb"
+  \    },
+  \    "5kyu/*.rb": {
+  \      "alternate": "spec/5kyu/{}_spec.rb"
+  \    },
+  \    "spec/5kyu/*_spec.rb": {
+  \      "alternate": "5kyu/{}.rb"
+  \    },
+  \    "6kyu/*.rb": {
+  \      "alternate": "spec/6kyu/{}_spec.rb"
+  \    },
+  \    "spec/6kyu/*_spec.rb": {
+  \      "alternate": "6kyu/{}.rb"
   \    }
   \ })
 augroup END

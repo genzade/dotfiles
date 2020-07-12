@@ -1,0 +1,5 @@
+# TMUX BATTERY PLUGIN
+
+set-option -g @plugin 'tmux-plugins/tmux-yank'
+
+# vim:ft=tmux

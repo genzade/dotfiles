@@ -17,7 +17,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
   echo '. . . . . . . . . Done!'
 
   echo 'installing tmux, ripgrep and fzf'
-  brew install tmuxinator tmux ripgrep fzf
+  brew install tmux tmuxinator ripgrep fzf reattach-to-user-namespace
   $(brew --prefix)/opt/fzf/install
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf

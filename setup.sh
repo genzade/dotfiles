@@ -44,6 +44,11 @@ echo 'changing default shell to zsh'
 ln -s ~/dotfiles/zsh/vanilla-zshrc ~/.zshrc
 echo '. . . . . . . . . Done!'
 
+echo 'installing joplin'
+NPM_CONFIG_PREFIX=~/.joplin-bin npm install -g joplin
+sudo ln -s ~/.joplin-bin/bin/joplin /usr/local/bin/joplin
+ln -s ~/dotfiles/config/joplin/keymap.json ~/.config/joplin/keymap.json
+
 while true
 do
   read -r -p "Setup using Kitty (see https://sw.kovidgoyal.net/kitty/conf.html)? [Y/n]" input

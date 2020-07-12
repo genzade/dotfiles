@@ -25,11 +25,11 @@ endif
 let g:mapleader="\<Space>"
 
 function! s:SourceConfigFilesIn(directory)
-  let directory_splat = '$HOME/dotfiles/vim/' . a:directory . '/*'
+  let directory_splat = '~/dotfiles/vim/' . a:directory . '/*'
 
   for config_file in split(glob(directory_splat), '\n')
     if filereadable(config_file)
-      execute 'source' config_file
+      execute 'source'.fnameescape(config_file)
     endif
   endfor
 endfunction

@@ -68,7 +68,7 @@ let g:airline_symbols.linenr = ''
 set encoding=utf-8
 set termencoding=utf-8
 set t_Co=256
-set term=xterm-256color
+" set term=xterm-256color
 set laststatus=2
 
 " vim:ft=vim

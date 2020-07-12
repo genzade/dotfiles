@@ -2,5 +2,10 @@
 
 Plug 'roman/golden-ratio'
 
-let g:golden_ratio_filetypes_blacklist = ["netrw"]
+" let g:golden_ratio_filetypes_blacklist = ['netrw']
+" let g:loaded_golden_ratio = 0
+" let g:golden_ratio_autocommand = 0
+" let g:golden_ratio_wrap_ignored = 1
+" let g:golden_ratio_exclude_nonmodifiable = 1
+
 " vim:ft=vim

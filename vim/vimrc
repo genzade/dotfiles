@@ -52,7 +52,6 @@ call s:MakeVimDir('backup')
 call s:MakeVimDir('swp')
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swp//
-set tags=./tags,tags;$HOME
 
 " consistent background theme everywhere
 if filereadable(expand('~/.vimrc_background'))

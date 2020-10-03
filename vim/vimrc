@@ -45,10 +45,11 @@ endfunction
 call plug#begin('~/.vim/bundle')
 call s:SourceConfigFilesIn('rcplugins')
 call plug#end()
-call s:MakeVimDir('backup')
-call s:MakeVimDir('swp')
+call s:SourceConfigFilesIn('rcfiles')
 
 " backup and store all swapfiles in one location
+call s:MakeVimDir('backup')
+call s:MakeVimDir('swp')
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swp//
 
@@ -57,5 +58,3 @@ if filereadable(expand('~/.vimrc_background'))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
-
-call s:SourceConfigFilesIn('rcfiles')

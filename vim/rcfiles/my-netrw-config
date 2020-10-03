@@ -10,4 +10,15 @@ let g:netrw_liststyle = 3
 " show me relative numbers in Netrw buffer
 let g:netrw_bufsettings = 'noma nomod rnu nobl nowrap ro'
 
+" override netrw's mapping in favour of tmux-navigator (move right window)
+augroup netrw_mapping
+  autocmd!
+  autocmd filetype netrw call NetrwMapping()
+augroup END
+
+function! NetrwMapping()
+  " nnoremap <silent> <buffer> <c-l> :TmuxNavigateRight<CR>
+  nnoremap <silent> <buffer> <c-l> :wincmd l<cr>
+endfunction
+
 " vim:ft=vim

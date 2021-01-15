@@ -38,6 +38,10 @@ gco() {
   git checkout "$@"
 }
 
+gcob() {
+  git checkout -b "$@"
+}
+
 gst() {
   git status
 }

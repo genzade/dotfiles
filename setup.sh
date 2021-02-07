@@ -44,6 +44,27 @@ echo 'changing default shell to zsh'
 ln -s ~/dotfiles/zsh/vanilla-zshrc ~/.zshrc
 echo '. . . . . . . . . Done!'
 
-echo 'kitty setup'
-ln -sf ~/dotfiles/config/kitty ~/.config/
+while true
+do
+  read -r -p "Setup using Kitty (see https://sw.kovidgoyal.net/kitty/conf.html)? [Y/n]" input
+
+  case $input in
+    [yY][eE][sS]|[yY])
+
+  echo 'kitty setup'
+  ln -sf ~/dotfiles/config/kitty ~/.config/
+
+  break
+  ;;
+
+    [nN][oO]|[nN])
+  echo "Kitty not setup"
+  break
+  ;;
+      *)
+  echo "Invalid input..."
+  ;;
+  esac
+done
+
 echo '. . . . . . . . . Done!'

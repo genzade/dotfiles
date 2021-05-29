@@ -106,3 +106,10 @@ defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeS
 
 # Set mouse speed to very fast (min: 1.0, max: 5.0)
 defaults write -g com.apple.trackpad.scaling 2.5
+
+echo 'setting defaults for font smoothing'
+
+# Font Smoothing
+defaults -currentHost delete -globalDomain AppleFontSmoothing
+defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
+defaults -currentHost write -globalDomain AppleFontSmoothing -int 2

@@ -88,4 +88,13 @@ return require("packer").startup(function()
       require("plugins.config.treesitter")
     end,
   }
+
+  -- Git signs
+  use {
+    "lewis6991/gitsigns.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("plugins.config.gitsigns")
+    end,
+  }
 end)

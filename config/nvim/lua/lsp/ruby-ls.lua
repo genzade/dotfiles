@@ -1,0 +1,17 @@
+-- Ruby LS
+-- require"lspconfig".solargraph.setup {
+--   settings = {
+--     solargraph = {
+--       completion = true,
+--       symbols = true,
+--       diagnostics = true,
+--
+--       definitions = false,
+--       hover = false,
+--       references = false,
+--       rename = false,
+--       useBundler = false,
+--     },
+--   },
+--   on_attach = attacher,
+-- }

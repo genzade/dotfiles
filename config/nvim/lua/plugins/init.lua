@@ -81,6 +81,7 @@ return require("packer").startup(function()
     end,
   }
 
+  -- Treesitter language parser generator tool
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",

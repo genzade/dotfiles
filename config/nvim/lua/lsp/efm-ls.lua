@@ -1,70 +1,27 @@
--- keymaps
--- local on_attach = function(client, bufnr)
---   local function buf_set_keymap(...)
---     vim.api.nvim_buf_set_keymap(bufnr, ...)
---   end
---   local function buf_set_option(...)
---     vim.api.nvim_buf_set_option(bufnr, ...)
---   end
---
---   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
---
---   -- Mappings.
---   local opts = { noremap = true, silent = true }
---
---   buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
---   buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
---   buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
---   buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
---   -- buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
---   -- buf_set_keymap('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
---   -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
---   -- buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
---   -- buf_set_keymap('n', '<space>wl',
---   -- '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
---   -- buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
---   -- buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
---   buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
---   -- buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
---   buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
---   buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
---   -- buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
---
---   -- Set autocommands conditional on server_capabilities
---   if client.resolved_capabilities.document_highlight then
---     vim.api.nvim_exec([[
---       augroup lsp_document_highlight
---         autocmd! * <buffer>
---         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
---         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
---       augroup END
---     ]], false)
---   end
--- end
--- vim.api.nvim_command([[
---   autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 100)
--- ]])
--- autocmd BufWritePre *.sh  lua vim.lsp.buf.formatting_sync(nil, 100)
--- autocmd BufWritePre *.rb  lua vim.lsp.buf.formatting_sync(nil, 100)
-
+-- EFM language server
+-- LUA
 local luaformatter_config = vim.fn.expand("$HOME/dotfiles/lua/luaformatter/config.yml")
-local lua = {
+local luaformatter = {
   formatCommand = "lua-format --in-place --config=" .. luaformatter_config,
   formatStdin = true,
 }
 
-local sh = {
+-- BASH
+local shellcheck = {
   lintSource = "shellcheck",
   lintCommand = "shellcheck -f gcc -x",
   lintFormats = { "%f:%l:%c: %trror: %m", "%f:%l:%c: %tarning: %m", "%f:%l:%c: %tote: %m" },
 }
 
+-- used `go get -u github.com/mvdan/sh/cmd/shfmt` to install
+local shfmt = { formatCommand = "shfmt -i=0 -ci -s -bn -sr -kp", formatStdin = true }
+-- local shfmt = { formatCommand = "shfmt -ci -s -bn", formatStdin = true } --------- NOT WORKING
+
+local efm = {}
+efm.languages = { lua = { luaformatter }, sh = { shellcheck, shfmt } }
+
 require"lspconfig".efm.setup {
   init_options = { documentFormatting = true, codeAction = true },
-  filetypes = { "lua", "sh", "zsh" },
-  -- on_attach = on_attach,
-  settings = {
-    rootMarkers = { ".git/", vim.fn.getcwd() },
-    languages = { lua = { lua }, sh = { sh } },
-  },
+  filetypes = vim.tbl_keys(efm.languages),
+  settings = { rootMarkers = { ".git/", vim.fn.getcwd() }, languages = efm.languages },
 }

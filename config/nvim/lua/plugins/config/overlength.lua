@@ -8,15 +8,13 @@ local function config()
   -- vim.fn["overlength#disable_filetypes"]({ "term" }) -- not working
 
   vim.fn["overlength#set_overlength"]("lua", default_length)
+  vim.fn["overlength#set_overlength"]("ruby", default_length)
   vim.fn["overlength#set_overlength"]("sh", default_length)
 end
 
 return {
   setup = function(use)
     -- Highlight column when limit reached
-    use {
-      "tjdevries/overlength.vim",
-      config = config,
-    }
-  end
+    use { "tjdevries/overlength.vim", config = config }
+  end,
 }

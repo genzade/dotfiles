@@ -64,6 +64,7 @@ export UPDATE_ZSH_DAYS=13
 export SAVEHIST=100000
 export HISTSIZE=100000
 
+export QMK_HOME="$HOME"/.config/qmk_firmware
 
 alias vi="nvim"
 

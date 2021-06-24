@@ -1,10 +1,22 @@
--- Base16 config
-vim.cmd "colorscheme base16-default-dark"
+local function config()
+  -- Base16 config
+  vim.cmd "colorscheme base16-default-dark"
 
-if vim.fn.filereadable("~/.vimrc_background") then
-  vim.g.base16colorspace = 256
-  vim.cmd("source ~/.vimrc_background")
-  vim.cmd("hi LineNr guibg=none")
-  vim.cmd("hi CursorLineNr guibg=none guifg=#98c379 gui=bold")
-  vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+  if vim.fn.filereadable("~/.vimrc_background") then
+    vim.g.base16colorspace = 256
+    vim.cmd("source ~/.vimrc_background")
+    vim.cmd("hi LineNr guibg=none")
+    vim.cmd("hi CursorLineNr guibg=none guifg=#98c379 gui=bold")
+    vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+  end
 end
+
+return {
+  setup = function(use)
+    -- Colour Scheme
+    use {
+      "chriskempson/base16-vim",
+      config = config,
+    }
+  end
+}

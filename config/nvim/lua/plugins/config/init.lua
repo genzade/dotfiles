@@ -13,5 +13,9 @@ return {
     require"plugins.config.overlength".setup(use)
     require"plugins.config.telescope".setup(use)
     require"plugins.config.treesitter".setup(use)
-  end
+    require"plugins.config.vim-autoswap".setup(use)
+    require"plugins.config.vim-dispatch".setup(use)
+    require"plugins.config.vim-test".setup(use)
+    require"plugins.config.vim-tmux-navigator".setup(use)
+  end,
 }

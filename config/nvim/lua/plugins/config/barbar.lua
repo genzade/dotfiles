@@ -1,11 +1,11 @@
 local function config()
+  local map = vim.api.nvim_set_keymap
+  local opts = { noremap = true, silent = true }
+
   -- Buffer navigation
-  vim.api.nvim_set_keymap("n", "<TAB>", "<CMD>BufferNext<cr>",
-    { noremap = true, silent = true })
-  vim.api.nvim_set_keymap("n", "<S-TAB>", "<CMD>BufferPrevious<cr>",
-    { noremap = true, silent = true })
-  vim.api.nvim_set_keymap("n", "<C-x>", "<CMD>BufferClose<cr>",
-    { noremap = true, silent = true })
+  map("n", "<TAB>", "<CMD>BufferNext<CR>", opts)
+  map("n", "<S-TAB>", "<CMD>BufferPrevious<CR>", opts)
+  map("n", "<C-x>", "<CMD>BufferClose<CR>", opts)
 
   -- Bar Bar/NvimTree integration
   local tree = {}

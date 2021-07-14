@@ -1,7 +1,8 @@
 -- Leader
 local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
 
-map("n", "<Space>", "<NOP>", { noremap = true, silent = true })
+map("n", "<Space>", "<NOP>", opts)
 
 vim.g.mapleader = " "
 
@@ -10,10 +11,17 @@ map("n", ";", ":", { noremap = true })
 map("v", ";", ":", { noremap = true })
 
 -- Remove highlight search
-map("n", "<Leader><Space>", ":set hlsearch!<CR>", { noremap = true, silent = true })
+map("n", "<Leader><Space>", ":set hlsearch!<CR>", opts)
 
 -- Window naviagtion
-map("n", "<C-h>", "<C-w>h", { silent = true })
-map("n", "<C-j>", "<C-w>j", { silent = true })
-map("n", "<C-k>", "<C-w>k", { silent = true })
-map("n", "<C-l>", "<C-w>l", { silent = true })
+map("n", "<C-h>", "<C-w>h", opts)
+map("n", "<C-j>", "<C-w>j", opts)
+map("n", "<C-k>", "<C-w>k", opts)
+map("n", "<C-l>", "<C-w>l", opts)
+
+-- Tab navigation
+map("n", "tn", ":tabnext<CR>", opts)
+map("n", "tp", ":tabprevious<CR>", opts)
+
+-- copy filename to clipboard
+map("n", "cp", ":let @*=expand('%')<CR>", opts)

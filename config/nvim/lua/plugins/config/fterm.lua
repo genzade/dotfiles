@@ -1,7 +1,9 @@
 local function config()
+  local default_dimmensions = { height = 0.9, width = 0.9, x = 0.5, y = 0.5 }
+
   -- Floating Terminal config
   require"FTerm".setup({
-    dimensions = { height = 0.9, width = 0.9, x = 0.5, y = 0.5 },
+    dimensions = default_dimmensions,
     border = "single", -- or 'double'
   })
 
@@ -10,7 +12,7 @@ local function config()
   local lazygit = term:new()
 
   lazygit:setup({
-    dimensions = { height = 0.9, width = 0.9, x = 0.5, y = 0.5 },
+    dimensions = default_dimmensions,
     border = "single", -- or 'double'
     cmd = "lazygit",
   })
@@ -35,9 +37,6 @@ end
 return {
   setup = function(use)
     -- Terminal Integration WIP
-    use {
-      "numtostr/FTerm.nvim",
-      config = config,
-    }
-  end
+    use { "numtostr/FTerm.nvim", config = config }
+  end,
 }

@@ -67,6 +67,11 @@ export HISTSIZE=100000
 export QMK_HOME="$HOME"/.config/qmk_firmware
 
 alias vi="nvim"
+alias vim="nvim"
+
+# MY FUNCTIONS
+# shellcheck disable=SC1091
+source "$HOME"/dotfiles/zsh/config/my-functions.zsh
 
 # asdf
 # shellcheck disable=SC1091

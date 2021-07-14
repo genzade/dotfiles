@@ -26,4 +26,7 @@ set-option -g status-style dim
 set-option -g status-right-length 50
 set-option -g status-left-length 20
 
+# misc
+set-option -s escape-time 0
+
 # vim:ft=tmux

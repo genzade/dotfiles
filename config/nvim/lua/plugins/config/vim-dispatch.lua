@@ -8,6 +8,10 @@ end
 
 return {
   setup = function(use)
-    use { "tpope/vim-dispatch", config = config }
+    use {
+      -- Support for neovim's terminal emulator and job control to dispatch.vim
+      "radenling/vim-dispatch-neovim",
+      requires = { "tpope/vim-dispatch", config = config },
+    }
   end,
 }

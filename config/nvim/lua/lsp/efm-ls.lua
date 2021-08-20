@@ -31,10 +31,29 @@ local shfmt = { formatCommand = "shfmt -i=0 -ci -s -bn -sr -kp", formatStdin = t
 --   formatStdin = true
 -- }
 
+-- local rubocop = { formatCommand = "bundle exec rubocop -A ${INPUT}", formatStdin = true }
+
+local rubocop = {
+  lintCommand = "rubocop -a ${INPUT}",
+  lintStdin = true,
+  lintFormats = { "%f:%l:%c: %t: %m" },
+  lintIgnoreExitCode = true,
+  -- Rubocop fixer outputs diagnostics first and then the fixed
+  -- output. These are delimited by a "=======" string that we
+  -- look for to remove everything before it.
+  --
+  -- The awk program finds the pattern, sets p to 1 and then skip the remaininig
+  -- pattern on the line. It then prints what remains.
+  formatCommand = "rubocop --auto-correct --stdin ${INPUT} | awk '/====================/{p=1;next}p'",
+  formatStdin = true,
+}
+
 local languages = {
   sh = { shellcheck, shfmt },
   bash = { shellcheck, shfmt },
   lua = { luaformatter },
+  ruby = { rubocop },
+  rspec = { rubocop },
   -- vue = {prettier, eslint},
   -- typescript = {prettier, eslint},
   -- javascript = {prettier, eslint},

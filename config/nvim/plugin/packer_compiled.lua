@@ -1,17 +1,14 @@
-" Automatically generated packer.nvim plugin loader code
+-- Automatically generated packer.nvim plugin loader code
 
-if !has('nvim-0.5')
-  echohl WarningMsg
-  echom "Invalid Neovim version for packer.nvim!"
-  echohl None
-  finish
-endif
+if vim.api.nvim_call_function('has', {'nvim-0.5'}) ~= 1 then
+  vim.api.nvim_command('echohl WarningMsg | echom "Invalid Neovim version for packer.nvim! | echohl None"')
+  return
+end
 
-packadd packer.nvim
+vim.api.nvim_command('packadd packer.nvim')
 
-try
+local no_errors, error_msg = pcall(function()
 
-lua << END
   local time
   local profile_info
   local should_profile = false
@@ -73,7 +70,7 @@ time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["FTerm.nvim"] = {
-    config = { "\27LJ\2\nQ\0\0\3\1\4\0\t6\0\0\0009\0\1\0009\0\2\0B\0\1\1-\0\0\0\18\2\0\0009\0\3\0B\0\2\1K\0\1\0\2À\vtoggle\25nvim_get_current_buf\bapi\bvimÕ\4\1\0\v\0\24\00015\0\0\0006\1\1\0'\3\2\0B\1\2\0029\1\3\0015\3\4\0=\0\5\3B\1\2\0016\1\1\0'\3\6\0B\1\2\2\18\4\1\0009\2\a\1B\2\2\2\18\5\2\0009\3\3\0025\6\b\0=\0\5\6B\3\3\0013\3\t\0007\3\n\0006\3\v\0009\3\f\0039\3\r\0035\4\14\0\18\5\3\0'\a\15\0'\b\16\0'\t\17\0\18\n\4\0B\5\5\1\18\5\3\0'\a\18\0'\b\16\0'\t\19\0\18\n\4\0B\5\5\1\18\5\3\0'\a\15\0'\b\20\0'\t\21\0\18\n\4\0B\5\5\0016\5\v\0009\5\22\5'\a\23\0B\5\2\0012\0\0€K\0\1\0000highlight VertSplit guibg=NONE ctermbg=NONE\bcmd <CMD>lua FTermLazyGit()<CR>\14<Leader>g5<C-\\><C-n><CMD>lua require(\"FTerm\").toggle()<CR>\6t+<CMD>lua require(\"FTerm\").toggle()<CR>\n<C-t>\6n\1\0\2\fnoremap\2\vsilent\2\20nvim_set_keymap\bapi\bvim\17FTermLazyGit\0\1\0\2\bcmd\flazygit\vborder\vsingle\bnew\19FTerm.terminal\15dimensions\1\0\1\vborder\vsingle\nsetup\nFTerm\frequire\1\0\4\nwidth\4Í™³æ\fÌ™³ÿ\3\vheight\4Í™³æ\fÌ™³ÿ\3\6x\4\0€€€ÿ\3\6y\4\0€€€ÿ\3\0" },
+    config = { "\27LJ\2\nQ\0\0\3\1\4\0\t6\0\0\0009\0\1\0009\0\2\0B\0\1\1-\0\0\0\18\2\0\0009\0\3\0B\0\2\1K\0\1\0\2À\vtoggle\25nvim_get_current_buf\bapi\bvimÕ\4\1\0\v\0\24\00015\0\0\0006\1\1\0'\3\2\0B\1\2\0029\1\3\0015\3\4\0=\0\5\3B\1\2\0016\1\1\0'\3\6\0B\1\2\2\18\4\1\0009\2\a\1B\2\2\2\18\5\2\0009\3\3\0025\6\b\0=\0\5\6B\3\3\0013\3\t\0007\3\n\0006\3\v\0009\3\f\0039\3\r\0035\4\14\0\18\5\3\0'\a\15\0'\b\16\0'\t\17\0\18\n\4\0B\5\5\1\18\5\3\0'\a\18\0'\b\16\0'\t\19\0\18\n\4\0B\5\5\1\18\5\3\0'\a\15\0'\b\20\0'\t\21\0\18\n\4\0B\5\5\0016\5\v\0009\5\22\5'\a\23\0B\5\2\0012\0\0€K\0\1\0000highlight VertSplit guibg=NONE ctermbg=NONE\bcmd <CMD>lua FTermLazyGit()<CR>\14<Leader>g5<C-\\><C-n><CMD>lua require(\"FTerm\").toggle()<CR>\6t+<CMD>lua require(\"FTerm\").toggle()<CR>\n<C-t>\6n\1\0\2\fnoremap\2\vsilent\2\20nvim_set_keymap\bapi\bvim\17FTermLazyGit\0\1\0\2\bcmd\flazygit\vborder\vsingle\bnew\19FTerm.terminal\15dimensions\1\0\1\vborder\vsingle\nsetup\nFTerm\frequire\1\0\4\6y\4\0€€€ÿ\3\nwidth\4Í™³æ\fÌ™³ÿ\3\vheight\4Í™³æ\fÌ™³ÿ\3\6x\4\0€€€ÿ\3\0" },
     loaded = true,
     path = "/Users/genzade/.local/share/nvim/site/pack/packer/start/FTerm.nvim"
   },
@@ -88,7 +85,7 @@ _G.packer_plugins = {
     path = "/Users/genzade/.local/share/nvim/site/pack/packer/start/base16-vim"
   },
   ["gitsigns.nvim"] = {
-    config = { "\27LJ\2\n®\5\0\0\5\0\19\0#6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\3=\3\t\0025\3\n\0=\3\v\2B\0\2\0016\0\f\0009\0\r\0'\2\14\0B\0\2\0016\0\f\0009\0\r\0'\2\15\0B\0\2\0016\0\f\0009\0\r\0'\2\16\0B\0\2\0016\0\f\0009\0\r\0'\2\17\0B\0\2\0016\0\f\0009\0\r\0'\2\18\0B\0\2\1K\0\1\0000highlight VertSplit guibg=NONE ctermbg=NONE,highlight clear SignColumn ctermbg=none4highlight GitSignsDelete guifg=red ctermbg=none7highlight GitSignsChange guifg=yellow ctermbg=none3highlight GitSignsAdd guifg=green ctermbg=none\bcmd\bvim\fkeymaps\1\0\3\16n <leader>b4<cmd>lua require\"gitsigns\".blame_line(true)<CR>\vbuffer\2\fnoremap\2\nsigns\1\0\1\23current_line_blame\2\17changedelete\1\0\4\ttext\6-\vlinehl\21GitSignsChangeLn\nnumhl\21GitSignsChangeNr\ahl\19GitSignsChange\badd\1\0\0\1\0\4\ttext\6+\vlinehl\18GitSignsAddLn\nnumhl\18GitSignsAddNr\ahl\16GitSignsAdd\nsetup\rgitsigns\frequire\0" },
+    config = { "\27LJ\2\n®\5\0\0\5\0\19\0#6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\3=\3\t\0025\3\n\0=\3\v\2B\0\2\0016\0\f\0009\0\r\0'\2\14\0B\0\2\0016\0\f\0009\0\r\0'\2\15\0B\0\2\0016\0\f\0009\0\r\0'\2\16\0B\0\2\0016\0\f\0009\0\r\0'\2\17\0B\0\2\0016\0\f\0009\0\r\0'\2\18\0B\0\2\1K\0\1\0000highlight VertSplit guibg=NONE ctermbg=NONE,highlight clear SignColumn ctermbg=none4highlight GitSignsDelete guifg=red ctermbg=none7highlight GitSignsChange guifg=yellow ctermbg=none3highlight GitSignsAdd guifg=green ctermbg=none\bcmd\bvim\fkeymaps\1\0\3\vbuffer\2\16n <leader>b4<cmd>lua require\"gitsigns\".blame_line(true)<CR>\fnoremap\2\nsigns\1\0\1\23current_line_blame\2\17changedelete\1\0\4\ahl\19GitSignsChange\vlinehl\21GitSignsChangeLn\ttext\6-\nnumhl\21GitSignsChangeNr\badd\1\0\0\1\0\4\ahl\16GitSignsAdd\vlinehl\18GitSignsAddLn\ttext\6+\nnumhl\18GitSignsAddNr\nsetup\rgitsigns\frequire\0" },
     loaded = true,
     path = "/Users/genzade/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
@@ -151,22 +148,25 @@ _G.packer_plugins = {
     path = "/Users/genzade/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
   ["vim-autoswap"] = {
-    config = { "\27LJ\2\nF\0\0\2\0\5\0\t6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\1\0'\1\3\0=\1\4\0K\0\1\0\16titlestring\aon\ntitle\6g\bvim\0" },
+    config = { "\27LJ\2\nk\0\0\2\0\6\0\r6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\1\0'\1\3\0=\1\4\0006\0\0\0009\0\1\0)\1\1\0=\1\5\0K\0\1\0\25autoswap_detect_tmux\16titlestring\aon\ntitle\6g\bvim\0" },
     loaded = true,
     path = "/Users/genzade/.local/share/nvim/site/pack/packer/start/vim-autoswap"
   },
   ["vim-dispatch"] = {
-    config = { "\27LJ\2\nz\0\0\b\0\a\0\v6\0\0\0009\0\1\0009\0\2\0005\1\3\0\18\2\0\0'\4\4\0'\5\5\0'\6\6\0\18\a\1\0B\2\5\1K\0\1\0\19<Cmd>Dispatch \14<Leader>d\6n\1\0\2\fnoremap\2\vsilent\2\20nvim_set_keymap\bapi\bvim\0" },
     loaded = true,
     path = "/Users/genzade/.local/share/nvim/site/pack/packer/start/vim-dispatch"
   },
+  ["vim-dispatch-neovim"] = {
+    loaded = true,
+    path = "/Users/genzade/.local/share/nvim/site/pack/packer/start/vim-dispatch-neovim"
+  },
   ["vim-test"] = {
-    config = { "\27LJ\2\n€\3\0\0\b\0\18\0'6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\4\0009\0\5\0005\1\6\0\18\2\0\0'\4\a\0'\5\b\0'\6\t\0\18\a\1\0B\2\5\1\18\2\0\0'\4\a\0'\5\n\0'\6\v\0\18\a\1\0B\2\5\1\18\2\0\0'\4\a\0'\5\f\0'\6\r\0\18\a\1\0B\2\5\1\18\2\0\0'\4\a\0'\5\14\0'\6\15\0\18\a\1\0B\2\5\1\18\2\0\0'\4\a\0'\5\16\0'\6\17\0\18\a\1\0B\2\5\1K\0\1\0\23<cmd>TestVisit<CR>\15<leader>tv\22<cmd>TestLast<CR>\15<leader>tl\23<cmd>TestSuite<CR>\15<leader>ts\22<cmd>TestFile<CR>\15<leader>tf\25<cmd>TestNearest<CR>\15<leader>tn\6n\1\0\2\fnoremap\2\vsilent\2\20nvim_set_keymap\bapi\rdispatch\18test#strategy\6g\bvim\0" },
+    config = { "\27LJ\2\nþ\2\0\0\b\0\18\0'6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\4\0009\0\5\0005\1\6\0\18\2\0\0'\4\a\0'\5\b\0'\6\t\0\18\a\1\0B\2\5\1\18\2\0\0'\4\a\0'\5\n\0'\6\v\0\18\a\1\0B\2\5\1\18\2\0\0'\4\a\0'\5\f\0'\6\r\0\18\a\1\0B\2\5\1\18\2\0\0'\4\a\0'\5\14\0'\6\15\0\18\a\1\0B\2\5\1\18\2\0\0'\4\a\0'\5\16\0'\6\17\0\18\a\1\0B\2\5\1K\0\1\0\23<CMD>TestVisit<CR>\15<leader>tv\22<CMD>TestLast<CR>\15<leader>tl\23<CMD>TestSuite<CR>\15<leader>ts\22<CMD>TestFile<CR>\15<leader>tf\25<CMD>TestNearest<CR>\15<leader>tn\6n\1\0\2\fnoremap\2\vsilent\2\20nvim_set_keymap\bapi\vneovim\18test#strategy\6g\bvim\0" },
     loaded = true,
     path = "/Users/genzade/.local/share/nvim/site/pack/packer/start/vim-test"
   },
   ["vim-tmux-navigator"] = {
-    config = { "\27LJ\2\nÝ\2\0\0\b\0\15\0!6\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\3\0009\0\4\0005\1\5\0\18\2\0\0'\4\6\0'\5\a\0'\6\b\0\18\a\1\0B\2\5\1\18\2\0\0'\4\6\0'\5\t\0'\6\n\0\18\a\1\0B\2\5\1\18\2\0\0'\4\6\0'\5\v\0'\6\f\0\18\a\1\0B\2\5\1\18\2\0\0'\4\6\0'\5\r\0'\6\14\0\18\a\1\0B\2\5\1K\0\1\0\31<Cmd>TmuxNavigateRight<CR>\n<C-l>\28<Cmd>TmuxNavigateUp<CR>\n<C-k>\30<Cmd>TmuxNavigateDown<CR>\n<C-j>\30<Cmd>TmuxNavigateLeft<CR>\n<C-h>\6n\1\0\2\fnoremap\2\vsilent\2\20nvim_set_keymap\bapi'tmux_navigator_disable_when_zoomed\6g\bvim\0" },
+    config = { "\27LJ\2\nÝ\2\0\0\b\0\15\0!6\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\3\0009\0\4\0005\1\5\0\18\2\0\0'\4\6\0'\5\a\0'\6\b\0\18\a\1\0B\2\5\1\18\2\0\0'\4\6\0'\5\t\0'\6\n\0\18\a\1\0B\2\5\1\18\2\0\0'\4\6\0'\5\v\0'\6\f\0\18\a\1\0B\2\5\1\18\2\0\0'\4\6\0'\5\r\0'\6\14\0\18\a\1\0B\2\5\1K\0\1\0\31<CMD>TmuxNavigateRight<CR>\n<C-l>\28<CMD>TmuxNavigateUp<CR>\n<C-k>\30<CMD>TmuxNavigateDown<CR>\n<C-j>\30<CMD>TmuxNavigateLeft<CR>\n<C-h>\6n\1\0\2\fnoremap\2\vsilent\2\20nvim_set_keymap\bapi'tmux_navigator_disable_when_zoomed\6g\bvim\0" },
     loaded = true,
     path = "/Users/genzade/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator"
   }
@@ -177,65 +177,58 @@ time([[Defining packer_plugins]], false)
 time([[Config for nvim-tree.lua]], true)
 try_loadstring("\27LJ\2\n'\0\0\3\1\1\0\5-\0\0\0009\0\0\0+\2\2\0B\0\2\1K\0\1\0\0À\14find_file\31\0\0\2\1\1\0\4-\0\0\0009\0\0\0B\0\1\1K\0\1\0\0À\nclose\1\0\6\0\6\0\0196\0\0\0'\2\1\0B\0\2\0023\1\2\0003\2\3\0006\3\0\0'\5\4\0B\3\2\0029\4\5\3B\4\1\2\15\0\4\0X\5\3€\18\4\2\0B\4\1\1X\4\2€\18\4\1\0B\4\1\0012\0\0€K\0\1\0\rwin_open\19nvim-tree.view\0\0\14nvim-tree\frequire«\1\1\0\b\0\t\0\r3\0\0\0007\0\1\0006\0\2\0009\0\3\0009\0\4\0005\1\5\0\18\2\0\0'\4\6\0'\5\a\0'\6\b\0\18\a\1\0B\2\5\1K\0\1\0'<CMD>lua NvimTreeSmartToggle()<CR>\14<Leader>e\6n\1\0\2\fnoremap\2\vsilent\2\20nvim_set_keymap\bapi\bvim\24NvimTreeSmartToggle\0\0", "config", "nvim-tree.lua")
 time([[Config for nvim-tree.lua]], false)
--- Config for: overlength.vim
-time([[Config for overlength.vim]], true)
-try_loadstring("\27LJ\2\nè\1\0\0\5\0\t\0\28)\0d\0006\1\0\0009\1\1\1)\2\0\0=\2\2\0016\1\0\0009\1\1\1+\2\1\0=\2\3\0016\1\0\0009\1\4\0019\1\5\1'\3\6\0\18\4\0\0B\1\3\0016\1\0\0009\1\4\0019\1\5\1'\3\a\0\18\4\0\0B\1\3\0016\1\0\0009\1\4\0019\1\5\1'\3\b\0\18\4\0\0B\1\3\1K\0\1\0\ash\truby\blua\30overlength#set_overlength\afn(overlength#highlight_to_end_of_line\"overlength#default_overlength\6g\bvim\0", "config", "overlength.vim")
-time([[Config for overlength.vim]], false)
--- Config for: vim-test
-time([[Config for vim-test]], true)
-try_loadstring("\27LJ\2\n€\3\0\0\b\0\18\0'6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\4\0009\0\5\0005\1\6\0\18\2\0\0'\4\a\0'\5\b\0'\6\t\0\18\a\1\0B\2\5\1\18\2\0\0'\4\a\0'\5\n\0'\6\v\0\18\a\1\0B\2\5\1\18\2\0\0'\4\a\0'\5\f\0'\6\r\0\18\a\1\0B\2\5\1\18\2\0\0'\4\a\0'\5\14\0'\6\15\0\18\a\1\0B\2\5\1\18\2\0\0'\4\a\0'\5\16\0'\6\17\0\18\a\1\0B\2\5\1K\0\1\0\23<cmd>TestVisit<CR>\15<leader>tv\22<cmd>TestLast<CR>\15<leader>tl\23<cmd>TestSuite<CR>\15<leader>ts\22<cmd>TestFile<CR>\15<leader>tf\25<cmd>TestNearest<CR>\15<leader>tn\6n\1\0\2\fnoremap\2\vsilent\2\20nvim_set_keymap\bapi\rdispatch\18test#strategy\6g\bvim\0", "config", "vim-test")
-time([[Config for vim-test]], false)
--- Config for: base16-vim
-time([[Config for base16-vim]], true)
-try_loadstring("\27LJ\2\nê\2\0\0\3\0\f\0 6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\3\0009\0\4\0'\2\5\0B\0\2\2\15\0\0\0X\1\20€6\0\0\0009\0\6\0)\1\0\1=\1\a\0006\0\0\0009\0\1\0'\2\b\0B\0\2\0016\0\0\0009\0\1\0'\2\t\0B\0\2\0016\0\0\0009\0\1\0'\2\n\0B\0\2\0016\0\0\0009\0\1\0'\2\v\0B\0\2\1K\0\1\0&hi Normal guibg=NONE ctermbg=NONE6hi CursorLineNr guibg=none guifg=#98c379 gui=bold\25hi LineNr guibg=none\31source ~/.vimrc_background\21base16colorspace\6g\24~/.vimrc_background\17filereadable\afn$colorscheme base16-default-dark\bcmd\bvim\0", "config", "base16-vim")
-time([[Config for base16-vim]], false)
 -- Config for: barbar.nvim
 time([[Config for barbar.nvim]], true)
 try_loadstring("\27LJ\2\n€\1\0\0\4\0\6\0\0146\0\0\0'\2\1\0B\0\2\0029\0\2\0)\2\31\0'\3\3\0B\0\3\0016\0\0\0'\2\4\0B\0\2\0029\0\5\0+\2\2\0B\0\2\1K\0\1\0\14find_file\14nvim-tree\rFileTree\15set_offset\21bufferline.state\frequirek\0\0\3\0\5\0\f6\0\0\0'\2\1\0B\0\2\0029\0\2\0)\2\0\0B\0\2\0016\0\0\0'\2\3\0B\0\2\0029\0\4\0B\0\1\1K\0\1\0\nclose\14nvim-tree\15set_offset\21bufferline.state\frequire‹\2\1\0\b\0\15\0\0296\0\0\0009\0\1\0009\0\2\0005\1\3\0\18\2\0\0'\4\4\0'\5\5\0'\6\6\0\18\a\1\0B\2\5\1\18\2\0\0'\4\4\0'\5\a\0'\6\b\0\18\a\1\0B\2\5\1\18\2\0\0'\4\4\0'\5\t\0'\6\n\0\18\a\1\0B\2\5\0014\2\0\0003\3\f\0=\3\v\0023\3\14\0=\3\r\0022\0\0€L\2\2\0\0\nclose\0\topen\25<CMD>BufferClose<CR>\n<C-x>\28<CMD>BufferPrevious<CR>\f<S-TAB>\24<CMD>BufferNext<CR>\n<TAB>\6n\1\0\2\fnoremap\2\vsilent\2\20nvim_set_keymap\bapi\bvim\0", "config", "barbar.nvim")
 time([[Config for barbar.nvim]], false)
--- Config for: vim-dispatch
-time([[Config for vim-dispatch]], true)
-try_loadstring("\27LJ\2\nz\0\0\b\0\a\0\v6\0\0\0009\0\1\0009\0\2\0005\1\3\0\18\2\0\0'\4\4\0'\5\5\0'\6\6\0\18\a\1\0B\2\5\1K\0\1\0\19<Cmd>Dispatch \14<Leader>d\6n\1\0\2\fnoremap\2\vsilent\2\20nvim_set_keymap\bapi\bvim\0", "config", "vim-dispatch")
-time([[Config for vim-dispatch]], false)
--- Config for: FTerm.nvim
-time([[Config for FTerm.nvim]], true)
-try_loadstring("\27LJ\2\nQ\0\0\3\1\4\0\t6\0\0\0009\0\1\0009\0\2\0B\0\1\1-\0\0\0\18\2\0\0009\0\3\0B\0\2\1K\0\1\0\2À\vtoggle\25nvim_get_current_buf\bapi\bvimÕ\4\1\0\v\0\24\00015\0\0\0006\1\1\0'\3\2\0B\1\2\0029\1\3\0015\3\4\0=\0\5\3B\1\2\0016\1\1\0'\3\6\0B\1\2\2\18\4\1\0009\2\a\1B\2\2\2\18\5\2\0009\3\3\0025\6\b\0=\0\5\6B\3\3\0013\3\t\0007\3\n\0006\3\v\0009\3\f\0039\3\r\0035\4\14\0\18\5\3\0'\a\15\0'\b\16\0'\t\17\0\18\n\4\0B\5\5\1\18\5\3\0'\a\18\0'\b\16\0'\t\19\0\18\n\4\0B\5\5\1\18\5\3\0'\a\15\0'\b\20\0'\t\21\0\18\n\4\0B\5\5\0016\5\v\0009\5\22\5'\a\23\0B\5\2\0012\0\0€K\0\1\0000highlight VertSplit guibg=NONE ctermbg=NONE\bcmd <CMD>lua FTermLazyGit()<CR>\14<Leader>g5<C-\\><C-n><CMD>lua require(\"FTerm\").toggle()<CR>\6t+<CMD>lua require(\"FTerm\").toggle()<CR>\n<C-t>\6n\1\0\2\fnoremap\2\vsilent\2\20nvim_set_keymap\bapi\bvim\17FTermLazyGit\0\1\0\2\bcmd\flazygit\vborder\vsingle\bnew\19FTerm.terminal\15dimensions\1\0\1\vborder\vsingle\nsetup\nFTerm\frequire\1\0\4\nwidth\4Í™³æ\fÌ™³ÿ\3\vheight\4Í™³æ\fÌ™³ÿ\3\6x\4\0€€€ÿ\3\6y\4\0€€€ÿ\3\0", "config", "FTerm.nvim")
-time([[Config for FTerm.nvim]], false)
--- Config for: vim-autoswap
-time([[Config for vim-autoswap]], true)
-try_loadstring("\27LJ\2\nF\0\0\2\0\5\0\t6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\1\0'\1\3\0=\1\4\0K\0\1\0\16titlestring\aon\ntitle\6g\bvim\0", "config", "vim-autoswap")
-time([[Config for vim-autoswap]], false)
--- Config for: kommentary
-time([[Config for kommentary]], true)
-try_loadstring("\27LJ\2\n|\0\0\4\0\5\0\b6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0005\3\4\0B\0\3\1K\0\1\0\1\0\1 prefer_single_line_comments\2\fdefault\23configure_language\22kommentary.config\frequire\0", "config", "kommentary")
-time([[Config for kommentary]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 try_loadstring("\27LJ\2\n…\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\14highlight\1\0\1\venable\2\1\0\1\21ensure_installed\15maintained\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
 time([[Config for nvim-treesitter]], false)
+-- Config for: base16-vim
+time([[Config for base16-vim]], true)
+try_loadstring("\27LJ\2\nê\2\0\0\3\0\f\0 6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\3\0009\0\4\0'\2\5\0B\0\2\2\15\0\0\0X\1\20€6\0\0\0009\0\6\0)\1\0\1=\1\a\0006\0\0\0009\0\1\0'\2\b\0B\0\2\0016\0\0\0009\0\1\0'\2\t\0B\0\2\0016\0\0\0009\0\1\0'\2\n\0B\0\2\0016\0\0\0009\0\1\0'\2\v\0B\0\2\1K\0\1\0&hi Normal guibg=NONE ctermbg=NONE6hi CursorLineNr guibg=none guifg=#98c379 gui=bold\25hi LineNr guibg=none\31source ~/.vimrc_background\21base16colorspace\6g\24~/.vimrc_background\17filereadable\afn$colorscheme base16-default-dark\bcmd\bvim\0", "config", "base16-vim")
+time([[Config for base16-vim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\n®\5\0\0\5\0\19\0#6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\3=\3\t\0025\3\n\0=\3\v\2B\0\2\0016\0\f\0009\0\r\0'\2\14\0B\0\2\0016\0\f\0009\0\r\0'\2\15\0B\0\2\0016\0\f\0009\0\r\0'\2\16\0B\0\2\0016\0\f\0009\0\r\0'\2\17\0B\0\2\0016\0\f\0009\0\r\0'\2\18\0B\0\2\1K\0\1\0000highlight VertSplit guibg=NONE ctermbg=NONE,highlight clear SignColumn ctermbg=none4highlight GitSignsDelete guifg=red ctermbg=none7highlight GitSignsChange guifg=yellow ctermbg=none3highlight GitSignsAdd guifg=green ctermbg=none\bcmd\bvim\fkeymaps\1\0\3\16n <leader>b4<cmd>lua require\"gitsigns\".blame_line(true)<CR>\vbuffer\2\fnoremap\2\nsigns\1\0\1\23current_line_blame\2\17changedelete\1\0\4\ttext\6-\vlinehl\21GitSignsChangeLn\nnumhl\21GitSignsChangeNr\ahl\19GitSignsChange\badd\1\0\0\1\0\4\ttext\6+\vlinehl\18GitSignsAddLn\nnumhl\18GitSignsAddNr\ahl\16GitSignsAdd\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+try_loadstring("\27LJ\2\n®\5\0\0\5\0\19\0#6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\3=\3\t\0025\3\n\0=\3\v\2B\0\2\0016\0\f\0009\0\r\0'\2\14\0B\0\2\0016\0\f\0009\0\r\0'\2\15\0B\0\2\0016\0\f\0009\0\r\0'\2\16\0B\0\2\0016\0\f\0009\0\r\0'\2\17\0B\0\2\0016\0\f\0009\0\r\0'\2\18\0B\0\2\1K\0\1\0000highlight VertSplit guibg=NONE ctermbg=NONE,highlight clear SignColumn ctermbg=none4highlight GitSignsDelete guifg=red ctermbg=none7highlight GitSignsChange guifg=yellow ctermbg=none3highlight GitSignsAdd guifg=green ctermbg=none\bcmd\bvim\fkeymaps\1\0\3\vbuffer\2\16n <leader>b4<cmd>lua require\"gitsigns\".blame_line(true)<CR>\fnoremap\2\nsigns\1\0\1\23current_line_blame\2\17changedelete\1\0\4\ahl\19GitSignsChange\vlinehl\21GitSignsChangeLn\ttext\6-\nnumhl\21GitSignsChangeNr\badd\1\0\0\1\0\4\ahl\16GitSignsAdd\vlinehl\18GitSignsAddLn\ttext\6+\nnumhl\18GitSignsAddNr\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
+-- Config for: overlength.vim
+time([[Config for overlength.vim]], true)
+try_loadstring("\27LJ\2\nè\1\0\0\5\0\t\0\28)\0d\0006\1\0\0009\1\1\1)\2\0\0=\2\2\0016\1\0\0009\1\1\1+\2\1\0=\2\3\0016\1\0\0009\1\4\0019\1\5\1'\3\6\0\18\4\0\0B\1\3\0016\1\0\0009\1\4\0019\1\5\1'\3\a\0\18\4\0\0B\1\3\0016\1\0\0009\1\4\0019\1\5\1'\3\b\0\18\4\0\0B\1\3\1K\0\1\0\ash\truby\blua\30overlength#set_overlength\afn(overlength#highlight_to_end_of_line\"overlength#default_overlength\6g\bvim\0", "config", "overlength.vim")
+time([[Config for overlength.vim]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 try_loadstring("\27LJ\2\n¹\2\0\0\5\0\20\0\0236\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\a\0005\4\6\0=\4\b\0035\4\t\0=\4\n\0035\4\v\0=\4\f\0035\4\r\0=\4\14\0035\4\15\0=\4\16\0035\4\17\0=\4\18\3=\3\19\2B\0\2\1K\0\1\0\rsections\14lualine_z\1\2\0\0\rlocation\14lualine_y\1\2\0\0\rprogress\14lualine_x\1\4\0\0\rencoding\15fileformat\rfiletype\14lualine_c\1\2\0\0\rfilename\14lualine_b\1\2\0\0\vbranch\14lualine_a\1\0\0\1\2\0\0\tmode\foptions\1\0\0\1\0\1\ntheme\fonedark\nsetup\flualine\frequire\0", "config", "lualine.nvim")
 time([[Config for lualine.nvim]], false)
+-- Config for: kommentary
+time([[Config for kommentary]], true)
+try_loadstring("\27LJ\2\n|\0\0\4\0\5\0\b6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0005\3\4\0B\0\3\1K\0\1\0\1\0\1 prefer_single_line_comments\2\fdefault\23configure_language\22kommentary.config\frequire\0", "config", "kommentary")
+time([[Config for kommentary]], false)
+-- Config for: vim-test
+time([[Config for vim-test]], true)
+try_loadstring("\27LJ\2\nþ\2\0\0\b\0\18\0'6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\4\0009\0\5\0005\1\6\0\18\2\0\0'\4\a\0'\5\b\0'\6\t\0\18\a\1\0B\2\5\1\18\2\0\0'\4\a\0'\5\n\0'\6\v\0\18\a\1\0B\2\5\1\18\2\0\0'\4\a\0'\5\f\0'\6\r\0\18\a\1\0B\2\5\1\18\2\0\0'\4\a\0'\5\14\0'\6\15\0\18\a\1\0B\2\5\1\18\2\0\0'\4\a\0'\5\16\0'\6\17\0\18\a\1\0B\2\5\1K\0\1\0\23<CMD>TestVisit<CR>\15<leader>tv\22<CMD>TestLast<CR>\15<leader>tl\23<CMD>TestSuite<CR>\15<leader>ts\22<CMD>TestFile<CR>\15<leader>tf\25<CMD>TestNearest<CR>\15<leader>tn\6n\1\0\2\fnoremap\2\vsilent\2\20nvim_set_keymap\bapi\vneovim\18test#strategy\6g\bvim\0", "config", "vim-test")
+time([[Config for vim-test]], false)
 -- Config for: vim-tmux-navigator
 time([[Config for vim-tmux-navigator]], true)
-try_loadstring("\27LJ\2\nÝ\2\0\0\b\0\15\0!6\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\3\0009\0\4\0005\1\5\0\18\2\0\0'\4\6\0'\5\a\0'\6\b\0\18\a\1\0B\2\5\1\18\2\0\0'\4\6\0'\5\t\0'\6\n\0\18\a\1\0B\2\5\1\18\2\0\0'\4\6\0'\5\v\0'\6\f\0\18\a\1\0B\2\5\1\18\2\0\0'\4\6\0'\5\r\0'\6\14\0\18\a\1\0B\2\5\1K\0\1\0\31<Cmd>TmuxNavigateRight<CR>\n<C-l>\28<Cmd>TmuxNavigateUp<CR>\n<C-k>\30<Cmd>TmuxNavigateDown<CR>\n<C-j>\30<Cmd>TmuxNavigateLeft<CR>\n<C-h>\6n\1\0\2\fnoremap\2\vsilent\2\20nvim_set_keymap\bapi'tmux_navigator_disable_when_zoomed\6g\bvim\0", "config", "vim-tmux-navigator")
+try_loadstring("\27LJ\2\nÝ\2\0\0\b\0\15\0!6\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\3\0009\0\4\0005\1\5\0\18\2\0\0'\4\6\0'\5\a\0'\6\b\0\18\a\1\0B\2\5\1\18\2\0\0'\4\6\0'\5\t\0'\6\n\0\18\a\1\0B\2\5\1\18\2\0\0'\4\6\0'\5\v\0'\6\f\0\18\a\1\0B\2\5\1\18\2\0\0'\4\6\0'\5\r\0'\6\14\0\18\a\1\0B\2\5\1K\0\1\0\31<CMD>TmuxNavigateRight<CR>\n<C-l>\28<CMD>TmuxNavigateUp<CR>\n<C-k>\30<CMD>TmuxNavigateDown<CR>\n<C-j>\30<CMD>TmuxNavigateLeft<CR>\n<C-h>\6n\1\0\2\fnoremap\2\vsilent\2\20nvim_set_keymap\bapi'tmux_navigator_disable_when_zoomed\6g\bvim\0", "config", "vim-tmux-navigator")
 time([[Config for vim-tmux-navigator]], false)
+-- Config for: vim-autoswap
+time([[Config for vim-autoswap]], true)
+try_loadstring("\27LJ\2\nk\0\0\2\0\6\0\r6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\1\0'\1\3\0=\1\4\0006\0\0\0009\0\1\0)\1\1\0=\1\5\0K\0\1\0\25autoswap_detect_tmux\16titlestring\aon\ntitle\6g\bvim\0", "config", "vim-autoswap")
+time([[Config for vim-autoswap]], false)
+-- Config for: FTerm.nvim
+time([[Config for FTerm.nvim]], true)
+try_loadstring("\27LJ\2\nQ\0\0\3\1\4\0\t6\0\0\0009\0\1\0009\0\2\0B\0\1\1-\0\0\0\18\2\0\0009\0\3\0B\0\2\1K\0\1\0\2À\vtoggle\25nvim_get_current_buf\bapi\bvimÕ\4\1\0\v\0\24\00015\0\0\0006\1\1\0'\3\2\0B\1\2\0029\1\3\0015\3\4\0=\0\5\3B\1\2\0016\1\1\0'\3\6\0B\1\2\2\18\4\1\0009\2\a\1B\2\2\2\18\5\2\0009\3\3\0025\6\b\0=\0\5\6B\3\3\0013\3\t\0007\3\n\0006\3\v\0009\3\f\0039\3\r\0035\4\14\0\18\5\3\0'\a\15\0'\b\16\0'\t\17\0\18\n\4\0B\5\5\1\18\5\3\0'\a\18\0'\b\16\0'\t\19\0\18\n\4\0B\5\5\1\18\5\3\0'\a\15\0'\b\20\0'\t\21\0\18\n\4\0B\5\5\0016\5\v\0009\5\22\5'\a\23\0B\5\2\0012\0\0€K\0\1\0000highlight VertSplit guibg=NONE ctermbg=NONE\bcmd <CMD>lua FTermLazyGit()<CR>\14<Leader>g5<C-\\><C-n><CMD>lua require(\"FTerm\").toggle()<CR>\6t+<CMD>lua require(\"FTerm\").toggle()<CR>\n<C-t>\6n\1\0\2\fnoremap\2\vsilent\2\20nvim_set_keymap\bapi\bvim\17FTermLazyGit\0\1\0\2\bcmd\flazygit\vborder\vsingle\bnew\19FTerm.terminal\15dimensions\1\0\1\vborder\vsingle\nsetup\nFTerm\frequire\1\0\4\6y\4\0€€€ÿ\3\nwidth\4Í™³æ\fÌ™³ÿ\3\vheight\4Í™³æ\fÌ™³ÿ\3\6x\4\0€€€ÿ\3\0", "config", "FTerm.nvim")
+time([[Config for FTerm.nvim]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 try_loadstring("\27LJ\2\n¼\5\0\0\b\0\24\00036\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\0016\0\0\0'\2\1\0B\0\2\0029\0\b\0'\2\5\0B\0\2\0016\0\t\0009\0\n\0009\0\v\0005\1\f\0\18\2\0\0'\4\r\0'\5\14\0'\6\15\0\18\a\1\0B\2\5\1\18\2\0\0'\4\r\0'\5\16\0'\6\17\0\18\a\1\0B\2\5\1\18\2\0\0'\4\r\0'\5\18\0'\6\19\0\18\a\1\0B\2\5\1\18\2\0\0'\4\r\0'\5\20\0'\6\21\0\18\a\1\0B\2\5\1\18\2\0\0'\4\r\0'\5\22\0'\6\23\0\18\a\1\0B\2\5\1K\0\1\0:<CMD>lua require('telescope.builtin').live_grep()<CR>\15<Leader>fl<<CMD>lua require('telescope.builtin').grep_string()<CR>\15<Leader>fs:<CMD>lua require('telescope.builtin').git_files()<CR>\15<Leader>fg8<CMD>lua require('telescope.builtin').buffers()<CR>\15<Leader>fb;<CMD>lua require('telescope.builtin').find_files()<CR>\15<Leader>ff\6n\1\0\2\fnoremap\2\vsilent\2\20nvim_set_keymap\bapi\bvim\19load_extension\15extensions\1\0\0\15fzy_native\1\0\0\1\0\2\28override_generic_sorter\1\25override_file_sorter\2\nsetup\14telescope\frequire\0", "config", "telescope.nvim")
 time([[Config for telescope.nvim]], false)
 if should_profile then save_profiles() end
 
-END
+end)
 
-catch
-  echohl ErrorMsg
-  echom "Error in packer_compiled: " .. v:exception
-  echom "Please check your config for correctness"
-  echohl None
-endtry
+if not no_errors then
+  vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
+end

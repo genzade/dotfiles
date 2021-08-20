@@ -51,7 +51,7 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_command [[augroup Format]]
     vim.api.nvim_command [[autocmd! * <buffer>]]
     vim.api
-      .nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 100)]]
+      .nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync(nil, 200)]]
     vim.api.nvim_command [[augroup END]]
   end
 end
@@ -76,6 +76,23 @@ local lua_settings = {
       },
     },
   },
+}
+
+local ruby_settings = {
+  cmd = { "solargraph", "stdio" },
+  filetypes = { "ruby" },
+  flags = { debounce_text_changes = 150 },
+  -- on_attach = function(_, _)
+  --   print("Attached to Solargraph")
+  -- end,
+  -- handlers = {
+  --   ["textDocument/publishDiagnostics"] = vim.lsp.with(
+  --     vim.lsp.diagnostic.on_publish_diagnostics, {
+  --       -- Disable virtual_text on file load
+  --       -- Show with vim.lsp.diagnostic.show_line_diagnostics()
+  --       virtual_text = false,
+  --     }),
+  -- },
 }
 
 -- config that activates keymaps and enables snippet support
@@ -105,7 +122,7 @@ local function install_servers()
     -- "python",
     "ruby",
     -- "tailwindcss",
-    -- "typescript",
+    "typescript",
     -- "vue",
     -- "yaml",
   }
@@ -136,6 +153,10 @@ local function setup_servers()
 
     if server == "efm" then
       config = vim.tbl_extend("force", config, require "lsp.efm-ls")
+    end
+
+    if server == "ruby" then
+      config.settings = ruby_settings
     end
 
     require"lspconfig"[server].setup(config)

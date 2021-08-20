@@ -1,1 +1,1 @@
-require("lsp.lspinstall")
+-- require("lsp.lspinstall")

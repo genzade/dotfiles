@@ -5,6 +5,7 @@ local opts = { noremap = true, silent = true }
 map("n", "<Space>", "<NOP>", opts)
 
 vim.g.mapleader = " "
+vim.g.loaded_ruby_provider = 0
 
 -- No more shift. one less keystroke
 map("n", ";", ":", { noremap = true })

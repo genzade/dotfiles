@@ -1,7 +1,8 @@
 local function config()
-  vim.g["test#strategy"] = "dispatch"
+  -- vim.g["test#strategy"] = "fterm"
+  -- vim.g["test#strategy"] = "dispatch"
+  vim.g["test#strategy"] = "neovim"
 
-  -- Keybinding
   local map = vim.api.nvim_set_keymap
   local opts = { noremap = true, silent = true }
 

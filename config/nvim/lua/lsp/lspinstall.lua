@@ -112,19 +112,19 @@ local function install_servers()
   local required_servers = {
     "bash",
     "efm",
-    -- "css",
-    -- "dockerfile",
+    "css",
+    "dockerfile",
     -- "elixir",
-    -- "go",
-    -- "html",
-    -- "json",
+    "go",
+    "html",
+    "json",
     "lua",
     -- "python",
     "ruby",
-    -- "tailwindcss",
+    "tailwindcss",
     "typescript",
-    -- "vue",
-    -- "yaml",
+    "vue",
+    "yaml",
   }
 
   local installed_servers = require"lspinstall".installed_servers()

@@ -3,6 +3,9 @@ return {
     -- require"plugins.config.lspconfig".setup(use)
     -- require"plugins.config.lspinstall".setup(use)
 
+    -- WIP
+    -- require"plugins.config.lsp".setup(use)
+
     require"plugins.config.barbar".setup(use)
     require"plugins.config.base16".setup(use)
     require"plugins.config.fterm".setup(use)

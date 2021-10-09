@@ -104,8 +104,21 @@ defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGes
 defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerDoubleTapGesture -int 1
 defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 3
 
-# Set mouse speed to very fast (min: 1.0, max: 5.0)
+# Set track speed to very fast (min: 1.0, max: 5.0)
 defaults write -g com.apple.trackpad.scaling 2.5
+
+# Set mouse speed to very fast (min: 1.0, max: 5.0)
+defaults write -g com.apple.mouse.scaling 4.5
+
+# Setting mouse Gesture
+defaults write com.apple.AppleMultitouchMouse MouseButtonDivision -int 55
+defaults write com.apple.AppleMultitouchMouse MouseButtonMode -string TwoButton
+defaults write com.apple.AppleMultitouchMouse MouseHorizontalScroll -int 1
+defaults write com.apple.AppleMultitouchMouse MouseMomentumScroll -int 1
+defaults write com.apple.AppleMultitouchMouse MouseOneFingerDoubleTapGesture -int 1
+defaults write com.apple.AppleMultitouchMouse MouseTwoFingerDoubleTapGesture -int 3
+defaults write com.apple.AppleMultitouchMouse MouseTwoFingerHorizSwipeGesture -int 2
+defaults write com.apple.AppleMultitouchMouse MouseVerticalScroll -int 1
 
 echo 'setting defaults for font smoothing'
 

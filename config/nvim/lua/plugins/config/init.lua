@@ -18,6 +18,7 @@ return {
     require"plugins.config.treesitter".setup(use)
     require"plugins.config.vim-autoswap".setup(use)
     require"plugins.config.vim-dispatch".setup(use)
+    require"plugins.config.vim-projectionist".setup(use)
     require"plugins.config.vim-test".setup(use)
     require"plugins.config.vim-tmux-navigator".setup(use)
   end,

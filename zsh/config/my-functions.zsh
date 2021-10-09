@@ -26,7 +26,9 @@ gbD() {
 }
 
 rbsme() {
-  git checkout master &&
+  local branch="${1:-main}"
+
+  git checkout "$branch" &&
     git pull &&
     git rev-parse HEAD | tr -d '\n' | pbcopy &&
     git checkout - &&

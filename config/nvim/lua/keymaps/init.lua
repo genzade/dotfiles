@@ -23,7 +23,7 @@ map("n", "<C-l>", "<C-w>l", opts)
 -- Tab navigation
 map("n", "tn", ":tabnext<CR>", opts)
 map("n", "tp", ":tabprevious<CR>", opts)
-map("n", "tN", ":tabnew<CR>", opts)
+map("n", "tN", ":tabnew ", { noremap = true, silent = false })
 map("n", "T", ":tabnew %<CR>", opts)
 
 -- copy filename to clipboard

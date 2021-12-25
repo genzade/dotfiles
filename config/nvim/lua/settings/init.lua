@@ -35,3 +35,4 @@ o.termguicolors = true
 
 -- fileformats           = "mac,unix,dos",
 
+o.cursorline = true

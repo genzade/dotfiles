@@ -1,3 +1,7 @@
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+map('n', '<Leader><CR>', ':source % | PackerCompile<CR>', opts)
+
 local function ensure_packer()
   local fn = vim.fn
   local install_path = DATA_PATH .. "/site/pack/packer/start/packer.nvim"

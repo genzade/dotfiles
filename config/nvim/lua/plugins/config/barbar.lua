@@ -5,7 +5,7 @@ local function config()
   -- Buffer navigation
   map("n", "<TAB>", "<CMD>BufferNext<CR>", opts)
   map("n", "<S-TAB>", "<CMD>BufferPrevious<CR>", opts)
-  map("n", "<C-x>", "<CMD>BufferClose<CR>", opts)
+  map("n", "<A-x>", "<CMD>BufferClose<CR>", opts)
 
   -- Bar Bar/NvimTree integration
   local tree = {}

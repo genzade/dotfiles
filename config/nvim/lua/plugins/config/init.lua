@@ -15,6 +15,7 @@ return {
     require"plugins.config.lualine".setup(use)
     require"plugins.config.nvim-tree".setup(use)
     require"plugins.config.overlength".setup(use)
+    require"plugins.config.snippets".setup(use)
     require"plugins.config.telescope".setup(use)
     require"plugins.config.treesitter".setup(use)
     require"plugins.config.vim-autoswap".setup(use)

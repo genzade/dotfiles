@@ -1,6 +1,6 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
-map('n', '<Leader><CR>', ':source % | PackerCompile<CR>', opts)
+map("n", "<Leader><CR>", ":source % | PackerCompile<CR>", opts)
 
 local function ensure_packer()
   local fn = vim.fn
@@ -15,11 +15,20 @@ local function ensure_packer()
 end
 
 local function packer_setup()
-  require("packer").startup(function(use)
-    use "wbthomason/packer.nvim"
+  require("packer").startup({
+    function(use)
+      use "wbthomason/packer.nvim"
 
-    require"plugins.config".setup(use)
-  end)
+      require"plugins.config".setup(use)
+    end,
+    config = {
+      display = {
+        open_fn = function()
+          return require("packer.util").float({ border = "single" })
+        end,
+      },
+    },
+  })
 end
 
 local function setup()

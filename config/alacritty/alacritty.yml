@@ -703,11 +703,14 @@ key_bindings:
   #- { key: Add,      mods: Control,                 action: IncreaseFontSize }
   #- { key: Subtract, mods: Control,                 action: DecreaseFontSize }
   #- { key: Minus,    mods: Control,                 action: DecreaseFontSize }
-  - { key: Key3,     mods: Alt,     chars: "#"                               }
+  - { key: Key3,      mods: Alt,       chars: "\x1b3"                       }
+
 
   # need to add more `Alt`s as i need them
   # see https://github.com/alacritty/alacritty/issues/62
-  - { key: X,        mods: Alt,     chars: "\x1bx"                           }
+  - { key: J,         mods: Alt,       chars: "\x1bj"                       }
+  - { key: K,         mods: Alt,       chars: "\x1bk"                       }
+  - { key: X,         mods: Alt,       chars: "\x1bx"                       }
 
   # (Windows only)
   #- { key: Return,   mods: Alt,           action: ToggleFullscreen }

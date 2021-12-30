@@ -8,6 +8,7 @@ return {
 
     require"plugins.config.barbar".setup(use)
     require"plugins.config.base16".setup(use)
+    require"plugins.config.colorizer".setup(use)
     require"plugins.config.completion".setup(use)
     require"plugins.config.formatter".setup(use)
     require"plugins.config.fterm".setup(use)

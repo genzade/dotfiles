@@ -32,23 +32,24 @@ local function lsp_installer_config()
     -- Mappings.
     local opts = { noremap = true, silent = true }
 
-    buf_set_keymap('n', 'gD', '<CMD>lua vim.lsp.buf.declaration()<CR>', opts)
-    buf_set_keymap('n', 'gd', '<CMD>lua vim.lsp.buf.definition()<CR>', opts)
-    buf_set_keymap('n', 'K', '<CMD>lua vim.lsp.buf.hover()<CR>', opts)
-    buf_set_keymap('n', 'gi', '<CMD>lua vim.lsp.buf.implementation()<CR>', opts)
-    buf_set_keymap('n', '<C-k>', '<CMD>lua vim.lsp.buf.signature_help()<CR>', opts)
-    buf_set_keymap('n', ',wa', '<CMD>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-    buf_set_keymap('n', ',wr', '<CMD>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-    buf_set_keymap('n', ',wl', '<CMD>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-    buf_set_keymap('n', ',D', '<CMD>lua vim.lsp.buf.type_definition()<CR>', opts)
-    buf_set_keymap('n', ',rn', '<CMD>lua vim.lsp.buf.rename()<CR>', opts)
-    buf_set_keymap('n', ',ca', '<CMD>lua vim.lsp.buf.code_action()<CR>', opts)
-    buf_set_keymap('n', 'gr', '<CMD>lua vim.lsp.buf.references()<CR>', opts)
-    buf_set_keymap('n', ',e', '<CMD>lua vim.diagnostic.open_float()<CR>', opts)
-    buf_set_keymap('n', '[d', '<CMD>lua vim.diagnostic.goto_prev()<CR>', opts)
-    buf_set_keymap('n', ']d', '<CMD>lua vim.diagnostic.goto_next()<CR>', opts)
-    buf_set_keymap('n', ',q', '<CMD>lua vim.diagnostic.setloclist()<CR>', opts)
-    buf_set_keymap('n', ',f', '<CMD>lua vim.lsp.buf.formatting()<CR>', opts)
+    buf_set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", opts)
+    buf_set_keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", opts)
+    buf_set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
+    buf_set_keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", opts)
+    buf_set_keymap("n", ",k", "<CMD>lua vim.lsp.buf.signature_help()<CR>", opts)
+    buf_set_keymap("n", ",wa", "<CMD>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
+    buf_set_keymap("n", ",wr", "<CMD>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
+    buf_set_keymap("n", ",wl",
+      "<CMD>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
+    buf_set_keymap("n", ",D", "<CMD>lua vim.lsp.buf.type_definition()<CR>", opts)
+    buf_set_keymap("n", ",rn", "<CMD>lua vim.lsp.buf.rename()<CR>", opts)
+    buf_set_keymap("n", ",ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
+    buf_set_keymap("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>", opts)
+    buf_set_keymap("n", ",e", "<CMD>lua vim.diagnostic.open_float()<CR>", opts)
+    buf_set_keymap("n", "[d", "<CMD>lua vim.diagnostic.goto_prev()<CR>", opts)
+    buf_set_keymap("n", "]d", "<CMD>lua vim.diagnostic.goto_next()<CR>", opts)
+    buf_set_keymap("n", ",q", "<CMD>lua vim.diagnostic.setloclist()<CR>", opts)
+    buf_set_keymap("n", ",f", "<CMD>lua vim.lsp.buf.formatting()<CR>", opts)
   end
 
   local lsp_installer_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
@@ -61,9 +62,9 @@ local function lsp_installer_config()
       icons = {
         server_installed = "✓",
         server_pending = "➜",
-        server_uninstalled = "✗"
-      }
-    }
+        server_uninstalled = "✗",
+      },
+    },
   })
 
   local function make_config()
@@ -73,9 +74,7 @@ local function lsp_installer_config()
     return {
       capabilities = capabilities,
       on_attach = on_attach,
-      flags = {
-        debounce_text_changes = 150,
-      }
+      flags = { debounce_text_changes = 150 },
     }
   end
 
@@ -104,7 +103,7 @@ local function lsp_installer_config()
   for _, name in pairs(servers) do
     local server_is_found, server = lsp_installer.get_server(name)
     if server_is_found then
-      server:on_ready(function ()
+      server:on_ready(function()
         local config = make_config()
 
         if server.name == "sumneko_lua" then

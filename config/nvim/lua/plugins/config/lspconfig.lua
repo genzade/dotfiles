@@ -68,8 +68,7 @@ local function lsp_installer_config()
 
   local function make_config()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-    -- come back here after installing cmp
-    -- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+    capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
     return {
       capabilities = capabilities,

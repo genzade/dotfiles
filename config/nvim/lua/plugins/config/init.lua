@@ -8,6 +8,7 @@ return {
 
     require"plugins.config.barbar".setup(use)
     require"plugins.config.base16".setup(use)
+    require"plugins.config.formatter".setup(use)
     require"plugins.config.fterm".setup(use)
     require"plugins.config.gitsigns".setup(use)
     require"plugins.config.kommentary".setup(use)

@@ -10,7 +10,6 @@ return {
     require"plugins.config.base16".setup(use)
     require"plugins.config.colorizer".setup(use)
     require"plugins.config.completion".setup(use)
-    require"plugins.config.formatter".setup(use)
     require"plugins.config.fterm".setup(use)
     require"plugins.config.gitsigns".setup(use)
     require"plugins.config.kommentary".setup(use)

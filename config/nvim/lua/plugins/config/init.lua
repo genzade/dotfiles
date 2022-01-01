@@ -15,6 +15,7 @@ return {
     require"plugins.config.gitsigns".setup(use)
     require"plugins.config.kommentary".setup(use)
     require"plugins.config.lualine".setup(use)
+    require"plugins.config.null-ls".setup(use)
     require"plugins.config.nvim-tree".setup(use)
     require"plugins.config.overlength".setup(use)
     require"plugins.config.snippets".setup(use)

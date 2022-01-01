@@ -82,7 +82,6 @@ local function config()
     sources = {
       -- Could enable this only for lua, but nvim_lua handles that already.
       { name = "nvim_lua" },
-
       { name = "nvim_lsp" },
       { name = "path" },
       { name = "luasnip" },
@@ -129,11 +128,11 @@ local function config()
       format = lspkind.cmp_format {
         with_text = true,
         menu = {
-          buffer = "[BUF]",
           nvim_lsp = "[LSP]",
           luasnip = "[SNIP]",
           nvim_lua = "[API]",
           path = "[PATH]",
+          buffer = "[BUF]",
         },
       },
     },
@@ -144,6 +143,11 @@ local function config()
 
       -- Let's play with this for a day or two
       ghost_text = true,
+    },
+
+    documentation = {
+      border = "rounded",
+      winhighlight = "FloatBorder:FloatBorder,Normal:Normal",
     },
   }
 
@@ -159,6 +163,7 @@ local function config()
     }),
   })
 
+  -- shout out to Telescopic Johnson
 end
 
 return {

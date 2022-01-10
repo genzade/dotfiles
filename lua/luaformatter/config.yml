@@ -14,14 +14,14 @@ keep_simple_control_block_one_line: false
 
 keep_simple_function_one_line: false
 
-align_args: false
+# align_args: false
+align_args: true
 
-# break_after_functioncall_lp: true
+break_after_functioncall_lp: true
+break_before_functioncall_rp: true
 
-# break_before_functioncall_rp: true
-
-break_after_functioncall_lp: false
-break_before_functioncall_rp: false
+# break_after_functioncall_lp: false
+# break_before_functioncall_rp: false
 
 align_parameter: true
 
@@ -45,7 +45,7 @@ table_sep: ","
 
 extra_sep_at_table_end: true
 
-column_table_limit: *1
+column_table_limit: 70
 
 break_after_operator: true
 

@@ -4,7 +4,7 @@ local function config()
     return
   end
 
-  colorizer.setup()
+  colorizer.setup({ "*", css = { rgb_fn = true } })
 end
 
 return {

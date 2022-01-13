@@ -8,6 +8,7 @@ return {
     require"plugins.config.completion".setup(use)
     require"plugins.config.fterm".setup(use)
     require"plugins.config.gitsigns".setup(use)
+    require"plugins.config.indent-blankline".setup(use)
     require"plugins.config.kommentary".setup(use)
     require"plugins.config.lualine".setup(use)
     require"plugins.config.null-ls".setup(use)

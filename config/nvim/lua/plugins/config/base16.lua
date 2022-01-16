@@ -1,39 +1,48 @@
 local function config()
+  local has_fwatch, fwatch = pcall(require, "fwatch")
+  if not has_fwatch then
+    return
+  end
+
   local Path = require("plenary.path")
   local vimrc_bg_file = Path:new({ HOME, ".vimrc_background" })
 
   if vimrc_bg_file:exists() then
     vim.cmd([[source ]] .. vimrc_bg_file.filename)
 
-    -- watch for changes
-    local watcher = vim.loop.new_fs_event()
+    fwatch.watch(
+      vimrc_bg_file.filename, {
+        on_event = vim.schedule_wrap(
+          function(_, events, unwatch)
+            if events.change then
+              vim.cmd([[source ]] .. vimrc_bg_file.filename)
+              vim.cmd([[PackerCompile]])
+            end
 
-    -- local function on_change(err, fname, status)
-    local function on_change(_, _, _)
-      vim.cmd([[source ]] .. vimrc_bg_file.filename)
-    end
-
-    local function watch_file(fname)
-      local call_fn = vim.api.nvim_call_function
-      local fullpath = call_fn("fnamemodify", { fname, ":p" })
-
-      watcher:start(
-        fullpath, {}, vim.schedule_wrap(
-          function(...)
-            on_change(...)
+            unwatch()
           end
-        )
-      )
-    end
-
-    watch_file(vimrc_bg_file.filename)
+        ),
+      }
+    )
   else
-    vim.cmd([[colorscheme base16-gruvbox-dark-soft]])
+    vim.cmd([[colorscheme base16_default-dark]])
   end
 
   vim.cmd([[hi LineNr guibg=none]])
   vim.cmd([[hi CursorLineNr guibg=none guifg=#98c379 gui=bold]])
   vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
+
+  -- example of how to ovverride any colorus, below shows how to ovverride
+  -- some highlight groups
+  -- (see https://github.com/RRethy/nvim-base16/blob/b1b9fe2c91/lua/base16-colorscheme.lua)
+  -- local has_colors, colorscheme = pcall(require, "base16-colorscheme")
+  -- if not has_colors then
+  --   return
+  -- end
+  -- local hi = colorscheme.highlight
+  -- hi.StatusLineFileModified = { guibg = "#555965", guifg = "#00aa00" }
+  -- hi.StatusLineFileReadonly = { guibg = "#555965", guifg = "#ffa003" }
+  -- hi.StatusLineFileRestricted = { guibg = "#555965", guifg = "#dc322f" }
 end
 
 return {

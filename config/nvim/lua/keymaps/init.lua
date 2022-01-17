@@ -26,5 +26,10 @@ map("n", "tp", ":tabprevious<CR>", opts)
 map("n", "tN", ":tabnew ", { noremap = true, silent = false })
 map("n", "T", ":tabnew %<CR>", opts)
 
--- copy filename to clipboard
+-- copy filename to clipboard. TODO: refactor
 map("n", "cp", ":let @*=expand('%')<CR>", opts)
+
+-- keep cursor position centred
+map("n", "n", "nzzzv", opts)
+map("n", "N", "Nzzzv", opts)
+map("n", "J", "mzJ`z", opts)

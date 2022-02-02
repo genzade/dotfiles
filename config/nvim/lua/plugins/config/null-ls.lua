@@ -18,7 +18,6 @@ local function config()
             extra_args = { "--quote-props preserve", "--parser json5" },
           }
         ),
-        formatting.rubocop,
         formatting.shfmt.with(
           {
             extra_args = {

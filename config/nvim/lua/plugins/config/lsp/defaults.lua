@@ -68,7 +68,7 @@ M.on_attach = function(client, bufnr)
   buf_map("n", ",f", "<CMD>lua vim.lsp.buf.formatting()<CR>", opts)
 
   -- let null-ls handle formatting for these languages
-  local servers = { "bashls", "solargraph", "tsserver" }
+  local servers = { "bashls", "tsserver" }
   for _, server_name in ipairs(servers) do
     if client.name == server_name then
       client.resolved_capabilities.document_formatting = false

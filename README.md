@@ -1,4 +1,4 @@
-# *dotfiles* 
+# _dotfiles_
 
 Repository containing all the automation and dotfiles required to setup my MacOS machine after a fresh install.
 
@@ -11,6 +11,4 @@ Repository containing all the automation and dotfiles required to setup my MacOS
 - tmux
   - tpm
 
-See `install.sh` to get an overview of the installation of my current setup on `MacOS`.
-
-### TODO
+See [install.sh](./install.sh) to get an overview of the installation of my current setup on `MacOS`.

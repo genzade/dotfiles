@@ -6,10 +6,11 @@ function NvimTreeSmartToggle()
   end
 
   -- TODO: refactor this, barbar plugin is using the same open/close functions
-  local open_current_file_in_tree = function()
-    buffline_state.set_offset(31, "FileTree")
-    nvim_tree.find_file(true)
-  end
+  local open_current_file_in_tree =
+    function()
+      buffline_state.set_offset(31, "FileTree")
+      nvim_tree.find_file(true)
+    end
 
   local close_nvim_tree = function()
     buffline_state.set_offset(0)
@@ -78,7 +79,11 @@ local function config()
     return
   end
 
-  nvim_tree.setup { disable_netrw = true, hijack_netrw = true }
+  nvim_tree.setup {
+    disable_netrw = true,
+    hijack_netrw = true,
+    view = { width = 50 },
+  }
 end
 
 return {

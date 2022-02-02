@@ -1,12 +1,12 @@
 vim.cmd(
   [[
-    highlight GitSignsAdd guifg=green ctermbg=none
-    highlight GitSignsChange guifg=yellow ctermbg=none
-    highlight GitSignsDelete guifg=red ctermbg=none
+    highlight SignColumn guibg=NONE ctermbg=NONE
+    highlight GitSignsAdd guifg=green ctermbg=NONE
+    highlight GitSignsChange guifg=yellow ctermbg=NONE
+    highlight GitSignsDelete guifg=red ctermbg=NONE
     highlight VertSplit guibg=NONE ctermbg=NONE
   ]]
 )
--- vim.cmd("highlight clear SignColumn guibg=none ctermbg=none")
 
 local function config()
   local has_gitsigns, gitsigns = pcall(require, "gitsigns")
@@ -50,6 +50,7 @@ local function config()
           linehl = "GitSignsChangeLn",
         },
       },
+      -- TODO: [WARN  22:50:32] display.lua:552: Potential breaking change in commit 58e5d6d of lewis6991/gitsigns.nvim
       -- numhl = false,
       -- linehl = false,
       keymaps = {
@@ -71,7 +72,7 @@ local function config()
         -- ["n <leader>hr"] = "<cmd>lua require\"gitsigns\".reset_hunk()<CR>",
         -- ["n <leader>hR"] = "<cmd>lua require\"gitsigns\".reset_buffer()<CR>",
         -- ["n <leader>hp"] = "<cmd>lua require\"gitsigns\".preview_hunk()<CR>",
-        ["n <leader>b"] = "<cmd>lua require\"gitsigns\".blame_line(true)<CR>",
+        ["n <leader>b"] = "<cmd>lua require\"gitsigns\".blame_line{ full = true }<CR>",
 
         -- -- Text objects
         -- ["o ih"] = ":<C-U>lua require\"gitsigns\".select_hunk()<CR>",

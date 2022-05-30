@@ -7,7 +7,11 @@ osascript -e 'tell application "System Preferences" to quit'
 sudo -v
 
 # Update existing `sudo` time stamp until `osx-defaults.sh` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do
+   sudo -n true
+  sleep 60
+  kill -0 "$$" || exit
+done 2> /dev/null &
 
 echo 'setting defaults for the dock'
 
@@ -61,7 +65,10 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 echo 'setting defaults for the menubar'
 
 # Set menubar digital clock format
-defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  j:mm a";
+defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  j:mm a"
+
+# Auto-hide the menu bar
+defaults write NSGlobalDomain _HIHideMenuBar -bool true
 
 killall SystemUIServer
 
@@ -120,9 +127,19 @@ defaults write com.apple.AppleMultitouchMouse MouseTwoFingerDoubleTapGesture -in
 defaults write com.apple.AppleMultitouchMouse MouseTwoFingerHorizSwipeGesture -int 2
 defaults write com.apple.AppleMultitouchMouse MouseVerticalScroll -int 1
 
+# Fade transition between workspaces instead of using movement.
+# defaults write com.apple.Accessibility ReduceMotionEnabled -bool true
+defaults write com.apple.universalaccess reduceMotion -bool true
+# defaults write com.apple.universalaccess reduceMotion -int 1
+
+# Disable Airplay Receiver to free up port 5000 used in development
+defaults -currentHost write com.apple.controlcenter AirplayRecieverEnabled -int 0
+
 echo 'setting defaults for font smoothing'
 
 # Font Smoothing
 defaults -currentHost delete -globalDomain AppleFontSmoothing
 defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
 defaults -currentHost write -globalDomain AppleFontSmoothing -int 2
+
+echo "Done. Note that some of these changes require a logout/restart to take effect."

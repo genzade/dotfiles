@@ -27,13 +27,6 @@ set-option -g message-style fg=colour232
 set-option -g message-style bg=colour28
 set-option -g message-command-style fg=colour46
 
-# statusbar
-set-option -g status-style bg=colour234
-set-option -g status-style fg=colour137
-set-option -g status-style dim
-set-option -g status-right-length 50
-set-option -g status-left-length 20
-
 # misc
 set-option -s escape-time 0
 

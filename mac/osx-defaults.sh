@@ -142,4 +142,6 @@ defaults -currentHost delete -globalDomain AppleFontSmoothing
 defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
 defaults -currentHost write -globalDomain AppleFontSmoothing -int 2
 
+defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
+
 echo "Done. Note that some of these changes require a logout/restart to take effect."

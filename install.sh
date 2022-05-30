@@ -4,14 +4,6 @@ set -e
 
 DOTFILES_ROOT="$HOME/dotfiles"
 
-setup_osx() {
-  if [ "$(uname -s)" == "Darwin" ]; then
-    echo -e "\n\nRunning on OSX"
-
-    "$DOTFILES_ROOT"/mac/osx-defaults.sh
-  fi
-}
-
 setup_homebrew() {
   which brew \
     || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -199,6 +191,28 @@ setup_tmux() {
   fi
 }
 
+
+setup_osx() {
+  if [ "$(uname -s)" == "Darwin" ]; then
+    echo -e "\n\nRunning on OSX"
+
+    "$DOTFILES_ROOT"/mac/osx-defaults.sh
+  fi
+}
+
+setup_hammerspoon() {
+  HAMMERSPOON_PATH="$HOME/.config/hammerspoon"
+
+  if [ -L "$HAMMERSPOON_PATH" ]; then
+    if [ -d "$HAMMERSPOON_PATH" ]; then
+      echo  "symlink exists: NOT linking to $HAMMERSPOON_PATH"
+    fi
+  else
+    ln -s "$DOTFILES_ROOT"/config/hammerspoon "$HOME"/.config
+    echo "linked $DOTFILES_ROOT/config/hammerspoon to $HAMMERSPOON_PATH"
+  fi
+}
+
 setup_homebrew
 setup_karabiner
 setup_git
@@ -209,4 +223,5 @@ setup_asdf
 setup_base16
 setup_neovim
 setup_tmux
+setup_hammerspoon
 setup_osx

@@ -39,6 +39,29 @@ local function config()
     require("telescope.builtin").current_buffer_fuzzy_find(theme)
   end
 
+  function GrepStringVisual()
+    local visual_selection = function()
+      -- Get visually selected text
+      vim.cmd("noau normal! \"vy\"")
+
+      local text = vim.fn.getreg("v")
+
+      vim.fn.setreg("v", {})
+
+      text = string.gsub(text, "\n", "")
+
+      if string.len(text) == 0 then
+        text = nil
+      end
+
+      return text
+    end
+
+    require("telescope.builtin").grep_string(
+      { search = visual_selection() }
+    )
+  end
+
   map(
     "n", "<Leader>ff",
     "<CMD>lua require('telescope.builtin').find_files()<CR>", opts
@@ -55,6 +78,7 @@ local function config()
     "n", "<Leader>fs",
     "<CMD>lua require('telescope.builtin').grep_string()<CR>", opts
   )
+  map("x", "<Leader>fs", "<CMD>lua GrepStringVisual()<CR>", opts)
   map(
     "n", "<Leader>fl",
     "<CMD>lua require('telescope.builtin').live_grep()<CR>", opts

@@ -783,6 +783,7 @@ key_bindings:
   # see https://github.com/alacritty/alacritty/issues/62
   - { key: J, mods: Alt, chars: "\x1bj" }
   - { key: K, mods: Alt, chars: "\x1bk" }
+  - { key: U, mods: Alt, chars: "\x1bu" }
   - { key: X, mods: Alt, chars: "\x1bx" }
 
   # (Windows only)

@@ -14,7 +14,7 @@ return {
     require"plugins.config.lualine".setup(use)
     require"plugins.config.markdown-preview".setup(use)
     require"plugins.config.null-ls".setup(use)
-    require"plugins.config.nvim-tree".setup(use)
+    -- require"plugins/config/nvim-tree".setup(use)
     require"plugins.config.nvim-autopairs".setup(use)
     require"plugins.config.overlength".setup(use)
     require"plugins.config.snippets".setup(use)

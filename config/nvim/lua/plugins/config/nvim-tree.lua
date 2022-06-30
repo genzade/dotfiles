@@ -1,20 +1,25 @@
+DEFAULT_OFFSET = 50
+
+local nvim_tree_status_ok, nvim_tree = pcall(require, "nvim-tree")
+if not nvim_tree_status_ok then
+  print("nvim tree not ok ..................................")
+  return
+end
+
 function NvimTreeSmartToggle()
   local buffline_state = require("bufferline.state")
-  local nvim_tree_status_ok, nvim_tree = pcall(require, "nvim-tree")
-  if not nvim_tree_status_ok then
-    return
-  end
 
   -- TODO: refactor this, barbar plugin is using the same open/close functions
   local open_current_file_in_tree =
     function()
-      buffline_state.set_offset(31, "FileTree")
+      buffline_state.set_offset(DEFAULT_OFFSET, "FileTree")
       nvim_tree.find_file(true)
     end
 
   local close_nvim_tree = function()
     buffline_state.set_offset(0)
     nvim_tree.close()
+    -- vim.cmd("NvimTreeClose")
   end
 
   local view = require("nvim-tree.view")
@@ -23,7 +28,7 @@ function NvimTreeSmartToggle()
     close_nvim_tree()
   else
     if vim.fn.expand("%") == "" then
-      buffline_state.set_offset(31, "FileTree")
+      buffline_state.set_offset(DEFAULT_OFFSET, "FileTree")
       nvim_tree.open()
     else
       open_current_file_in_tree()
@@ -74,15 +79,11 @@ local function config()
             warning = "" },
   }
 
-  local nvim_tree_status_ok, nvim_tree = pcall(require, "nvim-tree")
-  if not nvim_tree_status_ok then
-    return
-  end
-
   nvim_tree.setup {
     disable_netrw = true,
     hijack_netrw = true,
-    view = { width = 50 },
+    view = { width = DEFAULT_OFFSET },
+    auto_close = true,
   }
 end
 
@@ -90,8 +91,12 @@ return {
   setup = function(use)
     use {
       "kyazdani42/nvim-tree.lua",
+      -- commit = "dc5eae65123c41908139cf6f095a062760604414",
       requires = { "kyazdani42/nvim-web-devicons", opt = true },
       config = config,
+      -- config = function()
+      --   require"nvim-tree".setup {}
+      -- end,
     }
   end,
 }

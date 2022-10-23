@@ -40,7 +40,6 @@ HISTFILE=$HOME/.zsh_history
 # zstyle ':completion:*:default' list-colors "${(s.:.)LS_COLORS}"
 # zstyle ':completion:*' menu select
 
-
 # PLUGINS
 
 # shellcheck disable=SC1094
@@ -71,7 +70,7 @@ zinit light jeffreytse/zsh-vi-mode
 zinit ice lucid wait
 zinit snippet OMZP::fzf
 
-# zsh completion 
+# zsh completion
 zinit light zsh-users/zsh-completions
 
 # PLUGINS
@@ -125,9 +124,9 @@ autoload -Uz compinit && compinit
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-  [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-    eval "$("$BASE16_SHELL/profile_helper.sh")"
+[ -n "$PS1" ] \
+  && [ -s "$BASE16_SHELL/profile_helper.sh" ] \
+    && source "$BASE16_SHELL/profile_helper.sh"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 

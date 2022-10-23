@@ -88,6 +88,17 @@ local function config()
     "<CMD>lua require('telescope.builtin').help_tags()<CR>", opts
   )
 
+  map(
+    "n", "<Leader>fr",
+    "<CMD>lua require('telescope.builtin').registers()<CR>", opts
+  )
+
+  map(
+    "n", "<Leader>fC",
+    "<CMD>lua require('telescope.builtin').command_history()<CR>",
+    opts
+  )
+
   map("n", "<Leader>fc", "<CMD>lua CurrentBufferFuzzyFind()<CR>", opts)
 end
 

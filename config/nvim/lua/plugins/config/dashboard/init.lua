@@ -1,6 +1,6 @@
 local function config()
   local g = vim.g
-  local headers = require"plugins.config.dashboard.headers".headers
+  local headers = require("plugins.config.dashboard.headers").headers
 
   -- give me a random header everytime
   g.dashboard_custom_header = headers[math.random(#headers)]

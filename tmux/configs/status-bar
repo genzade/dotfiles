@@ -76,7 +76,7 @@ set-option -g status-right "#{battery_color_charge_fg}#{battery_color_charge_
 set-option -ga status-right "#[fg=$RIGHT_BG1]#[fg=$RIGHT_BG1,bg=$RIGHT_BG1]"
 set-option -ga status-right "#[fg=$RIGHT_BG1,bg=$RIGHT_BG1]#[fg=$RIGHT_FG2,bg=$RIGHT_BG1]"
 
-set-option -ga status-right "🕰  #(date +%%d-%%m-%%y) #(date +%%H:%%M) (#(TZ='UTC' date +%%H:%%M)) "
+set-option -ga status-right "🕰  #(date +%%d-%%m-%%y) #(date +%%H:%%M) (#(TZ='GMT' date +%%H:%%M)) "
 # set-option -ga status-right "#[fg=$RIGHT_BG3,bg=$RIGHT_BG1]#[fg=$RIGHT_FG3,bg=$RIGHT_BG3] #(whoami) "
 set-option -ga status-right "#[fg=$RIGHT_BG3,bg=$RIGHT_BG1]#[fg=$RIGHT_FG3,bg=$RIGHT_BG3] #(whoami) "
 set-option -ga status-right "#[fg=$RIGHT_FS3,bg=$RIGHT_BG3]🖥 #[fg=$RIGHT_FG3,bg=$RIGHT_BG3] #h "

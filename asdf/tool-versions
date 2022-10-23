@@ -3,3 +3,4 @@ python 3.9.5
 ruby 2.7.3
 golang 1.17.5
 yarn 1.22.10
+kubectl 1.21.9

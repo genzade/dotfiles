@@ -23,6 +23,8 @@ map("n", "<C-l>", "<C-w>l", opts)
 -- Tab navigation
 map("n", "tn", ":tabnext<CR>", opts)
 map("n", "tp", ":tabprevious<CR>", opts)
+map("n", "tl", ":tablast<CR>", opts)
+map("n", "tf", ":tabfirst<CR>", opts)
 map("n", "tN", ":tabnew ", { noremap = true, silent = false })
 map("n", "T", ":tabnew %<CR>", opts)
 
@@ -33,3 +35,6 @@ map("n", "cp", ":let @*=expand('%')<CR>", opts)
 map("n", "n", "nzzzv", opts)
 map("n", "N", "Nzzzv", opts)
 map("n", "J", "mzJ`z", opts)
+
+-- see this when adding impatient
+-- https://github.com/s1n7ax/dotnvim/blob/main/init.lua

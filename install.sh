@@ -65,21 +65,37 @@ setup_alacritty() {
 
   ALACRITTY_CONFIG_DIR=$HOME/.config/alacritty
 
-  if ! (toe | grep -q alacritty); then
-    echo "terminfo not installed"
-
+  if [ ! -e "/Applications/Alacritty.app" ]; then
     ALACRITTY_CLONE=$HOME/alacritty
 
-    # clone
+    if ! command -v cargo &> /dev/null ; then
+      curl https://sh.rustup.rs -sSf | sh -s -- -y
+      # shellcheck disable=1091
+      source "$HOME/.cargo/env"
+    fi
+
     git clone https://github.com/alacritty/alacritty.git "$ALACRITTY_CLONE"
+
     cd "$ALACRITTY_CLONE"
 
-    sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
+    "$HOME"/.cargo/bin/rustup override set stable
+    "$HOME"/.cargo/bin/rustup update stable
+    "$HOME"/.cargo/bin/cargo build --release
+
+    make app
+
+    cp -r target/release/osx/Alacritty.app /Applications/
+
+    if ! (toe | grep -q alacritty); then
+      echo "terminfo not installed"
+
+      sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
+    else
+      echo "alacritty terminfo already added"
+    fi
 
     cd ..
     rm -rf "$ALACRITTY_CLONE"
-  else
-    echo "alacritty terminfo already added"
   fi
 
   if [ -L "$ALACRITTY_CONFIG_DIR" ]; then

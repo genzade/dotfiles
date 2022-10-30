@@ -8,6 +8,14 @@ setup_homebrew() {
   which brew \
     || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
+  if [[ $(uname -p) == 'arm' ]]; then # M1 macOS
+    if ! grep -q '/opt/homebrew/bin/brew shellenv' "$HOME/.zprofile" ; then
+      # shellcheck disable=2016
+      echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.zprofile"
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
+  fi
+
   brew update
   brew cleanup
   brew bundle install --file="$DOTFILES_ROOT/mac/Brewfile"

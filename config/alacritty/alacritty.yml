@@ -19,8 +19,8 @@ env:
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
   # TERM: xterm-256color
-  TERM: alacritty
-
+  # TERM: alacritty
+  TERM: screen-256color
 window:
   # Window dimensions (changes require restart)
   #
@@ -70,6 +70,12 @@ window:
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
   startup_mode: Maximized
+
+
+  # Window opacity as a floating point number from `0.0` to `1.0`.
+  # The value `0.0` is completely transparent and `1.0` is opaque.
+  # background_opacity: 0.97
+  opacity: 0.95
 
 #   Window title
 #   title: Alacritty
@@ -387,11 +393,6 @@ draw_bold_text_with_bright_colors: true
 #   command: None
 
 # Background opacity
-
-# Window opacity as a floating point number from `0.0` to `1.0`.
-# The value `0.0` is completely transparent and `1.0` is opaque.
-# background_opacity: 0.97
-background_opacity: 0.95
 
 # selection:
 #   This string contains all characters that are used as separators for "semantic words" in Alacritty.

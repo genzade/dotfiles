@@ -1,7 +1,5 @@
-require("globals")
-require("keymaps")
-require("settings")
+local modules = { "core", "packer" }
 
--- require("lsp")
-
-require"plugins".setup()
+for _, module in ipairs(modules) do
+  require("genzade" .. "." .. module).setup()
+end

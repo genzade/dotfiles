@@ -30,4 +30,7 @@ set-option -g message-command-style fg=colour46
 # misc
 set-option -s escape-time 0
 
+# for neovim
+set-option -sg escape-time 10
+
 # vim:ft=tmux

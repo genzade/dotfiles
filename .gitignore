@@ -3,3 +3,4 @@ brews.txt
 startup.report
 tempfile.tmux
 Brewfile.lock.json
+config/nvim/plugin/packer_compiled.lua

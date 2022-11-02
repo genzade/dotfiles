@@ -42,8 +42,12 @@ HISTFILE=$HOME/.zsh_history
 
 # PLUGINS
 
-# shellcheck disable=SC1094
-source /usr/local/opt/zinit/zinit.zsh
+if [[ $(uname -p) == 'arm' ]]; then # M1 macOS
+  source /opt/homebrew/opt/zinit/zinit.zsh
+else
+  # shellcheck disable=SC1094
+  source /usr/local/opt/zinit/zinit.zsh
+fi
 
 ## Install zinit if have not
 # type zinit >/dev/null 2>&1 || \

@@ -27,6 +27,8 @@ gbD() {
 
 rbsme() {
   local branch="${1:-main}"
+  # TODO: consider changing to this
+  # local branch="$(git branch -rl '*/HEAD' | awk -F/ '{print $NF}')"
 
   git checkout "$branch" &&
     git pull &&

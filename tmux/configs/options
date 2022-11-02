@@ -3,8 +3,8 @@ set-option -g history-limit 3000
 
 # allow xterm color scheme in tmux
 # set-option -g default-terminal "tmux-256color"
-set-option -g default-terminal "screen-256color"
-# set-option -g default-terminal "xterm-256color"
+# set-option -g default-terminal "screen-256color"
+set-option -g default-terminal "xterm-256color"
 
 # https://jdhao.github.io/2018/10/19/tmux_nvim_true_color/
 # If terminal supports true color, use the following options
@@ -29,5 +29,10 @@ set-option -g message-command-style fg=colour46
 
 # misc
 set-option -s escape-time 0
+
+# As of version 3.3 the passthrough of escape sequences is turned off by default,
+# this broke base16
+# set-option -g allow-passthrough 1
+set-option -g allow-passthrough on
 
 # vim:ft=tmux

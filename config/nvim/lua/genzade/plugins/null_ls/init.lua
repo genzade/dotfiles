@@ -10,6 +10,8 @@ local config = function()
   local diagnostics = nls.builtins.diagnostics
   local formatting = nls.builtins.formatting
   local command_resolver = require("null-ls.helpers.command_resolver")
+  local on_attach =
+  require("genzade.plugins.lspconfig.defaults").on_attach
 
   nls.setup(
     {
@@ -24,7 +26,7 @@ local config = function()
         ),
         diagnostics.markdownlint,
         diagnostics.hadolint, -- for docker
-        diagnostics.rubocop,
+        -- diagnostics.rubocop, -- diagnostics are appearing twice
         diagnostics.yamllint,
         diagnostics.shellcheck,
         formatting.lua_format.with(
@@ -53,6 +55,7 @@ local config = function()
         formatting.stylelint,
         formatting.terraform_fmt,
       },
+      on_attach = on_attach,
     }
   )
 end

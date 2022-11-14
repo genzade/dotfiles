@@ -73,7 +73,12 @@ local config = function()
           r = { tbuiltin.registers, "Search registers" },
           s = { tbuiltin.grep_string, "Find word under cursor" },
           p = { tbuiltin.neoclip, "Search yank registers" },
-          n = { "<CMD>Telescope notify<CR>", "Search notification" },
+          n = {
+            function()
+              telescope.extensions.notify.notify()
+            end,
+            "Search notification",
+          },
         },
       },
     }, { mode = "n" }
@@ -125,6 +130,7 @@ return {
     { "nvim-lua/plenary.nvim" },
     { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
     { "folke/which-key.nvim" },
+    { "rcarriga/nvim-notify" },
   },
   event = "VimEnter",
   config = config,

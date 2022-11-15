@@ -20,6 +20,8 @@ set-option -g pane-border-style bg=colour235
 set-option -g pane-border-style fg=colour238
 set-option -g pane-active-border-style bg=colour236
 set-option -g pane-active-border-style fg=colour51
+# Start windows and panes at 1, not 0
+set-option -g base-index 1
 
 # messages
 set-option -g message-style bold

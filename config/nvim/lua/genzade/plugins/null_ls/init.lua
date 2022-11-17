@@ -4,7 +4,7 @@ local config = function()
     return
   end
 
-  local lua_fmt_file = CONFIG_PATH .. "/luaformatter.yml"
+  local stylua_fmt_file = CONFIG_PATH .. "/stylua.toml"
   local code_actions = nls.builtins.code_actions
   local completion = nls.builtins.completion
   local diagnostics = nls.builtins.diagnostics
@@ -29,8 +29,10 @@ local config = function()
         -- diagnostics.rubocop, -- diagnostics are appearing twice
         diagnostics.yamllint,
         diagnostics.shellcheck,
-        formatting.lua_format.with(
-          { extra_args = { "--in-place", "--config=" .. lua_fmt_file } }
+        formatting.stylua.with(
+          {
+            extra_args = { "--config-path", vim.fn.expand(stylua_config) },
+          }
         ),
         formatting.prettier.with(
           {

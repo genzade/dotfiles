@@ -1,5 +1,5 @@
 local config = function()
-  local ok, neoclip = pcall(require, "neoclip")
+  local ok, neoclip = pcall(require, 'neoclip')
   if not ok then
     return
   end
@@ -8,7 +8,7 @@ local config = function()
 end
 
 return {
-  "AckslD/nvim-neoclip.lua",
-  requires = { { "nvim-telescope/telescope.nvim" } },
+  'AckslD/nvim-neoclip.lua',
+  requires = { { 'nvim-telescope/telescope.nvim' } },
   config = config,
 }

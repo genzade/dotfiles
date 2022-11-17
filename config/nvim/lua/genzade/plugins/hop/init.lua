@@ -1,60 +1,51 @@
 local config = function()
-  local hop_ok, hop = pcall(require, "hop")
+  local hop_ok, hop = pcall(require, 'hop')
   if not hop_ok then
     return
   end
 
-  hop.setup({ keys = "etovxqpdygfblzhckisuran" })
+  hop.setup({ keys = 'etovxqpdygfblzhckisuran' })
 
-  local which_key_ok, which_key = pcall(require, "which-key")
+  local which_key_ok, which_key = pcall(require, 'which-key')
   if not which_key_ok then
     return
   end
 
-  which_key.register(
-    {
-      ["<Leader>"] = {
-        s = {
-          name = "+Hop",
-          l = { "<CMD>HopWordCurrentLine<CR>", "Hop line" },
-          L = { "<CMD>HopAnywhereCurrentLine<CR>",
-                "Hop anywhere line" },
-          s = { "<CMD>HopWord<CR>", "Hop window" },
-          S = { "<CMD>HopAnywhere<CR>", "Hop anywhere window" },
-        },
+  which_key.register({
+    ['<Leader>'] = {
+      s = {
+        name = '+Hop',
+        l = { '<CMD>HopWordCurrentLine<CR>', 'Hop line' },
+        L = { '<CMD>HopAnywhereCurrentLine<CR>', 'Hop anywhere line' },
+        s = { '<CMD>HopWord<CR>', 'Hop window' },
+        S = { '<CMD>HopAnywhere<CR>', 'Hop anywhere window' },
       },
-    }, { mode = "n" }
-  )
+    },
+  }, { mode = 'n' })
 
-  which_key.register(
-    {
-      ["<Leader>"] = {
-        s = {
-          name = "+Hop",
-          l = { "<CMD>HopWordCurrentLine<CR>", "Hop line" },
-          L = { "<CMD>HopAnywhereCurrentLine<CR>",
-                "Hop anywhere line" },
-          s = { "<CMD>HopWord<CR>", "Hop window" },
-          S = { "<CMD>HopAnywhere<CR>", "Hop anywhere window" },
-        },
+  which_key.register({
+    ['<Leader>'] = {
+      s = {
+        name = '+Hop',
+        l = { '<CMD>HopWordCurrentLine<CR>', 'Hop line' },
+        L = { '<CMD>HopAnywhereCurrentLine<CR>', 'Hop anywhere line' },
+        s = { '<CMD>HopWord<CR>', 'Hop window' },
+        S = { '<CMD>HopAnywhere<CR>', 'Hop anywhere window' },
       },
-    }, { mode = "v" }
-  )
+    },
+  }, { mode = 'v' })
 
-  which_key.register(
-    {
-      ["<Leader>"] = {
-        s = {
-          name = "+Hop",
-          l = { "<CMD>HopWordCurrentLine<CR>", "Hop line" },
-          L = { "<CMD>HopAnywhereCurrentLine<CR>",
-                "Hop anywhere line" },
-          s = { "<CMD>HopWord<CR>", "Hop window" },
-          S = { "<CMD>HopAnywhere<CR>", "Hop anywhere window" },
-        },
+  which_key.register({
+    ['<Leader>'] = {
+      s = {
+        name = '+Hop',
+        l = { '<CMD>HopWordCurrentLine<CR>', 'Hop line' },
+        L = { '<CMD>HopAnywhereCurrentLine<CR>', 'Hop anywhere line' },
+        s = { '<CMD>HopWord<CR>', 'Hop window' },
+        S = { '<CMD>HopAnywhere<CR>', 'Hop anywhere window' },
       },
-    }, { mode = "o" }
-  )
+    },
+  }, { mode = 'o' })
 
   -- uncomment to setup more advanced features
   -- local directions = require("hop.hint").HintDirection
@@ -102,4 +93,9 @@ local config = function()
   -- )
 end
 
-return { "phaazon/hop.nvim", branch = "v2", config = config }
+return {
+  'phaazon/hop.nvim',
+  branch = 'v2',
+  requires = { 'folke/which-key.nvim' },
+  config = config,
+}

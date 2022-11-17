@@ -1,5 +1,5 @@
 local config = function()
-  local ok, mason_nls = pcall(require, "mason-null-ls")
+  local ok, mason_nls = pcall(require, 'mason-null-ls')
   if not ok then
     return
   end
@@ -9,7 +9,7 @@ local config = function()
 end
 
 return {
-  "jayp0521/mason-null-ls.nvim",
-  after = { "mason.nvim", "null-ls.nvim" },
+  'jayp0521/mason-null-ls.nvim',
+  after = { 'mason.nvim', 'null-ls.nvim' },
   config = config,
 }

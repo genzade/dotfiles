@@ -1,5 +1,5 @@
 local config = function()
-  local which_key_ok, which_key = pcall(require, "which-key")
+  local which_key_ok, which_key = pcall(require, 'which-key')
   if not which_key_ok then
     return
   end
@@ -7,4 +7,4 @@ local config = function()
   which_key.setup()
 end
 
-return { "folke/which-key.nvim", config = config }
+return { 'folke/which-key.nvim', config = config }

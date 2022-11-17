@@ -6,36 +6,31 @@ local config = function()
     y = 0.5,
   }
 
-  local ok, fterm = pcall(require, "FTerm")
+  local ok, fterm = pcall(require, 'FTerm')
   if not ok then
-    print("fterm not ok .....................................")
+    print('fterm not ok .....................................')
     return
   end
 
-  fterm.setup(
-    {
-      dimensions = default_dimmensions,
-      border = "single", -- or 'double'
-    }
-  )
+  fterm.setup({
+    dimensions = default_dimmensions,
+    border = 'single', -- or 'double'
+  })
 
-  local which_key_ok, which_key = pcall(require, "which-key")
+  local which_key_ok, which_key = pcall(require, 'which-key')
   if not which_key_ok then
     return
   end
 
-  which_key.register(
-    { ["<C-t>"] = { fterm.toggle, "Toggle built in terminal" } },
-    { mode = "t" }
-  )
+  which_key.register({ ['<C-t>'] = { fterm.toggle, 'Toggle built in terminal' } }, { mode = 't' })
 
   _G.lazygit_toggle = function()
-    local term = require("FTerm.terminal")
-    local lazygit = term:new():setup{
+    local term = require('FTerm.terminal')
+    local lazygit = term:new():setup({
       dimensions = default_dimmensions,
-      border = "single", -- or 'double'
-      cmd = "lazygit",
-    }
+      border = 'single', -- or 'double'
+      cmd = 'lazygit',
+    })
 
     vim.api.nvim_get_current_buf()
 
@@ -66,18 +61,17 @@ local config = function()
   --   lazy:toggle()
   -- end
 
-  which_key.register(
-    {
-      ["<C-t>"] = { fterm.toggle, "Toggle built in terminal" },
-      -- LazyGit integration
-      ["<Leader>"] = {
-        g = {
-          "<CMD>lua _G.lazygit_toggle()<CR>",
-          "Open Lazygit terminal",
-        },
+  -- TODO: use lazygit_toggle function here directly
+  which_key.register({
+    ['<C-t>'] = { fterm.toggle, 'Toggle built in terminal' },
+    -- LazyGit integration
+    ['<Leader>'] = {
+      g = {
+        '<CMD>lua _G.lazygit_toggle()<CR>',
+        'Open Lazygit terminal',
       },
-    }
-  )
+    },
+  })
 
   -- local map = vim.api.nvim_set_keymap
   -- local opts = { noremap = true, silent = true }
@@ -99,11 +93,11 @@ local config = function()
   -- )
 
   -- might not be need post migration
-  vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, 'VertSplit', { bg = 'NONE' })
 end
 
 return {
-  "numtostr/FTerm.nvim",
-  requires = { "folke/which-key.nvim" },
+  'numtostr/FTerm.nvim',
+  requires = { 'folke/which-key.nvim' },
   config = config,
 }

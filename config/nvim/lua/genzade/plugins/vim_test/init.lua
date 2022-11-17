@@ -1,21 +1,25 @@
 local config = function()
   -- vim.g["test#strategy"] = "fterm"
   -- vim.g["test#strategy"] = "dispatch"
-  vim.g["test#strategy"] = "neovim"
+  vim.g['test#strategy'] = 'neovim'
 
-  local map = vim.api.nvim_set_keymap
-  local opts = { noremap = true, silent = true }
+  local which_key_ok, which_key = pcall(require, 'which-key')
+  if not which_key_ok then
+    return
+  end
 
-  -- Test nearest test
-  map("n", "<leader>tn", "<CMD>TestNearest<CR>", opts)
-  -- Test file
-  map("n", "<leader>tf", "<CMD>TestFile<CR>", opts)
-  -- Test suite
-  map("n", "<leader>ts", "<CMD>TestSuite<CR>", opts)
-  -- Test last test run
-  map("n", "<leader>tl", "<CMD>TestLast<CR>", opts)
-  -- Test visit
-  map("n", "<leader>tv", "<CMD>TestVisit<CR>", opts)
+  which_key.register({
+    ['<Leader>'] = {
+      t = {
+        name = '+TestRunner',
+        n = { '<CMD>TestNearest<CR>', 'Run nearest test' },
+        f = { '<CMD>TestFile<CR>', 'Run test file' },
+        s = { '<CMD>TestSuite<CR>', 'Run test suite' },
+        l = { '<CMD>TestLast<CR>', 'Run last test' },
+        v = { '<CMD>TestVisit<CR>', 'Run test visit' },
+      },
+    },
+  }, { mode = 'n' })
 end
 
-return { "vim-test/vim-test", config = config }
+return { 'vim-test/vim-test', config = config }

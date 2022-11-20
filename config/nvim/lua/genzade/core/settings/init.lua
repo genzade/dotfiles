@@ -10,7 +10,7 @@ wo.number = true
 wo.relativenumber = true
 
 wo.list = true
-wo.listchars = "trail:·"
+wo.listchars = 'trail:·'
 
 o.tabstop = 2
 bo.tabstop = 2
@@ -24,7 +24,7 @@ bo.expandtab = true
 o.scrolloff = 10
 wo.scrolloff = 10
 
-wo.signcolumn = "yes"
+wo.signcolumn = 'yes'
 
 o.hidden = true
 
@@ -33,3 +33,5 @@ o.termguicolors = true
 o.cursorline = true
 
 o.laststatus = 3
+
+o.mouse = ''

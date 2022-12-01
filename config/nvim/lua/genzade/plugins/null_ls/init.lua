@@ -15,9 +15,9 @@ local config = function()
   nls.setup({
     sources = {
       -- code_actions.proselint,
-      code_actions.ltrs,
+      -- code_actions.ltrs,
       code_actions.shellcheck,
-      completion.luasnip,
+      -- completion.luasnip,
       completion.spell.with({ filetypes = { 'markdown', 'txt' } }),
       diagnostics.codespell.with({ filetypes = { 'markdown', 'txt' } }),
       diagnostics.markdownlint,
@@ -46,8 +46,8 @@ local config = function()
       --   }
       -- ),
       formatting.rubocop, -- ruby formatter
-      formatting.stylelint,
-      formatting.terraform_fmt,
+      -- formatting.stylelint, --not needed
+      -- formatting.terraform_fmt,
     },
     on_attach = on_attach,
   })

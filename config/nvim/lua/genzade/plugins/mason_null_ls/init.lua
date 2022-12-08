@@ -4,7 +4,11 @@ local config = function()
     return
   end
 
-  mason_nls.setup({ automatic_installation = true })
+  mason_nls.setup({
+    ensure_installed = nil,
+    automatic_installation = true,
+    automatic_setup = true,
+  })
   -- mason_nls.check_install(true)
 end
 

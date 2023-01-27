@@ -23,6 +23,10 @@ local config = function()
       diagnostics.markdownlint,
       diagnostics.hadolint, -- for docker
       -- diagnostics.rubocop, -- diagnostics are appearing twice
+      diagnostics.rubocop.with({
+        command = 'bundle',
+        args = vim.list_extend({ 'exec', 'rubocop' }, nls.builtins.diagnostics.rubocop._opts.args),
+      }),
       diagnostics.yamllint,
       diagnostics.shellcheck,
       formatting.stylua.with({
@@ -45,7 +49,12 @@ local config = function()
       --     },
       --   }
       -- ),
-      formatting.rubocop, -- ruby formatter
+      -- formatting.rubocop, -- ruby formatter
+      formatting.rubocop.with({
+        -- prefer_local = 'bin',
+        command = 'bundle',
+        args = vim.list_extend({ 'exec', 'rubocop' }, nls.builtins.formatting.rubocop._opts.args),
+      }),
       -- formatting.stylelint, --not needed
       -- formatting.terraform_fmt,
     },

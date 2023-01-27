@@ -61,3 +61,11 @@ fvi() {
 s() {
   source ~/.zshrc
 }
+
+lzg() {
+  lazygit
+}
+
+lzd() {
+  lazydocker
+}

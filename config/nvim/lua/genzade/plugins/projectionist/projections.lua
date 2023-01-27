@@ -83,7 +83,7 @@ M.ruby_on_rails = {
     type = 'spec',
   },
   ['lib/*.rb'] = { alternate = 'spec/lib/{}_spec.rb', type = 'source' },
-  ['spec/lib/{}_spec.rb'] = {
+  ['spec/lib/*_spec.rb'] = {
     alternate = 'lib/{}.rb',
     type = 'spec',
     template = {
@@ -151,7 +151,7 @@ M.ruby_on_rails = {
       '',
       "require 'rails_helper'",
       '',
-      'RSpec.describe {camelcase|capitalize|colons} type: :mailer do',
+      'RSpec.describe {camelcase|capitalize|colons}, type: :mailer do',
       "  describe '#mailer_method_name' do",
       "    it 'sends an email with correct content', :aggregate_failures do",
       '      mail = {camelcase|capitalize|colons}',
@@ -168,6 +168,25 @@ M.ruby_on_rails = {
       "        'User Bruce Wayne has create to their account:',",
       '      )',
       '    end',
+      '  end',
+      'end',
+    },
+  },
+  ['app/services/*.rb'] = {
+    alternate = 'spec/services/{}_spec.rb',
+    type = 'source',
+  },
+  ['spec/services/*_spec.rb'] = {
+    alternate = 'app/services/{}.rb',
+    type = 'spec',
+    template = {
+      '# frozen_string_literal: true',
+      '',
+      "require 'spec_helper'",
+      '',
+      'RSpec.describe {camelcase|capitalize|colons} do',
+      "  it 'does something' do",
+      '    expect(true).to eq(false)',
       '  end',
       'end',
     },

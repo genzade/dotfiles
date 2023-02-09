@@ -111,8 +111,7 @@ setup_alacritty() {
       echo  "symlink exists: NOT linking to $ALACRITTY_CONFIG_DIR"
     fi
   else
-    ln -s "$DOTFILES_ROOT"/config/alacritty "$ALACRITTY_CONFIG_DIR"
-    echo "linked $DOTFILES_ROOT/config/alacritty to $ALACRITTY_CONFIG_DIR"
+    stow -vt "$HOME" alacritty
   fi
 
   if ! [ -d "${ZDOTDIR:-~}"/.zsh_functions ]; then

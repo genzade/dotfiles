@@ -4,6 +4,13 @@
   path = ~/.gitconfig_local
 [core]
   excludesfile = ~/.gitignore_global
+  # make sure `~/.gitignore_global` exists
+  #
+  # [user]
+  #   name = Your name
+  #   email = Your email
+  #
+  # and anything else you want to keep personal
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f

@@ -4,6 +4,11 @@ set -e
 
 DOTFILES_ROOT="$HOME/dotfiles"
 
+setup_xcode() {
+  xcode-select --install
+  sudo xcodebuild -license
+}
+
 setup_homebrew() {
   which brew \
     || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -248,3 +253,4 @@ setup_neovim
 setup_tmux
 setup_hammerspoon
 setup_osx
+setup_xcode

@@ -232,8 +232,7 @@ setup_hammerspoon() {
       echo  "symlink exists: NOT linking to $HAMMERSPOON_PATH"
     fi
   else
-    ln -s "$DOTFILES_ROOT"/config/hammerspoon "$HOME"/.config
-    echo "linked $DOTFILES_ROOT/config/hammerspoon to $HAMMERSPOON_PATH"
+    stow -vt "$HOME" hammerspoon
   fi
 }
 

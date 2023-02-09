@@ -46,15 +46,13 @@ setup_git() {
   GITIGNORE_GLOBAL=$HOME/.gitignore_global
 
   if ! [ -L "$GITCONFIG" ]; then
-    echo "Creating symlink $GITCONFIG."
-    ln -sf "$DOTFILES_ROOT"/git/gitconfig "$GITCONFIG"
+    stow -vt "$HOME" git --ignore=.gitignore_global
   else
     echo "symlink exists: $GITCONFIG."
   fi
 
   if ! [ -L "$GITIGNORE_GLOBAL" ]; then
-    echo "Creating symlink $GITIGNORE_GLOBAL."
-    ln -sf "$DOTFILES_ROOT"/git/gitignore_global "$GITIGNORE_GLOBAL"
+    stow -vt "$HOME" git --ignore=.gitconfig
   else
     echo "symlink exists: $GITIGNORE_GLOBAL."
   fi

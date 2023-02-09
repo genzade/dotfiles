@@ -65,8 +65,7 @@ setup_zsh() {
 
   ZSHRC=$HOME/.zshrc
   if ! [ -L "$ZSHRC" ]; then
-    echo "Creating symlink $ZSHRC."
-    ln -s "$DOTFILES_ROOT"/zsh/zshrc "$ZSHRC"
+    stow -vt "$HOME" zsh --ignore=config --ignore=vanilla-zshrc
   else
     echo "symlink exists: $ZSHRC."
   fi

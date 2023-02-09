@@ -197,8 +197,7 @@ setup_neovim() {
       echo  "symlink exists: NOT linking to $NEOVIM_PATH"
     fi
   else
-    ln -s "$DOTFILES_ROOT"/config/nvim "$HOME"/.config
-    echo "linked $DOTFILES_ROOT/config/neovim to $NEOVIM_PATH"
+    stow -vt "$HOME" nvim
   fi
 }
 

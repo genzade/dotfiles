@@ -205,8 +205,7 @@ setup_tmux() {
   TMUX_CONF=$HOME/.tmux.conf
 
   if ! [ -L "$TMUX_CONF" ]; then
-    echo "Creating symlink $TMUX_CONF."
-    ln -s "$DOTFILES_ROOT"/tmux/tmux.conf "$TMUX_CONF"
+    stow -vt "$HOME" tmux --ignore=plugins --ignore=configs
   else
     echo "symlink exists: $TMUX_CONF."
   fi

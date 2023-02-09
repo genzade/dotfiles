@@ -162,8 +162,7 @@ setup_asdf() {
   GLOBAL_TOOL_VERSIONS="$HOME"/.tool-versions
 
   if ! [ -L "$GLOBAL_TOOL_VERSIONS" ]; then
-    echo "Creating symlink $GLOBAL_TOOL_VERSIONS."
-    ln -sf "$DOTFILES_ROOT"/asdf/tool-versions "$GLOBAL_TOOL_VERSIONS"
+    stow -vt "$HOME" asdf
   else
     echo "symlink exists: $GLOBAL_TOOL_VERSIONS."
   fi

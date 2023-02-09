@@ -22,7 +22,7 @@ local config = function()
       diagnostics.codespell.with({ filetypes = { 'markdown', 'txt' } }),
       diagnostics.markdownlint,
       diagnostics.hadolint, -- for docker
-      -- diagnostics.rubocop, -- diagnostics are appearing twice
+      diagnostics.erb_lint,
       diagnostics.rubocop.with({
         command = 'bundle',
         args = vim.list_extend({ 'exec', 'rubocop' }, nls.builtins.diagnostics.rubocop._opts.args),
@@ -49,7 +49,7 @@ local config = function()
       --     },
       --   }
       -- ),
-      -- formatting.rubocop, -- ruby formatter
+      formatting.erb_lint,
       formatting.rubocop.with({
         -- prefer_local = 'bin',
         command = 'bundle',

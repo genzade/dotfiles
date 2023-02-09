@@ -41,9 +41,9 @@ local config = function()
       e = { '<CMD>NvimTreeFindFileToggle<CR>', 'NvimTree toggle' },
     },
   }, { mode = 'n' })
+
   nvim_tree.setup({
     disable_netrw = true,
-    ignore_ft_on_setup = { 'startify', 'dashboard' },
     view = {
       width = FILETREE_WIDTH,
       preserve_window_proportions = true,

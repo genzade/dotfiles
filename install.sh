@@ -32,11 +32,9 @@ setup_karabiner() {
   if [ -L "$KARABINER_CONFIG_DIR" ]; then
     if [ -d "$KARABINER_CONFIG_DIR" ]; then
       echo "symlink exists: NOT linking to $KARABINER_CONFIG_DIR"
-      echo "symlink exists: NOT linking to $KARABINER_CONFIG_DIR"
     fi
   else
-    ln -s "$DOTFILES_ROOT"/config/karabiner "$HOME"/.config
-    echo "linked $DOTFILES_ROOT/config/karabiner to $KARABINER_CONFIG_DIR"
+    stow -vt "$HOME" karabiner
     launchctl kickstart -k gui/"$(id -u)"/org.pqrs.karabiner.karabiner_console_user_server
   fi
 }

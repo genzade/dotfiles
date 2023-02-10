@@ -14,3 +14,13 @@ machine after a fresh install.
 
 See [install.sh](./install.sh) to get an overview of the installation of my current
 setup on `MacOS`.
+
+To install this on a fresh macbook
+
+- Set up your ssh keys (do this part manually)
+- Clone this repository in your home directory (`$HOME`) and run the install script
+
+```shell
+$ git clone git@github.com:genzade/dotfiles.git
+$ ./dotfiles/install.sh
+```

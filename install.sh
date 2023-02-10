@@ -232,16 +232,16 @@ setup_hammerspoon() {
   fi
 }
 
+setup_xcode
 setup_homebrew
 setup_karabiner
 setup_git
+setup_asdf
 setup_zsh
 setup_alacritty
 setup_fzf
-setup_asdf
 setup_base16
 setup_neovim
 setup_tmux
 setup_hammerspoon
 setup_osx
-setup_xcode

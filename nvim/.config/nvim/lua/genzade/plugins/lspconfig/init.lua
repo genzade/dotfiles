@@ -43,7 +43,7 @@ local config = function()
     'dockerls',
     'html',
     'solargraph',
-    'sumneko_lua',
+    'lua_ls',
     'tailwindcss',
     'taplo',
     'terraformls',
@@ -77,8 +77,8 @@ local config = function()
     -- ["rust_analyzer"] = function()
     --   require("rust-tools").setup {}
     -- end,
-    ['sumneko_lua'] = function()
-      lspconfig.sumneko_lua.setup({
+    ['lua_ls'] = function()
+      lspconfig.lua_ls.setup({
         on_attach = on_attach,
         capabilities = capabilities,
         settings = {

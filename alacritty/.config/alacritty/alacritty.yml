@@ -71,7 +71,6 @@ window:
   #   - SimpleFullscreen
   startup_mode: Maximized
 
-
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
   # background_opacity: 0.97
@@ -805,6 +804,7 @@ key_bindings:
   # - { key: F,      mods: Command|Control,    action: ToggleFullscreen }
   # - { key: F,      mods: Command,            action: SearchForward    }
   # - { key: B,      mods: Command,            action: SearchBackward   }
+  - { key: Tab, mods: Control, chars: "\x1b[9;5u" }
 # debug:
 #   Display the time it takes to redraw each frame.
 #   render_timer: false

@@ -11,6 +11,13 @@ local config = function()
     background_colour = 'FloatShadow',
     timeout = 3000,
     fps = 60,
+    icons = {
+      ERROR = '',
+      WARN = '',
+      INFO = '',
+      DEBUG = '',
+      TRACE = '✎',
+    },
   })
 
   vim.lsp.handlers['window/showMessage'] = function(_, method, params, _)

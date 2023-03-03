@@ -15,12 +15,6 @@ map('v', ';', ':', { noremap = true })
 -- Remove highlight search
 map('n', '<Leader><Space>', ':set hlsearch!<CR>')
 
--- Window naviagtion
-map('n', '<C-h>', '<C-w>h')
-map('n', '<C-j>', '<C-w>j')
-map('n', '<C-k>', '<C-w>k')
-map('n', '<C-l>', '<C-w>l')
-
 -- Tab navigation
 map('n', 'tn', ':tabnext<CR>')
 map('n', 'tp', ':tabprevious<CR>')

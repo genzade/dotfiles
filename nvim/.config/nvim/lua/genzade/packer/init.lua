@@ -55,6 +55,7 @@ M.packer_setup = function()
           return packer_util.float({ border = 'single' })
         end,
       },
+      max_jobs = 10,
     },
   })
 end

@@ -136,7 +136,7 @@ local config = function()
     formatting = {
       -- How to set up nice formatting for your sources.
       format = lspkind.cmp_format({
-        with_text = true,
+        -- with_text = true,
         menu = {
           nvim_lsp = '[LSP]',
           emoji = '[EMOJ]',
@@ -144,6 +144,36 @@ local config = function()
           nvim_lua = '[API]',
           path = '[PATH]',
           buffer = '[BUF]',
+        },
+        mode = 'symbol_text',
+        max_width = 50,
+        symbol_map = {
+          Class = 'ﴯ',
+          Color = '',
+          Constant = '',
+          Constructor = '',
+          -- Copilot = '',
+          Enum = '',
+          EnumMember = '',
+          Event = '',
+          Field = 'ﰠ',
+          File = '',
+          Folder = '',
+          Function = '',
+          Interface = '',
+          Keyword = '',
+          Method = '',
+          Module = '',
+          Operator = '',
+          Property = 'ﰠ',
+          Reference = '',
+          Snippet = '',
+          Struct = 'פּ',
+          Text = '',
+          TypeParameter = '',
+          Unit = '塞',
+          Value = '',
+          Variable = '',
         },
       }),
     },
@@ -183,6 +213,13 @@ local config = function()
     }),
   })
 
+  -- cmp.event:on('menu_opened', function()
+  --   vim.b.copilot_suggestion_hidden = true
+  -- end)
+
+  -- cmp.event:on('menu_closed', function()
+  --   vim.b.copilot_suggestion_hidden = false
+  -- end)
   -- shout out to Telescopic Johnson
 end
 

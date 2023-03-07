@@ -191,6 +191,51 @@ M.ruby_on_rails = {
       'end',
     },
   },
+  ['app/jobs/*.rb'] = {
+    alternate = 'spec/jobs/{}_spec.rb',
+    type = 'source',
+  },
+  ['spec/jobs/*_spec.rb'] = {
+    alternate = 'app/jobs/{}.rb',
+    type = 'spec',
+    template = {
+      '# frozen_string_literal: true',
+      '',
+      "require 'rails_helper'",
+      '',
+      'RSpec.describe {camelcase|capitalize|colons}, type: :job do',
+      "  it 'does something' do",
+      '    expect(true).to eq(false)',
+      '  end',
+      'end',
+    },
+  },
+  ['app/channels/*.rb'] = {
+    alternate = 'spec/channels/{}_spec.rb',
+    type = 'source',
+  },
+  ['spec/channels/*_spec.rb'] = {
+    alternate = 'app/channels/{}.rb',
+    type = 'spec',
+    template = {
+      '# frozen_string_literal: true',
+      '',
+      "require 'rails_helper'",
+      '',
+      'RSpec.describe {camelcase|capitalize|colons}, type: :channel do',
+      "  it 'does something' do",
+      '    expect(true).to eq(false)',
+      '  end',
+    },
+  },
+  ['rubocop/cop/*.rb'] = {
+    alternate = 'spec/rubocop/cop/{}_spec.rb',
+    type = 'source',
+  },
+  ['spec/rubocop/cop/*_spec.rb'] = {
+    alternate = 'rubocop/cop/{}.rb',
+    type = 'test',
+  },
 }
 
 return M

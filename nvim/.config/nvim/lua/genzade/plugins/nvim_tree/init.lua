@@ -61,9 +61,9 @@ end
 
 return {
   'kyazdani42/nvim-tree.lua',
-  requires = {
+  dependencies = {
     { 'folke/which-key.nvim' },
-    { 'kyazdani42/nvim-web-devicons', opt = true },
+    { 'kyazdani42/nvim-web-devicons' },
   },
   cmd = { 'NvimTreeToggle', 'NvimTreeFocus', 'NvimTreeFindFileToggle' },
   event = 'BufEnter',

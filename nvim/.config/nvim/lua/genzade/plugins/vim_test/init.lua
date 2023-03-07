@@ -93,4 +93,7 @@ local config = function()
   }, { mode = 'n' })
 end
 
-return { 'vim-test/vim-test', config = config }
+return {
+  'vim-test/vim-test',
+  config = config,
+}

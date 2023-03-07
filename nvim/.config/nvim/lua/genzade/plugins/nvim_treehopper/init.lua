@@ -32,7 +32,7 @@ end
 
 return {
   'mfussenegger/nvim-treehopper',
-  requires = {
+  dependencies = {
     'nvim-treesitter/nvim-treesitter',
     { 'phaazon/hop.nvim', branch = 'v2' },
   },

@@ -23,4 +23,4 @@ local config = function()
   })
 end
 
-return { 'lukas-reineke/indent-blankline.nvim', config = config }
+return { 'lukas-reineke/indent-blankline.nvim', event = "BufReadPost", config = config }

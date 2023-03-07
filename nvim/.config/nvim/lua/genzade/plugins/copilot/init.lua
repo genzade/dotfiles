@@ -70,7 +70,7 @@ end
 
 return {
   'zbirenbaum/copilot.lua',
-  requires = { 'folke/which-key.nvim' },
+  dependencies = { 'folke/which-key.nvim' },
   cmd = 'Copilot',
   event = 'InsertEnter',
   config = config,

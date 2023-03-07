@@ -7,4 +7,4 @@ local config = function()
   nvim_surround.setup({})
 end
 
-return { 'kylechui/nvim-surround', tag = '*', config = config }
+return { 'kylechui/nvim-surround', version = '*', config = config }

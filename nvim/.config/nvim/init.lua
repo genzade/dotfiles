@@ -1,4 +1,4 @@
-local modules = { 'core', 'packer' }
+local modules = { 'core', 'lazy' }
 
 for _, module in ipairs(modules) do
   require('genzade' .. '.' .. module).setup()

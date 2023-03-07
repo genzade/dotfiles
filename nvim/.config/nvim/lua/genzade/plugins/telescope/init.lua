@@ -119,10 +119,10 @@ end
 
 return {
   'nvim-telescope/telescope.nvim',
-  requires = {
+  dependencies = {
     { 'nvim-lua/popup.nvim' },
     { 'nvim-lua/plenary.nvim' },
-    { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     { 'folke/which-key.nvim' },
     { 'rcarriga/nvim-notify' },
   },

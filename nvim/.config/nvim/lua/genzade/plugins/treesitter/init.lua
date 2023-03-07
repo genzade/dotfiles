@@ -69,7 +69,7 @@ end
 
 return {
   'nvim-treesitter/nvim-treesitter',
-  run = function()
+  build = function()
     local ok, ts_install = pcall(require, 'nvim-treesitter.install')
     if not ok then
       vim.notify('Cannot run `TSUpdate`, treesitter not available')
@@ -78,6 +78,6 @@ return {
 
     ts_install.update({ with_sync = true })
   end,
-  requires = { 'nvim-treesitter/nvim-treesitter-textobjects' },
+  dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
   config = config,
 }

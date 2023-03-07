@@ -225,7 +225,7 @@ end
 
 return {
   'hrsh7th/nvim-cmp',
-  requires = {
+  dependencies = {
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-cmdline',
     'hrsh7th/cmp-emoji',

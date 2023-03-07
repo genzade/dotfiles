@@ -1,10 +1,15 @@
 return {
   'iamcco/markdown-preview.nvim',
-  run = 'cd app && yarn install',
+  build = 'cd app && yarn install',
   cmd = 'MarkdownPreview',
-  setup = function()
+  config = function()
     vim.g.mkdp_filetypes = { 'markdown' }
   end,
   ft = { 'markdown' },
-  opt = true,
+
+  -- "iamcco/markdown-preview.nvim",
+  -- build = function()
+  --   vim.fn["mkdp#util#install"]()
+  -- end,
+  -- ft = "markdown",
 }

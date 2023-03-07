@@ -14,6 +14,6 @@ end
 
 return {
   'jayp0521/mason-null-ls.nvim',
-  after = { 'mason.nvim', 'null-ls.nvim' },
+  dependencies = { 'mason.nvim', 'null-ls.nvim' },
   config = config,
 }

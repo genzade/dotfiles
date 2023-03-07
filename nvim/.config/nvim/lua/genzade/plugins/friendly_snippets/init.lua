@@ -9,6 +9,6 @@ end
 
 return {
   'rafamadriz/friendly-snippets',
-  requires = { 'L3MON4D3/LuaSnip' },
+  dependencies = { 'L3MON4D3/LuaSnip' },
   config = config,
 }

@@ -98,7 +98,7 @@ end
 
 return {
   'neovim/nvim-lspconfig',
-  requires = {
+  dependencies = {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
   },

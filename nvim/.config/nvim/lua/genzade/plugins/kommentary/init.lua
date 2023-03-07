@@ -10,4 +10,4 @@ local config = function()
   vim.api.nvim_set_hl(0, 'Comment', { italic = true })
 end
 
-return { 'b3nj5m1n/kommentary', config = config }
+return { 'b3nj5m1n/kommentary', event = 'BufReadPre', config = config }

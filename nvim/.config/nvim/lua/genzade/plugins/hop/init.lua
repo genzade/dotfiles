@@ -96,6 +96,6 @@ end
 return {
   'phaazon/hop.nvim',
   branch = 'v2',
-  requires = { 'folke/which-key.nvim' },
+  dependencies = { 'folke/which-key.nvim' },
   config = config,
 }

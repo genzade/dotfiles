@@ -28,6 +28,6 @@ end
 
 return {
   'tpope/vim-projectionist',
-  requires = { 'folke/which-key.nvim' },
+  dependencies = { 'folke/which-key.nvim' },
   config = config,
 }

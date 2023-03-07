@@ -37,6 +37,6 @@ end
 
 return {
   'romgrk/barbar.nvim',
-  requires = { 'folke/which-key.nvim', 'kyazdani42/nvim-web-devicons' },
+  dependencies = { 'folke/which-key.nvim', 'kyazdani42/nvim-web-devicons' },
   config = config,
 }

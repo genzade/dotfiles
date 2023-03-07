@@ -98,6 +98,6 @@ end
 
 return {
   'numtostr/FTerm.nvim',
-  requires = { 'folke/which-key.nvim' },
+  dependencies = { 'folke/which-key.nvim' },
   config = config,
 }

@@ -22,6 +22,6 @@ end
 -- this needs to be tested properly post migration with tmux
 return {
   'alexghergh/nvim-tmux-navigation',
-  requires = { 'folke/which-key.nvim' },
+  dependencies = { 'folke/which-key.nvim' },
   config = config,
 }

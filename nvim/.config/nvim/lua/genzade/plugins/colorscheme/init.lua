@@ -53,6 +53,6 @@ end
 
 return {
   'RRethy/nvim-base16',
-  requires = { { 'nvim-lua/plenary.nvim' }, { 'rktjmp/fwatch.nvim' } },
+  dependencies = { 'nvim-lua/plenary.nvim', 'rktjmp/fwatch.nvim' },
   config = config,
 }

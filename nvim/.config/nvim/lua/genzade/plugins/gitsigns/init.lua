@@ -97,8 +97,8 @@ local config = function()
         ['<Leader>'] = {
           h = {
             name = 'gitsigns',
-            s = { gs.stage_hunk, 'Stage hunk (visual)' },
-            r = { gs.reset_hunk, 'Reset hunk (visual)' },
+            s = { gs.stage_hunk, '[S]tage hunk (visual)' },
+            r = { gs.reset_hunk, '[R]eset hunk (visual)' },
           },
         },
       }, { mode = 'v', buffer = bufnr })
@@ -107,42 +107,41 @@ local config = function()
         ['<Leader>'] = {
           h = {
             name = 'gitsigns',
-            s = { gs.stage_hunk, 'Stage hunk' },
-            r = { gs.reset_hunk, 'Reset hunk' },
-            u = { gs.undo_stage_hunk, 'Undo staged hunk' },
-            R = { gs.reset_buffer, 'Reset buffer' },
-            p = { gs.preview_hunk, 'Preview hunk' },
-            S = { gs.stage_buffer, 'Stage buffer' },
+            s = { gs.stage_hunk, '[S]tage hunk' },
+            r = { gs.reset_hunk, '[R]eset hunk' },
+            u = { gs.undo_stage_hunk, '[U]ndo staged hunk' },
+            R = { gs.reset_buffer, '[R]eset buffer' },
+            p = { gs.preview_hunk, '[P]review hunk' },
+            S = { gs.stage_buffer, '[S]tage buffer' },
             b = {
               function()
                 gs.blame_line({ full = true })
               end,
-              'Git blame',
+              'Git [B]lame',
             },
-            B = { gs.toggle_current_line_blame, 'Git blame toggle' },
-            d = { gs.diffthis, 'Git diff' },
+            B = { gs.toggle_current_line_blame, 'Git [B]lame toggle' },
+            d = { gs.diffthis, 'Git [D]iff' },
             D = {
               function()
                 gs.diffthis('~')
               end,
-              'Git diff ~',
+              'Git [D]iff ~',
             },
           },
-          l = { gs.toggle_deleted, 'Toggle deleted' },
+          l = { gs.toggle_deleted, 'Toggle de[L]eted' },
         },
       }, { mode = 'n', buffer = bufnr })
 
       which_key.register(
-        { ih = { gs.select_hunk, 'Select inner hunk' } },
+        { ih = { gs.select_hunk, 'Select [I]nner [H]unk' } },
         { mode = 'o', buffer = bufnr }
       )
 
       which_key.register(
-        { ih = { gs.select_hunk, 'Select inner hunk' } },
+        { ih = { gs.select_hunk, 'Select [I]nner [H]unk' } },
         { mode = 'x', buffer = bufnr }
       )
     end,
-
     -- watch_index = { interval = 1000 },
     current_line_blame = true,
     -- sign_priority = 6,

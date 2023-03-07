@@ -48,7 +48,7 @@ local config = function()
     ['<Leader>'] = {
       f = {
         name = '+Telescope',
-        B = { tbuiltin.buffers, 'Find opened buffers' },
+        B = { tbuiltin.buffers, 'Find opened [B]uffers' },
         b = {
           function()
             local ok, theme = pcall(require, 'telescope.themes')
@@ -58,23 +58,24 @@ local config = function()
 
             tbuiltin.current_buffer_fuzzy_find(theme.get_ivy())
           end,
-          'Search current buffer',
+          'Search current [B]uffer',
         },
-        C = { tbuiltin.command_history, 'Search command history' },
-        c = { tbuiltin.commands, 'Search available commands' },
-        f = { tbuiltin.find_files, 'Find File' },
-        g = { tbuiltin.git_files, 'Find git files' },
-        G = { tbuiltin.git_commits, 'Search git commits' },
-        h = { tbuiltin.help_tags, 'Search help docs' },
-        l = { tbuiltin.live_grep, 'Search string' },
-        r = { tbuiltin.registers, 'Search registers' },
-        s = { tbuiltin.grep_string, 'Find word under cursor' },
-        p = { tbuiltin.neoclip, 'Search yank registers' },
+        C = { tbuiltin.command_history, 'Search [C]ommand history' },
+        c = { tbuiltin.commands, 'Search available [C]ommands' },
+        f = { tbuiltin.find_files, 'Find [F]ile' },
+        g = { tbuiltin.git_files, 'Find [G]it files' },
+        G = { tbuiltin.git_commits, 'Search [G]it commits' },
+        h = { tbuiltin.help_tags, 'Search [H]elp docs' },
+        l = { tbuiltin.live_grep, '[L]ive search string' },
+        L = { tbuiltin.resume, 'Resume [L]ast search' },
+        r = { tbuiltin.registers, 'Search [R]egisters' },
+        s = { tbuiltin.grep_string, '[S]earch word under cursor' },
+        p = { tbuiltin.neoclip, 'Search yank/[P]aste registers' }, -- not working
         n = {
           function()
             telescope.extensions.notify.notify()
           end,
-          'Search notification',
+          'Search [N]otification',
         },
       },
     },
@@ -110,7 +111,7 @@ local config = function()
 
             tbuiltin.grep_string({ search = visual_selection() })
           end,
-          'Find visually selected word/s',
+          'Find visually [S]elected word/s',
         },
       },
     },
@@ -120,11 +121,11 @@ end
 return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
-    { 'nvim-lua/popup.nvim' },
-    { 'nvim-lua/plenary.nvim' },
+    'nvim-lua/popup.nvim',
+    'nvim-lua/plenary.nvim',
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-    { 'folke/which-key.nvim' },
-    { 'rcarriga/nvim-notify' },
+    'folke/which-key.nvim',
+    'rcarriga/nvim-notify',
   },
   event = 'VimEnter',
   config = config,

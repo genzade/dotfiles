@@ -38,7 +38,7 @@ local config = function()
   which_key.register({
     ['<Leader>'] = {
       name = 'NvimTree',
-      e = { '<CMD>NvimTreeFindFileToggle<CR>', 'NvimTree toggle' },
+      e = { '<CMD>NvimTreeFindFileToggle<CR>', 'NvimTre[E] toggle' },
     },
   }, { mode = 'n' })
 

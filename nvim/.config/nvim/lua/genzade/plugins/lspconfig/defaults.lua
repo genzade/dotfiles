@@ -9,36 +9,36 @@ M.keymaps = function()
   which_key.register({
     g = {
       name = 'Go to',
-      D = { vim.lsp.buf.declaration, 'Declaration' },
-      d = { vim.lsp.buf.definition, 'Definition' },
-      i = { vim.lsp.buf.implementation, 'Implementation' },
-      r = { vim.lsp.buf.references, 'References' },
+      D = { vim.lsp.buf.declaration, '[D]eclaration' },
+      d = { vim.lsp.buf.definition, '[D]efinition' },
+      i = { vim.lsp.buf.implementation, '[I]mplementation' },
+      r = { vim.lsp.buf.references, '[R]eferences' },
     },
     K = { vim.lsp.buf.hover, 'Hover' },
     ['['] = {
-      d = { vim.diagnostic.goto_prev, 'Previous diagnostic' },
+      d = { vim.diagnostic.goto_prev, 'Previous [D]iagnostic' },
     },
-    [']'] = { d = { vim.diagnostic.goto_next, 'Next diagnostic' } },
+    [']'] = { d = { vim.diagnostic.goto_next, 'Next [D]iagnostic' } },
     [','] = {
-      D = { vim.lsp.buf.type_definition, 'Type definition' },
-      rn = { vim.lsp.buf.rename, 'Rename symbol' },
-      ca = { vim.lsp.buf.code_action, 'Code action' },
+      D = { vim.lsp.buf.type_definition, 'Type [D]efinition' },
+      rn = { vim.lsp.buf.rename, '[R]e[N]ame symbol' },
+      ca = { vim.lsp.buf.code_action, '[C]ode [A]ction' },
       k = { vim.lsp.buf.signature_help, 'Signature help' },
-      e = { vim.diagnostic.open_float, 'Open diagnostics' },
+      e = { vim.diagnostic.open_float, 'Op[E]n diagnostics' },
       q = {
         vim.diagnostic.setloclist,
         'Create/replace location list for window',
       },
-      f = { vim.lsp.buf.format, 'Format' },
+      f = { vim.lsp.buf.format, '[F]ormat file' },
       w = {
         name = 'Workspace',
-        a = { vim.lsp.buf.add_workspace_folder, 'Add folder' },
-        r = { vim.lsp.buf.remove_workspace_folder, 'Remove folder' },
+        a = { vim.lsp.buf.add_workspace_folder, '[A]dd folder' },
+        r = { vim.lsp.buf.remove_workspace_folder, '[R]emove folder' },
         l = {
           function()
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
           end,
-          'List folders',
+          '[L]ist folders',
         },
       },
     },

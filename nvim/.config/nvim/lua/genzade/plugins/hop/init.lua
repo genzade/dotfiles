@@ -15,10 +15,10 @@ local config = function()
     ['<Leader>'] = {
       s = {
         name = '+Hop',
-        l = { '<CMD>HopWordCurrentLine<CR>', 'Hop line' },
-        L = { '<CMD>HopAnywhereCurrentLine<CR>', 'Hop anywhere line' },
-        s = { '<CMD>HopWord<CR>', 'Hop window' },
-        S = { '<CMD>HopAnywhere<CR>', 'Hop anywhere window' },
+        l = { '<CMD>HopWordCurrentLine<CR>', 'Hop [L]ine' },
+        L = { '<CMD>HopAnywhereCurrentLine<CR>', 'Hop anywhere [L]ine' },
+        w = { '<CMD>HopWord<CR>', 'Hop [W]indow' },
+        W = { '<CMD>HopAnywhere<CR>', 'Hop anywhere [W]indow' },
       },
     },
   }, { mode = 'n' })
@@ -27,10 +27,10 @@ local config = function()
     ['<Leader>'] = {
       s = {
         name = '+Hop',
-        l = { '<CMD>HopWordCurrentLine<CR>', 'Hop line' },
-        L = { '<CMD>HopAnywhereCurrentLine<CR>', 'Hop anywhere line' },
-        s = { '<CMD>HopWord<CR>', 'Hop window' },
-        S = { '<CMD>HopAnywhere<CR>', 'Hop anywhere window' },
+        l = { '<CMD>HopWordCurrentLine<CR>', 'Hop [L]ine' },
+        L = { '<CMD>HopAnywhereCurrentLine<CR>', 'Hop anywhere [L]ine' },
+        w = { '<CMD>HopWord<CR>', 'Hop [W]indow' },
+        W = { '<CMD>HopAnywhere<CR>', 'Hop anywhere [W]indow' },
       },
     },
   }, { mode = 'v' })
@@ -39,10 +39,10 @@ local config = function()
     ['<Leader>'] = {
       s = {
         name = '+Hop',
-        l = { '<CMD>HopWordCurrentLine<CR>', 'Hop line' },
-        L = { '<CMD>HopAnywhereCurrentLine<CR>', 'Hop anywhere line' },
-        s = { '<CMD>HopWord<CR>', 'Hop window' },
-        S = { '<CMD>HopAnywhere<CR>', 'Hop anywhere window' },
+        l = { '<CMD>HopWordCurrentLine<CR>', 'Hop [L]ine' },
+        L = { '<CMD>HopAnywhereCurrentLine<CR>', 'Hop anywhere [L]ine' },
+        w = { '<CMD>HopWord<CR>', 'Hop [W]indow' },
+        W = { '<CMD>HopAnywhere<CR>', 'Hop anywhere [W]indow' },
       },
     },
   }, { mode = 'o' })

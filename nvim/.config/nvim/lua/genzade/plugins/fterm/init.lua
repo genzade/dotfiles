@@ -63,12 +63,12 @@ local config = function()
 
   -- TODO: use lazygit_toggle function here directly
   which_key.register({
-    ['<C-t>'] = { fterm.toggle, 'Toggle built in terminal' },
+    ['<C-t>'] = { fterm.toggle, 'Toggle built in [T]erminal' },
     -- LazyGit integration
     ['<Leader>'] = {
       g = {
         '<CMD>lua _G.lazygit_toggle()<CR>',
-        'Open Lazygit terminal',
+        'Open Lazy[G]it terminal',
       },
     },
   })

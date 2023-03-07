@@ -55,13 +55,13 @@ local config = function()
           function()
             copilot_panel.open({ position = 'bottom', ratio = 0.4 })
           end,
-          'Open panel',
+          'Open [P]anel',
         },
         s = {
           function()
             copilot_suggestion.toggle_auto_trigger()
           end,
-          'Toggle auto trigger',
+          'Toggle [S]uggestion trigger',
         },
       },
     },

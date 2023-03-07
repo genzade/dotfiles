@@ -21,10 +21,10 @@ local config = function()
     ['<Leader>'] = {
       a = {
         name = '+Projectionist',
-        a = { '<CMD>A<CR>', 'Open alternate file' },
-        v = { '<CMD>AV<CR>', 'Open alternate file (split vert)' },
-        s = { '<CMD>AS<CR>', 'Open alternate file (split hor)' },
-        t = { '<CMD>AT<CR>', 'Open alternate file (new tab)' },
+        a = { '<CMD>A<CR>', 'Open [A]lternate file' },
+        v = { '<CMD>AV<CR>', 'Open alternate file (split [V]ert)' },
+        s = { '<CMD>AS<CR>', 'Open alternate file ([S]plit hor)' },
+        t = { '<CMD>AT<CR>', 'Open alternate file (new [T]ab)' },
       },
     },
   }, { mode = 'n' })

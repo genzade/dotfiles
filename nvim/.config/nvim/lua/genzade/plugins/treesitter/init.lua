@@ -32,34 +32,34 @@ local config = function()
         keymaps = {
           ['af'] = {
             query = '@function.outer',
-            desc = 'Select around function',
+            desc = 'Select [A]round [F]unction',
           },
           ['if'] = {
             query = '@function.inner',
-            desc = 'Select inner function',
+            desc = 'Select [I]nner [F]unction',
           },
           ['ac'] = {
             query = '@class.outer',
-            desc = 'Select around function',
+            desc = 'Select around [C]lass]',
           },
           ['ic'] = {
             query = '@class.inner',
-            desc = 'Select inner part of a class region',
+            desc = 'Select inner part of a [C]lass region',
           },
         },
       },
       swap = {
         enable = true,
         swap_next = {
-          ['<leader>a'] = {
+          ['<leader>p'] = {
             query = '@parameter.inner',
-            desc = 'Swap with next parameter',
+            desc = 'Swap with next [P]arameter',
           },
         },
         swap_previous = {
-          ['<leader>A'] = {
+          ['<leader>P'] = {
             query = '@parameter.inner',
-            desc = 'Swap with previous parameter',
+            desc = 'Swap with previous [P]arameter',
           },
         },
       },

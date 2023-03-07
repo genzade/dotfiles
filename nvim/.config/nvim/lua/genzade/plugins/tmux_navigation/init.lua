@@ -12,10 +12,10 @@ local config = function()
   end
 
   which_key.register({
-    ['<C-h>'] = { tmux_nav.NvimTmuxNavigateLeft, 'Navigate Left' },
-    ['<C-j>'] = { tmux_nav.NvimTmuxNavigateDown, 'Navigate Down' },
-    ['<C-k>'] = { tmux_nav.NvimTmuxNavigateUp, 'Navigate Up' },
-    ['<C-l>'] = { tmux_nav.NvimTmuxNavigateRight, 'Navigate Right' },
+    ['<C-h>'] = { tmux_nav.NvimTmuxNavigateLeft, 'Navigate Left [H]' },
+    ['<C-j>'] = { tmux_nav.NvimTmuxNavigateDown, 'Navigate Down [J]' },
+    ['<C-k>'] = { tmux_nav.NvimTmuxNavigateUp, 'Navigate Up [K]' },
+    ['<C-l>'] = { tmux_nav.NvimTmuxNavigateRight, 'Navigate Right [L]' },
   }, { mode = 'n' })
 end
 

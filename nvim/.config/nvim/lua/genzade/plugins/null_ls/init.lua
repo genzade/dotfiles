@@ -22,7 +22,6 @@ local config = function()
       diagnostics.codespell.with({ filetypes = { 'markdown', 'txt' } }),
       diagnostics.markdownlint,
       diagnostics.hadolint, -- for docker
-      diagnostics.erb_lint,
       diagnostics.rubocop.with({
         command = 'bundle',
         args = vim.list_extend({ 'exec', 'rubocop' }, nls.builtins.diagnostics.rubocop._opts.args),

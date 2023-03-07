@@ -11,21 +11,6 @@ local config = function()
     vim.fn.sign_define(hl, { text = sign_icon, texthl = hl, numhl = hl })
   end
 
-  local mason_ok, mason = pcall(require, 'mason')
-  if not mason_ok then
-    return
-  end
-
-  mason.setup({
-    ui = {
-      icons = {
-        package_installed = '✓',
-        package_pending = '➜',
-        package_uninstalled = '✗',
-      },
-    },
-  })
-
   local mason_lspc_ok, mason_lspc = pcall(require, 'mason-lspconfig')
   if not mason_lspc_ok then
     return

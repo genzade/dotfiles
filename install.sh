@@ -233,6 +233,10 @@ setup_hammerspoon() {
   fi
 }
 
+setup_amethyst() {
+  stow -vt "$HOME" amethyst
+}
+
 setup_xcode
 setup_homebrew
 setup_karabiner

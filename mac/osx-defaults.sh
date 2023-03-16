@@ -144,4 +144,7 @@ defaults -currentHost write -globalDomain AppleFontSmoothing -int 0
 
 defaults write org.hammerspoon.Hammerspoon MJConfigFile "$HOME/.config/hammerspoon/init.lua"
 
+# Don’t automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+
 echo "Done. Note that some of these changes require a logout/restart to take effect."

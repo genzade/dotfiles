@@ -97,6 +97,7 @@ setup_alacritty() {
     if ! (toe | grep -q alacritty); then
       echo "terminfo not installed"
 
+      # review this, you may need to install other terminfos
       sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
     else
       echo "alacritty terminfo already added"

@@ -18,11 +18,23 @@ prompt_context() {
 # choose which branch to checkout/delete with fuzzy-finder (fzf)
 # make sure junegunn's awesome fzf plugin is installed
 gcgb() {
-  git checkout $(git branch | fzf)
+  git checkout $(
+    git branch --sort=-committerdate | fzf \
+      --header="------- Checkout branch" \
+      --preview "git diff --color=always {1} "  \
+      --bind "ctrl-d:preview-page-down,ctrl-u:preview-page-up" \
+      --pointer=" "
+  )
 }
 
 gbD() {
-  git branch -D $(git branch | fzf)
+  git branch -D $(
+    git branch --sort=-committerdate | fzf \
+      --header="------- Delete branch" \
+      --preview "git diff --color=always {1} "  \
+      --bind "ctrl-d:preview-page-down,ctrl-u:preview-page-up" \
+      --pointer=" "
+  )
 }
 
 rbsme() {
@@ -55,7 +67,13 @@ gd() {
 }
 
 fvi() {
-  vim $(fzf)
+  vim $(
+    fzf \
+      --header="------ Choose file to open in $EDITOR" \
+      --preview="less {}" \
+      --bind "ctrl-d:preview-page-down,ctrl-u:preview-page-up" \
+      --pointer=" "
+  )
 }
 
 s() {

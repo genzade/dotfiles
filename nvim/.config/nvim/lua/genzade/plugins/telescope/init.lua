@@ -69,6 +69,7 @@ local config = function()
         l = { tbuiltin.live_grep, '[L]ive search string' },
         L = { tbuiltin.resume, 'Resume [L]ast search' },
         r = { tbuiltin.registers, 'Search [R]egisters' },
+        R = { tbuiltin.resume, '[R]esume previous search' },
         s = { tbuiltin.grep_string, '[S]earch word under cursor' },
         p = { tbuiltin.neoclip, 'Search yank/[P]aste registers' }, -- not working
         m = { tbuiltin.marks, 'Search [M]arks' }, -- not working

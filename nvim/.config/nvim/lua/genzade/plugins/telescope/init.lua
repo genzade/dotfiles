@@ -71,6 +71,7 @@ local config = function()
         r = { tbuiltin.registers, 'Search [R]egisters' },
         s = { tbuiltin.grep_string, '[S]earch word under cursor' },
         p = { tbuiltin.neoclip, 'Search yank/[P]aste registers' }, -- not working
+        m = { tbuiltin.marks, 'Search [M]arks' }, -- not working
         n = {
           function()
             telescope.extensions.notify.notify()

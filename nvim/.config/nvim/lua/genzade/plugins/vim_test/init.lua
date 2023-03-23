@@ -4,8 +4,9 @@ local config = function()
     if not ok then
       return
     end
+    local default_dimmensions = require('genzade.plugins.fterm.defaults').default_dimmensions
 
-    fterm.run('clear && ' .. cmd)
+    fterm.scratch({ cmd = cmd, dimensions = default_dimmensions })
   end
 
   local tmux_runner = function(cmd)
@@ -41,6 +42,9 @@ local config = function()
   }
 
   vim.g['test#strategy'] = 'fterm'
+
+  -- javascript
+  vim.g['test#javascript#jest#executable'] = 'yarn jest'
 
   -- vim.g["test#strategy"] = "fterm"
   -- vim.g["test#strategy"] = "dispatch"

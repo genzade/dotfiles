@@ -1,10 +1,5 @@
 local config = function()
-  local default_dimmensions = {
-    height = 0.9,
-    width = 0.9,
-    x = 0.5,
-    y = 0.5,
-  }
+  local default_dimmensions = require('genzade.plugins.fterm.defaults').default_dimmensions
 
   local ok, fterm = pcall(require, 'FTerm')
   if not ok then

@@ -9,6 +9,8 @@ local has_words_before = function()
 end
 
 local config = function()
+  require('luasnip/loaders/from_vscode').lazy_load()
+
   vim.g.completeopt = 'menu,menuone,noselect,noinsert'
 
   local cmp_status_ok, cmp = pcall(require, 'cmp')
@@ -31,7 +33,7 @@ local config = function()
       ['<tab>'] = cmp.config.disable,
       ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
       ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-d>'] = cmp.mapping.scroll_docs( -4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-e>'] = cmp.mapping.close(),
       ['<C-y>'] = cmp.mapping(
@@ -75,26 +77,24 @@ local config = function()
       ['<A-k>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
-        elseif luasnip.jumpable(-1) then
-          luasnip.jump(-1)
+        elseif luasnip.jumpable( -1) then
+          luasnip.jump( -1)
         else
           fallback()
         end
       end, { 'i', 's' }),
     },
-
     sources = {
       -- Could enable this only for lua, but nvim_lua handles that already.
-      { name = 'nvim_lua' },
-      { name = 'nvim_lsp' },
-      { name = 'path' },
-      { name = 'luasnip' },
-      { name = 'buffer', keyword_length = 4 },
-      { name = 'emoji' },
-      { name = 'rg', keyword_length = 3 },
-      { name = 'nvim_lsp_signature_help' },
+      { name = 'nvim_lua',                keyword_length = 3 },
+      { name = 'luasnip',                 keyword_length = 2 },
+      { name = 'nvim_lsp',                keyword_length = 3 },
+      { name = 'path',                    keyword_length = 3 },
+      { name = 'buffer',                  keyword_length = 3 },
+      { name = 'emoji',                   keyword_length = 3 },
+      { name = 'rg',                      keyword_length = 3 },
+      { name = 'nvim_lsp_signature_help', keyword_length = 3 },
     },
-
     sorting = {
       -- TODO: Would be cool to add stuff like "See variable names before method names"
       -- in rust, or something like that.
@@ -125,22 +125,20 @@ local config = function()
         cmp.config.compare.order,
       },
     },
-
     -- come back here when luasnip is installed
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body)
       end,
     },
-
     formatting = {
       -- How to set up nice formatting for your sources.
       format = lspkind.cmp_format({
         -- with_text = true,
         menu = {
           nvim_lsp = '[LSP]',
-          emoji = '[EMOJ]',
           luasnip = '[SNIP]',
+          emoji = '[EMOJ]',
           nvim_lua = '[API]',
           path = '[PATH]',
           buffer = '[BUF]',
@@ -177,7 +175,6 @@ local config = function()
         },
       }),
     },
-
     experimental = {
       -- I like the new menu better! Nice work hrsh7th
       native_menu = false,
@@ -185,7 +182,6 @@ local config = function()
       -- Let's play with this for a day or two
       ghost_text = false,
     },
-
     window = {
       documentation = cmp.config.window.bordered({
         winhighlight = 'Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:CmpSelection,Search:None',

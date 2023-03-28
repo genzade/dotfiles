@@ -5,16 +5,37 @@ local config = function()
     return
   end
 
+  local lualine_defaults = require('genzade.plugins.lualine.defaults')
+
   lualine.setup({
-    options = { theme = 'onedark' },
+    options = lualine_defaults.options,
     sections = {
-      lualine_a = { 'mode' },
-      lualine_b = { 'branch' },
-      lualine_c = { 'filename' },
-      lualine_x = { 'encoding', 'fileformat', 'filetype' },
-      lualine_y = { 'progress' },
-      lualine_z = { 'location' },
+      lualine_a = {
+        lualine_defaults.mode,
+      },
+      lualine_b = {
+        lualine_defaults.branch,
+        lualine_defaults.diff,
+      },
+      lualine_c = {
+        lualine_defaults.filename,
+        lualine_defaults.diagnostics,
+      },
+      lualine_x = {
+        lualine_defaults.fileformat,
+        lualine_defaults.encoding,
+        lualine_defaults.lsp_status,
+        lualine_defaults.filetype,
+      },
+      lualine_y = {
+        lualine_defaults.progress,
+      },
+      lualine_z = {
+        lualine_defaults.scrollbar,
+        lualine_defaults.location,
+      },
     },
+    extensions = lualine_defaults.extensions,
   })
 end
 

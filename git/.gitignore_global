@@ -1,8 +1,11 @@
 .DS_Store
 tags
 .notes.*
+**.notes.md
 notes.*
 notes/*
 .tool-versions
 .null-ls-root
 node_modules
+.irb_history
+.rdbg_history

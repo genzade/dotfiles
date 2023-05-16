@@ -42,19 +42,14 @@ local config = function()
     },
   }, { mode = 'n' })
 
+  local on_attach = require('genzade.plugins.nvim_tree.defaults').on_attach
+
   nvim_tree.setup({
     disable_netrw = true,
+    on_attach = on_attach,
     view = {
       width = FILETREE_WIDTH,
       preserve_window_proportions = true,
-      mappings = {
-        custom_only = false,
-        list = {
-          { key = 'C', action = 'cd' },
-          { key = 'R', action = 'refresh' },
-          { key = 'u', action = 'dir_up' },
-        },
-      },
     },
   })
 end

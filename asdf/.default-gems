@@ -1,0 +1,7 @@
+bundler
+pry
+rails
+rubocop
+solargraph
+solargraph-rails
+yard

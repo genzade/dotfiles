@@ -7,8 +7,19 @@ M.options = {
   theme = 'auto',
 }
 
+-- local vim_icons = {
+--   function()
+--     return ""
+--   end,
+--   separator = { left = "", right = "" },
+--   color = { bg = "#313244", fg = "#80A7EA" },
+-- }
+
 M.mode = {
   'mode',
+  fmt = function(str)
+    return str:sub(1, 1)
+  end,
 }
 
 M.branch = {

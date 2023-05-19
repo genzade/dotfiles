@@ -20,6 +20,25 @@ M.ruby_generic = {
 }
 
 M.ruby_on_rails = {
+  ['app/adapters/*.rb'] = {
+    alternate = 'spec/adapters/{}_spec.rb',
+    type = 'source',
+  },
+  ['spec/adapters/*_spec.rb'] = {
+    alternate = 'app/adapters/{}.rb',
+    type = 'spec',
+    template = {
+      '# frozen_string_literal: true',
+      '',
+      "require 'rails_helper'",
+      '',
+      'RSpec.describe {camelcase|capitalize|colons} do',
+      "  describe '#METHOD' do",
+      '    it {open} is_expected.to be_true {close}',
+      '  end',
+      'end',
+    },
+  },
   ['app/models/*.rb'] = {
     alternate = 'spec/models/{}_spec.rb',
     type = 'source',
@@ -89,7 +108,8 @@ M.ruby_on_rails = {
     template = {
       '# frozen_string_literal: true',
       '',
-      "require 'spec_helper'",
+      "require 'rails_helper'",
+      "require '{dirname}/{basename}'",
       '',
       'RSpec.describe {camelcase|capitalize|colons} do',
       "  it 'does something' do",
@@ -131,9 +151,9 @@ M.ruby_on_rails = {
       '      .from(:this)',
       '      .to(:that)',
       '      .and(',
-      '        .change {open} :other_record {close}',
-      '        .from(:this)',
-      '        .to(:that)',
+      '        change {open} :other_record {close}',
+      '          .from(:this)',
+      '          .to(:that)',
       '      )',
       '  end',
       'end',
@@ -182,7 +202,7 @@ M.ruby_on_rails = {
     template = {
       '# frozen_string_literal: true',
       '',
-      "require 'spec_helper'",
+      "require 'rails_helper'",
       '',
       'RSpec.describe {camelcase|capitalize|colons} do',
       "  it 'does something' do",

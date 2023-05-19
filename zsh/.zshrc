@@ -124,7 +124,10 @@ source "$HOME"/.asdf/asdf.sh
 fpath=("$HOME"/.zsh/completion $fpath)
 
 # initialise completions with ZSH's compinit
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+compinit
+
+zinit cdreplay -q
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"

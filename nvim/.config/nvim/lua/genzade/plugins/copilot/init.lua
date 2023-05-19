@@ -28,6 +28,8 @@ local config = function()
         dismiss = '<C-e>',
         -- next = '<C-kPoint>',
         -- prev = '<C-kComma>',
+        next = '<C-n>',
+        prev = '<C-p>',
       },
     },
   })
@@ -66,6 +68,29 @@ local config = function()
       },
     },
   }, { mode = 'n' })
+
+  which_key.register({
+    ['<C-s>'] = {
+      function()
+        copilot_suggestion.toggle_auto_trigger()
+      end,
+      'Toggle [S]uggestion trigger',
+    },
+  }, { mode = 'i' })
+
+  -- which_key.register({
+  --   ['<Leader>'] = {
+  --     c = {
+  --       name = '+Copilot',
+  --       s = {
+  --         function()
+  --           copilot_suggestion.toggle_auto_trigger()
+  --         end,
+  --         'Toggle [S]uggestion trigger',
+  --       },
+  --     },
+  --   },
+  -- }, { mode = 'i' })
 end
 
 return {
@@ -74,4 +99,5 @@ return {
   cmd = 'Copilot',
   event = 'InsertEnter',
   config = config,
+  enabled = true,
 }

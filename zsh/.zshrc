@@ -108,6 +108,14 @@ export HISTSIZE=100000
 
 export QMK_HOME="$HOME"/.config/qmk_firmware
 
+export PKG_CONFIG_PATH="$(brew --prefix)/opt/ncurses/lib/pkgconfig"
+
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  # check this article
+  # https://gpanders.com/blog/the-definitive-guide-to-using-tmux-256color-on-macos/
+  export TERMINFO_DIRS=$TERMINFO_DIRS:$HOME/.local/share/terminfo
+fi
+
 alias vi="nvim"
 alias vim="nvim"
 

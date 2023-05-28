@@ -3,14 +3,93 @@ set-option -g history-limit 3000
 
 # allow xterm color scheme in tmux
 # set-option -g default-terminal "tmux-256color"
-# set-option -g default-terminal "screen-256color"
-set-option -g default-terminal "xterm-256color"
+# # set-option -g default-terminal "screen-256color"
+# set-option -g default-terminal "xterm-256color"
 
 # https://jdhao.github.io/2018/10/19/tmux_nvim_true_color/
 # If terminal supports true color, use the following options
-set-option -ga terminal-overrides ",screen-256color*:Tc"
-set-option -ga terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
+# set-option -ga terminal-overrides ",screen-256color*:Tc"
+# set-option -ga terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
 
+# check the link below for more info
+# https://gist.github.com/bbqtd/a4ac060d6f6b9ea6fe3aabe735aa9d95
+
+# set -g default-terminal "tmux-256color"
+# set -g default-terminal "xterm-256color"
+# set -ga terminal-overrides ",xterm-256color:Tc"
+# set -as terminal-features ",xterm-256color:RGB"
+
+# set -ga terminal-overrides ",alacritty:Tc"
+# set -as terminal-features ",alacritty:RGB"
+
+# set-option -g default-terminal "screen-256color"
+
+# # Default shell
+# set-option -g default-shell $SHELL
+# set-option -g default-command $SHELL
+
+# Do not use alternate screen buffer (when parent terminal's TERM is xterm)
+# set-option -ga terminal-overrides ",xterm*:Tc"
+# set-option -ga terminal-overrides ",xterm*:smcup@:rmcup@"
+# set-option -ga terminal-overrides ',rxvt-uni*:XT:Ms=\E]52;%p1%s;%p2%s\007'
+# set-option -ga terminal-overrides ',*:U8=0'
+# set-option -ga terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
+# set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
+
+# set-option -as terminal-features ",$TERM:RGB"
+# set-option -ga terminal-overrides ",$TERM:Tc"
+# set-option -ga terminal-overrides ',*:U8=0'
+# set-option -ga terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
+
+# from https://github.com/elijahmanor/dotfiles/blob/master/tmux/.tmux.conf
+# set -g default-terminal "tmux"
+
+# set-option -g default-terminal "screen-256color"
+# # tell Tmux that outside terminal supports true color
+# # set -ga terminal-overrides "xterm-256color"
+# set-option -sa terminal-features ",${TERM}:RGB"
+# set-option -ga terminal-overrides ",${TERM}:Tc"
+# set-option -sa terminal-overrides ",${TERM}:smcup@:rmcup@"
+
+# set-option -g default-terminal "screen-256color"
+# # # set-option -ga terminal-overrides ",*256col*:Tc"
+# # set-option -sa terminal-overrides ',xterm-256color:RGB'
+
+# set-option -sa terminal-overrides ',xterm-256color:RGB'
+# set-option -sa terminal-overrides ',xterm-256color:Tc'
+ 
+# set-option -sa terminal-overrides ',alacritty:RGB'
+# set-option -sa terminal-overrides ',alacritty:Tc'
+
+# # # Undercurl
+# # # set -g default-terminal "${TERM}"
+# # set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'  # undercurl support
+# # set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'  # underscore colours - needs tmux-3.0
+
+# # # Undercurl
+# # # set-option -g default-terminal "${TERM}"
+# # set-option -sa terminal-overrides ",${TERM}:RGB"
+# # set-option -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'  # undercurl support
+# # set-option -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'  # underscore colours - needs tmux-3.0
+# set-option -sa terminal-overrides ',*:Smulx=\E[4::%p1%dm'  # undercurl support
+# set-option -sa terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'  # underscore colours - needs tmux-3.0
+
+# my problem
+# https://stackoverflow.com/questions/74014321/rgb-sequence-garbage-printed-when-i-open-terminal-in-vim
+# still not resolved as of Sun 28 May 21:10:13 2023
+
+set-option -g default-terminal "tmux-256color"
+set-option -ag terminal-overrides ",xterm-256color:RGB"
+set-option -sa terminal-overrides ",alacritty:RGB"
+set-option -sa terminal-overrides ",xterm*:Tc"
+
+# set-option -g default-terminal "screen-256color"
+
+# see https://github.com/tmux/tmux/issues/3126
+# https://github.com/tmux/tmux/wiki/FAQ#how-do-i-use-rgb-colour
+# https://github.com/Homebrew/homebrew-core/issues/102748
+# https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
+# https://gist.github.com/joshuarli/247018f8617e6715e1e0b5fd2d39bb6c
 
 # status line
 set-option -g status-justify centre
@@ -20,6 +99,7 @@ set-option -g pane-border-style bg=colour235
 set-option -g pane-border-style fg=colour238
 set-option -g pane-active-border-style bg=colour236
 set-option -g pane-active-border-style fg=colour51
+
 # Start windows and panes at 1, not 0
 set-option -g base-index 1
 
@@ -29,6 +109,9 @@ set-option -g message-style fg=colour232
 set-option -g message-style bg=colour28
 set-option -g message-command-style fg=colour46
 
+# focus events enabled for terminals that support them
+set-option -g focus-events on
+
 # misc
 set-option -s escape-time 0
 
@@ -36,5 +119,9 @@ set-option -s escape-time 0
 # this broke base16
 # set-option -g allow-passthrough 1
 set-option -g allow-passthrough on
+
+# How do I make tmux reorder windows when one is deleted?
+set-option -g renumber-windows on
+# bind-key C-s run "for i in $(tmux lsw|awk -F: '{print $1}'); do tmux movew -s \$i; done"
 
 # vim:ft=tmux

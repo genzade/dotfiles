@@ -11,6 +11,7 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
+---
 env:
   # TERM variable
   #
@@ -18,9 +19,9 @@ env:
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  # TERM: xterm-256color
+  TERM: xterm-256color
   # TERM: alacritty
-  TERM: screen-256color
+  # TERM: screen-256color
 window:
   # Window dimensions (changes require restart)
   #

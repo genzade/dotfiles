@@ -237,6 +237,12 @@ setup_amethyst() {
   stow -vt "$HOME" amethyst
 }
 
+# might need to run this to get tmux to work with colours
+#
+# $(brew --prefix)/opt/ncurses/bin/infocmp -x tmux-256color > ~/tmux-256color.info
+# sudo tic -xe tmux-256color tmux-256color.info
+# tmux -2 new-session -A -s Dots
+
 setup_xcode
 setup_homebrew
 setup_karabiner

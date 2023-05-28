@@ -35,12 +35,12 @@ local config = function()
       title = 'Basic Commands',
       margin = 5,
       content = {
-        { '  Find File', 'Telescope find_files', 'ff' },
-        { '  Find Word', 'Telescope live_grep', 'fl' },
-        { '  Recent Files', 'Telescope oldfiles', 'of' },
-        { '  Colorschemes', 'Telescope colorscheme', 'cs' },
-        { '  New File', "lua require('startup').new_file()", 'N' },
-        { '  Quit NVIM', 'qa', 'q' },
+        { '  Find File',    'Telescope find_files',              'ff' },
+        { '  New File',     "lua require('startup').new_file()", 'N' },
+        { '  Find Word',    'Telescope live_grep',               'fl' },
+        { '  Recent Files', 'Telescope oldfiles',                'of' },
+        { '  Colorschemes', 'Telescope colorscheme',             'cs' },
+        { '  Quit NVIM',    'qa',                                'q' },
       },
       highlight = 'String',
       default_color = '',
@@ -99,6 +99,7 @@ return {
   dependencies = {
     'nvim-telescope/telescope.nvim',
     'nvim-lua/plenary.nvim',
+    'kyazdani42/nvim-web-devicons',
   },
   config = config,
 }

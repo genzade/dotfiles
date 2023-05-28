@@ -1,5 +1,27 @@
 local M = {}
 
+M.signs = {
+  Error = ' ',
+  Warn = ' ',
+  Info = ' ',
+  Hint = ' ',
+}
+
+M.servers = {
+  'bashls',
+  'clangd',
+  'cssls',
+  'dockerls',
+  'html',
+  'solargraph',
+  'lua_ls',
+  'tailwindcss',
+  'taplo',
+  'terraformls',
+  'tsserver',
+  'yamlls',
+}
+
 M.keymaps = function()
   local which_key_ok, which_key = pcall(require, 'which-key')
   if not which_key_ok then
@@ -63,8 +85,8 @@ local async_formatting = function(bufnr)
 
       -- don't apply results if buffer is unloaded or has been modified
       if
-        not vim.api.nvim_buf_is_loaded(bufnr)
-        or vim.api.nvim_buf_get_option(bufnr, 'modified')
+          not vim.api.nvim_buf_is_loaded(bufnr)
+          or vim.api.nvim_buf_get_option(bufnr, 'modified')
       then
         return
       end

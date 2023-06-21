@@ -133,7 +133,7 @@ M.ruby_on_rails = {
       '# loads all the rake tasks',
       'Rails.application.load_tasks',
       '',
-      'RSpec.describe {camelcase|capitalize|colons}, type: :task do',
+      'RSpec.describe Tasks::{camelcase|capitalize|colons}, type: :task do',
       '  def rake_task',
       "    Rake::Task['{dirname}:{basename}:run']",
       '  end',

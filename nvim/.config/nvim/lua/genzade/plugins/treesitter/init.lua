@@ -69,6 +69,7 @@ end
 
 return {
   'nvim-treesitter/nvim-treesitter',
+  event = { 'BufRead', 'BufNewFile', 'FileType' },
   build = function()
     local ok, ts_install = pcall(require, 'nvim-treesitter.install')
     if not ok then

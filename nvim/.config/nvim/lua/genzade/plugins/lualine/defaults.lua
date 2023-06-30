@@ -1,10 +1,15 @@
 local M = {}
 
+local padding = {
+  left = 1,
+  right = 1,
+}
+
 M.options = {
   section_separators = '',
   component_separators = '',
   globalstatus = true,
-  theme = 'auto',
+  theme = 'base16',
 }
 
 -- local vim_icons = {
@@ -38,6 +43,7 @@ M.diff = {
 
 M.filename = {
   'filename',
+  padding = padding,
 }
 
 M.diagnostics = {
@@ -46,14 +52,54 @@ M.diagnostics = {
   sections = { 'error', 'warn', 'info', 'hint' },
   update_in_insert = false, -- Update diagnostics in insert mode.
   always_visible = true, -- Show diagnostics even if there are none.
+  padding = padding,
 }
 
-M.fileformat = {
-  'fileformat',
+M.macro_recording = {
+  'macro-recording',
+  fmt = function()
+    local recording_register = vim.fn.reg_recording()
+    if recording_register == '' then
+      return ''
+    else
+      return ' ' .. recording_register
+    end
+  end,
+  padding = padding,
 }
+
+-- M.fileformat = {
+--   'fileformat',
+--   icons_enabled = false,
+--   -- symbols = {
+--   --   unix = '', -- e712
+--   --   dos = '', -- e70f
+--   --   mac = '', -- e711
+--   -- },
+--   padding = padding,
+-- }
+
+-- override this because it feels wrong to see the linux penguin on the mac
+-- lualine looks at fileformat (see :h fileformat) which is always unix on mac
+-- revert to previous a better solution is found
+M.fileformat = function()
+  local os = vim.loop.os_uname().sysname
+  local icon
+
+  if os == 'Linux' then
+    icon = '  '
+  elseif os == 'Darwin' then
+    icon = '  '
+  else
+    icon = '  '
+  end
+  --return icon .. os
+  return icon
+end
 
 M.encoding = {
   'encoding',
+  padding = padding,
 }
 
 M.lsp_status = {
@@ -77,18 +123,22 @@ M.lsp_status = {
 
     return lsp_icon .. msg
   end,
+  padding = padding,
 }
 
 M.filetype = {
   'filetype',
+  padding = padding,
 }
 
 M.progress = {
   'progress',
+  padding = padding,
 }
 
 M.location = {
   'location',
+  padding = padding,
 }
 
 M.scrollbar = {
@@ -97,15 +147,15 @@ M.scrollbar = {
     local total_lines = vim.fn.line('$')
     local icon = ''
     local chars = {
-      icon .. ' __',
-      icon .. ' ▁▁',
-      icon .. ' ▂▂',
-      icon .. ' ▃▃',
-      icon .. ' ▄▄',
-      icon .. ' ▅▅',
-      icon .. ' ▆▆',
-      icon .. ' ▇▇',
       icon .. ' ██',
+      icon .. ' ▇▇',
+      icon .. ' ▆▆',
+      icon .. ' ▅▅',
+      icon .. ' ▄▄',
+      icon .. ' ▃▃',
+      icon .. ' ▂▂',
+      icon .. ' ▁▁',
+      icon .. ' __',
     }
     local line_ratio = current_line / total_lines
     local index = math.ceil(line_ratio * #chars)

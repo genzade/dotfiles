@@ -20,6 +20,7 @@ local config = function()
       lualine_c = {
         lualine_defaults.filename,
         lualine_defaults.diagnostics,
+        lualine_defaults.macro_recording,
       },
       lualine_x = {
         lualine_defaults.fileformat,

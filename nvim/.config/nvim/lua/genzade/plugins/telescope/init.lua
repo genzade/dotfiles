@@ -71,7 +71,12 @@ local config = function()
         r = { tbuiltin.registers, 'Search [R]egisters' },
         R = { tbuiltin.resume, '[R]esume previous search' },
         s = { tbuiltin.grep_string, '[S]earch word under cursor' },
-        p = { tbuiltin.neoclip, 'Search yank/[P]aste registers' }, -- not working
+        p = {
+          function()
+            telescope.extensions.neoclip.default()
+          end,
+          'Search yank/[P]aste registers',
+        },
         m = { tbuiltin.marks, 'Search [M]arks' }, -- not working
         n = {
           function()
@@ -93,7 +98,7 @@ local config = function()
               -- Get visually selected text
 
               -- TODO: make this work with new nvim_cmd api
-              vim.cmd('noau normal! "vy"')
+              vim.cmd('noautocmd normal! "vy"')
               -- vim.api.nvim_cmd(
               --   { cmd = "noau normal!", args = { "\"vy\"" } }, {}
               -- )

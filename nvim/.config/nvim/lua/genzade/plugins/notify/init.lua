@@ -6,6 +6,25 @@ local config = function()
     vim.notify = notify
   end
 
+  local which_key_ok, which_key = pcall(require, 'which-key')
+  if not which_key_ok then
+    return
+  end
+
+  which_key.register({
+    ['<Leader>'] = {
+      n = {
+        name = '+Notify',
+        c = {
+          function()
+            notify.dismiss()
+          end,
+          '[C]lose Notification',
+        },
+      },
+    },
+  }, { mode = 'n' })
+
   notify.setup({
     stages = 'static',
     background_colour = 'FloatShadow',
@@ -28,4 +47,8 @@ local config = function()
   end
 end
 
-return { 'rcarriga/nvim-notify', config = config }
+return {
+  'rcarriga/nvim-notify',
+  dependencies = { 'folke/which-key.nvim' },
+  config = config,
+}

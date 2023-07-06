@@ -78,10 +78,18 @@ set-option -g history-limit 3000
 # https://stackoverflow.com/questions/74014321/rgb-sequence-garbage-printed-when-i-open-terminal-in-vim
 # still not resolved as of Sun 28 May 21:10:13 2023
 
+# set-option -g default-terminal "tmux-256color"
+# set-option -ag terminal-overrides ",xterm-256color:RGB"
+# set-option -sa terminal-overrides ",alacritty:RGB"
+# set-option -sa terminal-overrides ",xterm*:Tc"
+
 set-option -g default-terminal "tmux-256color"
-set-option -ag terminal-overrides ",xterm-256color:RGB"
+
+set-option -sa terminal-overrides ",xterm-256color:RGB"
+set-option -sa terminal-overrides ",xterm-256color:Tc"
+
 set-option -sa terminal-overrides ",alacritty:RGB"
-set-option -sa terminal-overrides ",xterm*:Tc"
+set-option -sa terminal-overrides ",alacritty:Tc"
 
 # set-option -g default-terminal "screen-256color"
 

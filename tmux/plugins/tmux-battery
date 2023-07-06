@@ -1,5 +1,0 @@
-# TMUX BATTERY PLUGIN
-
-set-option -g @plugin 'tmux-plugins/tmux-battery'
-
-# vim:ft=tmux

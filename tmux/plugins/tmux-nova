@@ -1,0 +1,96 @@
+# TMUX STATUS BAR THEMING
+
+set-option -g @plugin 'o0th/tmux-nova'
+
+### DEPENDENCIES ###
+set-option -g @plugin 'tmux-plugins/tmux-cpu'
+set-option -g @plugin 'tmux-plugins/tmux-battery'
+
+### THEME ###
+set-option -g @nova-nerdfonts true
+set-option -g @nova-nerdfonts-left 
+set-option -g @nova-nerdfonts-right 
+
+set-option -g @nova-pane "#I #W"
+set-option -g @nova-rows 0
+
+### COLORS ###
+b_bg="#504945"
+b_fg="#d5c4a1"
+
+seg_a="#a89984 #282828"
+
+seg_b1="#504945 $b_fg"
+seg_b2="#96918f #3f3a30"
+seg_b3="#a7a4a2 #2a2720"
+seg_b4="#615b57 $b_fg"
+seg_b6="#726d6a #b9b6b4"
+seg_b5="#b9b6b4 #151310"
+
+inactive_bg="#32302f"
+inactive_fg="$b_fg"
+active_bg=$b_bg
+active_fg="$b_fg"
+
+set-option -g status-right-length 80
+
+set-option -gw window-status-current-style bold
+set-option -g "@nova-status-style-bg" "$inactive_bg"
+set-option -g "@nova-status-style-fg" "$inactive_fg"
+set-option -g "@nova-status-style-active-bg" "$active_bg"
+set-option -g "@nova-status-style-active-fg" "$active_fg"
+
+set-option -g "@nova-pane-active-border-style" "#44475a"
+set-option -g "@nova-pane-border-style" "#827d51"
+
+### STATUS BAR ###
+
+## SESSION
+set-option -g @nova-segment-session "#{session_name}"
+set-option -g @nova-segment-session-colors "$seg_a"
+
+## ZOOMED
+set-option -g @nova-segment-zoomed "#{?window_zoomed_flag,ZOOMED,}"
+set-option -g @nova-segment-zoomed-colors "$seg_b1"
+
+## PREFIX
+set-option -g @nova-segment-prefix "#{?client_prefix,PREFIX,}"
+set-option -g @nova-segment-prefix-colors "$seg_b2"
+
+## CPU
+set-option -g @cpu_percentage_format "%3.1f%%"
+# set-option -g @nova-segment-cpu "⚡ #{cpu_percentage}"
+# set-option -g @nova-segment-cpu "  #{cpu_percentage}"
+# set-option -g @nova-segment-cpu "󱤓  #{cpu_percentage}"
+set-option -g @nova-segment-cpu "  #{cpu_percentage}"
+set-option -g @nova-segment-cpu-colors "$seg_b3"
+
+## RAM
+set -g @nova-segment-ram "󰍛 #{ram_percentage}"
+set -g @nova-segment-ram-colors "$seg_b3"
+
+## BATTERY
+# WIP battery icon
+# set-option -g @batt_icon_status_charging '↑'
+# set-option -g @batt_icon_status_discharging '↓'
+
+set-option -g @nova-segment-battery " #{battery_icon} #{battery_percentage} "
+set-option -g @nova-segment-battery-colors "$seg_b4"
+
+## TIME
+set-option -g @nova-segment-time "  %H:%M"
+set-option -g @nova-segment-time-colors "$seg_b5"
+
+## DATE
+set-option -g @nova-segment-date "📅 %%d-%%m-%%y"
+set-option -g @nova-segment-date-colors "$seg_b6"
+
+## WHOAMI
+set-option -g @nova-segment-whoami "🖥 #(whoami)"
+set-option -g @nova-segment-whoami-colors "$seg_a"
+
+## SEGMENTS
+set-option -g @nova-segments-0-left "session"
+set-option -g @nova-segments-0-right "zoomed prefix cpu ram battery time date whoami"
+
+# vim:ft=tmux

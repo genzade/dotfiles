@@ -5,7 +5,7 @@ local config = function()
   end
 
   mason_nls.setup({
-    ensure_installed = nil,
+    ensure_installed = {},
     automatic_installation = true,
     automatic_setup = true,
   })
@@ -13,7 +13,7 @@ local config = function()
 end
 
 return {
-  'jayp0521/mason-null-ls.nvim',
+  'jay-babu/mason-null-ls.nvim',
   dependencies = { 'mason.nvim', 'null-ls.nvim' },
   config = config,
 }

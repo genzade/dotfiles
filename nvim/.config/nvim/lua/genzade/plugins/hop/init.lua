@@ -93,6 +93,8 @@ local config = function()
   -- )
 end
 
+-- TODO: replace with flash.nvim
+
 return {
   'phaazon/hop.nvim',
   branch = 'v2',

@@ -23,7 +23,7 @@ map('n', 'tf', vim.cmd.tabfirst)
 map('n', 'tx', vim.cmd.tabclose)
 map('n', 'to', vim.cmd.tabonly)
 map('n', 'tN', ':tabnew ', { noremap = true, silent = false })
-map('n', 'T', ':tabnew %<CR>')
+map('n', 'T', ':tabnew %<CR>', { noremap = true, silent = true })
 
 -- something to consider
 -- gt    -   go to next tab

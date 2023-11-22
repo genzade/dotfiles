@@ -259,5 +259,6 @@ setup_base16
 setup_neovim
 setup_tmux
 setup_hammerspoon
+setup_amethyst
 setup_pgcli
 setup_osx

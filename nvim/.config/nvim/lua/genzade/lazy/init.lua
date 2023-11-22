@@ -27,6 +27,9 @@ M.lazy_setup = function()
     defaults = {
       -- lazy = true,
     },
+    ui = {
+      border = 'rounded',
+    },
   })
 end
 

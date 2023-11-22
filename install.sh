@@ -237,6 +237,10 @@ setup_amethyst() {
   stow -vt "$HOME" amethyst
 }
 
+setup_pgcli() {
+  stow -vt "$HOME" pgcli
+}
+
 # might need to run this to get tmux to work with colours
 #
 # $(brew --prefix)/opt/ncurses/bin/infocmp -x tmux-256color > ~/tmux-256color.info
@@ -255,4 +259,5 @@ setup_base16
 setup_neovim
 setup_tmux
 setup_hammerspoon
+setup_pgcli
 setup_osx

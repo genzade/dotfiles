@@ -16,14 +16,16 @@ local config = function()
     return
   end
 
-  vim.api.nvim_create_autocmd('BufWinEnter', {
-    pattern = '*',
-    callback = function()
-      if vim.bo.filetype == 'NvimTree' then
-        bufferline_api.set_offset(FILETREE_WIDTH, 'FileTree')
-      end
-    end,
-  })
+  -- uncomment if you plan to go back to tree view
+  --
+  -- vim.api.nvim_create_autocmd('BufWinEnter', {
+  --   pattern = '*',
+  --   callback = function()
+  --     if vim.bo.filetype == 'NvimTree' then
+  --       bufferline_api.set_offset(FILETREE_WIDTH, 'FileTree')
+  --     end
+  --   end,
+  -- })
 
   vim.api.nvim_create_autocmd('BufWinLeave', {
     pattern = '*',

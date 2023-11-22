@@ -72,4 +72,37 @@ M.on_attach = function(bufnr)
   vim.keymap.set('n', 'u', api.tree.change_root_to_parent, opts('Go [U]p'))
 end
 
+M.tree_view = {
+  width = FILETREE_WIDTH,
+  preserve_window_proportions = true,
+}
+
+M.float_view = {
+  float = {
+    enable = true,
+    quit_on_focus_loss = true,
+    open_win_config = function()
+      local height_ratio = 0.9
+      local width_ratio = 0.35
+      local screen_w = vim.opt.columns:get()
+      local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
+      local tree_w = screen_w * width_ratio
+      local tree_h = screen_h * height_ratio
+      local tree_w_int = math.floor(tree_w)
+      local tree_h_int = math.floor(tree_h)
+      local start_point_x = (screen_w - tree_w) / 2
+      local start_point_y = (vim.opt.lines:get() - tree_h) / 2 - vim.opt.cmdheight:get()
+
+      return {
+        border = 'rounded',
+        relative = 'editor',
+        row = start_point_y,
+        col = start_point_x,
+        width = tree_w_int,
+        height = tree_h_int,
+      }
+    end,
+  },
+}
+
 return M

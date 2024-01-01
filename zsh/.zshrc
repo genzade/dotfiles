@@ -148,4 +148,9 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # Load .local file at the end for post configurations
 # shellcheck disable=SC1091
 [ -e "$HOME"/.zshrc.local ] && source "$HOME"/.zshrc.local
+
+# Add `GOPATH/bin` directory to your `PATH` environment variable so you can run Go programs anywhere.
+export PATH=$PATH:$(go env GOPATH)/bin
+
 export PATH="/usr/local/sbin:$PATH"
+

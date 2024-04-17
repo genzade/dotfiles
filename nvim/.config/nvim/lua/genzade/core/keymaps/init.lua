@@ -13,7 +13,7 @@ map('n', ';', ':', { noremap = true })
 map('v', ';', ':', { noremap = true })
 
 -- Remove highlight search
-map('n', '<Leader><Space>', ':set hlsearch!<CR>', { noremap = true, silent = true })
+map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Tab navigation
 map('n', 'tn', vim.cmd.tabnext)

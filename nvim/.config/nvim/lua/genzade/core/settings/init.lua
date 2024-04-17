@@ -1,8 +1,11 @@
 -- Settings
 local o = vim.o
+local g = vim.g
 local bo = vim.bo
 local wo = vim.wo
 local set_var = vim.api.nvim_set_var
+
+g.base16colorspace = 256
 
 o.splitbelow = true
 o.splitright = true
@@ -39,6 +42,12 @@ o.cursorline = true
 o.laststatus = 3
 
 o.mouse = ''
+
+-- Set highlight on search
+o.hlsearch = true
+
+-- Preview substitutions live, as you type!
+o.inccommand = 'split'
 
 -- https://stackoverflow.com/questions/53327486/whats-happening-here-with-vim-inside-tmux-pane
 -- this is still not resolved for me

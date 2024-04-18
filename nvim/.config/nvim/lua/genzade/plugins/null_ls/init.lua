@@ -22,11 +22,11 @@ local config = function()
       diagnostics.codespell.with({ filetypes = { 'markdown', 'txt' } }),
       diagnostics.markdownlint,
       diagnostics.hadolint, -- for docker
-      diagnostics.rubocop.with({
-        prefer_local = true,
-        -- command = 'bundle',
-        -- args = vim.list_extend({ 'exec', 'rubocop' }, nls.builtins.diagnostics.rubocop._opts.args),
-      }),
+      -- diagnostics.rubocop.with({
+      --   prefer_local = true,
+      --   -- command = 'bundle',
+      --   -- args = vim.list_extend({ 'exec', 'rubocop' }, nls.builtins.diagnostics.rubocop._opts.args),
+      -- }),
       diagnostics.yamllint,
       diagnostics.shellcheck,
       formatting.stylua.with({
@@ -50,12 +50,12 @@ local config = function()
       --   }
       -- ),
       formatting.erb_lint,
-      formatting.rubocop.with({
-        prefer_local = true,
-        -- command = 'bundle',
-        -- args = vim.list_extend({ 'exec', 'rubocop' }, nls.builtins.formatting.rubocop._opts.args),
-      }),
-      formatting.rome,
+      -- formatting.rubocop.with({
+      --   prefer_local = true,
+      --   -- command = 'bundle',
+      --   -- args = vim.list_extend({ 'exec', 'rubocop' }, nls.builtins.formatting.rubocop._opts.args),
+      -- }),
+      -- formatting.rome,
       formatting.yq,
       -- formatting.stylelint, --not needed
       -- formatting.terraform_fmt,

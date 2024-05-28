@@ -118,6 +118,7 @@ fi
 
 alias vi="nvim"
 alias vim="nvim"
+alias brow='arch --x86_64 /usr/local/homebrew/bin/brew'
 
 # MY FUNCTIONS
 # shellcheck disable=SC1091

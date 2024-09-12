@@ -5,7 +5,7 @@ source ~/dotfiles/zsh/config/my-functions.zsh
 
 export DISABLE_AUTO_TITLE=true
 # Editor of choice
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=13

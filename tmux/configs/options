@@ -134,4 +134,7 @@ set-option -g allow-passthrough on
 set-option -g renumber-windows on
 # bind-key C-s run "for i in $(tmux lsw|awk -F: '{print $1}'); do tmux movew -s \$i; done"
 
+# for neovim
+set-option -sg escape-time 10
+
 # vim:ft=tmux

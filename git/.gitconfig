@@ -1,4 +1,6 @@
 [user]
+  email = 12967144+genzade@users.noreply.github.com
+  name = Hamid Zadeh
   # variables are set in ~/.gitconfig_local
 [include]
   path = ~/.gitconfig_local

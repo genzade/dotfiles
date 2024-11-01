@@ -1,5 +1,0 @@
-" VIM BRACKETED PASTE
-
-Plug 'ConradIrwin/vim-bracketed-paste'
-
-" vim:ft=vim

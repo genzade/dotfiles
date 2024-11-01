@@ -1,6 +1,0 @@
-" VIM-MUSTACHE-HANDLEBARS
-
-Plug 'mustache/vim-mustache-handlebars'
-
-let g:mustache_abbreviations = 1
-" vim:ft=vim

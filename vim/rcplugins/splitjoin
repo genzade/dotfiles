@@ -1,5 +1,0 @@
-" SplitJoin, transition between multiline and single-line code
-
-Plug 'AndrewRadev/splitjoin.vim'
-
-" vim:ft=vim

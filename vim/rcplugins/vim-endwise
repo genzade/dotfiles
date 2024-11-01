@@ -1,5 +1,0 @@
-" VIM ENDWISE
-
-Plug 'tpope/vim-endwise'
-
-" vim:ft=vim

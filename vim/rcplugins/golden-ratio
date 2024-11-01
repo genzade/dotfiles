@@ -1,6 +1,0 @@
-" GOLDEN RATIO
-
-Plug 'roman/golden-ratio'
-
-let g:golden_ratio_filetypes_blacklist = ["netrw"]
-" vim:ft=vim

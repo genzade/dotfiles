@@ -1,5 +1,0 @@
-" VIM SURROUND
-
-Plug 'tpope/vim-surround'
-
-" vim:ft=vim

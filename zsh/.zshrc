@@ -7,8 +7,8 @@ HISTFILE=$HOME/.zsh_history
 # HISTSIZE=2147483647
 # SAVEHIST=$HISTSIZE
 
-# # imports new commands from the history file, and appends typed commands to the history file
-# setopt SHARE_HISTORY
+# Share history between sessions
+setopt SHARE_HISTORY     
 
 # # # Beep in ZLE when a widget attempts to access a history entry which isn’t there.
 # # setopt HIST_BEEP
@@ -19,10 +19,10 @@ HISTFILE=$HOME/.zsh_history
 
 # setopt HIST_IGNORE_ALL_DUPS
 
-# # Do not enter command lines into the history list if they are duplicates of the previous event.
-# setopt HIST_IGNORE_DUPS
-
-# setopt HIST_IGNORE_SPACE
+# Don't save duplicate lines
+setopt HIST_IGNORE_DUPS  
+# Don't save when prefixed with space
+setopt HIST_IGNORE_SPACE 
 # setopt HIST_REDUCE_BLANKS
 # setopt HIST_SAVE_NO_DUPS
 # setopt HIST_VERIFY

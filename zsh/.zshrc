@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 HISTFILE=$HOME/.zsh_history
 
 # # tweaking settings
@@ -94,6 +92,8 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 # --follow: Follow symlinks
 # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 export FZF_DEFAULT_COMMAND='rg --files --follow --glob "!.git/*"'
+
+export TERM="tmux-256color"
 
 # Editor of choice
 export EDITOR='nvim'

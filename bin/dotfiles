@@ -91,7 +91,7 @@ function macos_setup() {
     fi
     if ! [ -x "$(command -v brew)" ]; then
         __task "Installing Homebrew"
-        _cmd "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+        _cmd '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
     fi
     if ! [ -x "$(command -v git)" ]; then
         __task "Installing Git"

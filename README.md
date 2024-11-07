@@ -12,13 +12,15 @@ machine after a fresh install.
 - tmux
   - tpm
 
-See [install.sh](./install.sh) to get an overview of the installation of my current
-setup on `MacOS`.
-
 To install this on a fresh macbook
 
 - Set up your ssh keys (do this part manually)
-- Clone this repository in your home directory (`$HOME`) and run the install script
+
+run
+
+```shell
+$ bash -c "$(curl -fsSL https://raw.githubusercontent.com/genzade/dotfiles/main/bin/dotfiles)"
+```
 
 ```shell
 $ git clone git@github.com:genzade/dotfiles.git

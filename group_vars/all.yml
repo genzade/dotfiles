@@ -1,0 +1,84 @@
+---
+default_roles:
+  - bitwarden
+  # - system
+  # # - 1password
+  # - aldente
+  # - asciiquarium
+  # - bash
+  # - bat
+  # - btop
+  # - discord
+  # - docker
+  # - flatpak
+  # - fonts
+  # - fzf
+  # - gh
+  # - git
+  # - go
+  # - hammerspoon
+  # - helm
+  # - k8s
+  # - k9s
+  # - kitty
+  # - lazygit
+  # - lsd
+  # - lua
+  # - nala
+  # - ncdu
+  # - neofetch
+  # - neovim
+  # - nerdfetch
+  # - npm
+  # - nvm
+  # - obsidian
+  # - podman
+  # - pwsh
+  # - python
+  # - raycast
+  # # - ruby
+  # # - rust
+  # - slides
+  # - spotify
+  # - ssh
+  # - sshfs
+  # - starship
+  # - taskfile
+  # - terraform
+  # - terragrunt
+  # - tldr
+  # - tmate
+  # - tmux
+  # # - tshark
+  # - warp
+  # - whalebrew
+  # # - zellij
+  # - zoxide
+  # - zsh
+git_user_name: "genzade"
+op:
+  git:
+    user:
+      email: "12967144+genzade@users.noreply.github.com"
+      # ssh:
+      #   github:
+      #     techdufus:
+      #       - name: id_ed25519
+      #         vault_path: "op://Personal/genzade SSH"
+      #       - name: raft-infra
+      #         vault_path: "op://Raft/Raft-SSH"
+# k8s:
+#   repo:
+#     version: "v1.26"
+# helm:
+#   repos:
+#     - name: traefik
+#       url: https://helm.traefik.io/traefik
+# go:
+#   packages:
+#     - package: github.com/go-task/task/v3/cmd/task@latest
+#       cmd: task
+#     - package: github.com/gcla/termshark/v2/cmd/termshark@v2.4.0
+#       cmd: termshark
+#     # - package: github.com/stillmatic/chat@latest
+#     #   cmd: chat

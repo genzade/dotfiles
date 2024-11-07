@@ -1,18 +1,17 @@
 ---
 default_roles:
+  - system # always top
   - bitwarden
-  # - system
-  # # - 1password
   # - aldente
   # - asciiquarium
   # - bash
-  # - bat
+  - bat
   # - btop
   # - discord
-  # - docker
+  - docker
   # - flatpak
   # - fonts
-  # - fzf
+  - fzf
   # - gh
   # - git
   # - go
@@ -21,7 +20,7 @@ default_roles:
   # - k8s
   # - k9s
   # - kitty
-  # - lazygit
+  - lazygit
   # - lsd
   # - lua
   # - nala
@@ -53,7 +52,7 @@ default_roles:
   # - warp
   # - whalebrew
   # # - zellij
-  # - zoxide
+  - zoxide
   # - zsh
 git_user_name: "genzade"
 op:

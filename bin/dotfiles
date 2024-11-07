@@ -154,14 +154,13 @@ else
 fi
 
 
-pushd "$DOTFILES_DIR" > /dev/null 2>&1
-
+pushd "$DOTFILES_DIR" 2>&1 > /dev/null
 update_ansible_galaxy "$OS"
 
 printf "${OVERWRITE}${LGREEN} [✓]  ${LGREEN}Running playbook with vault secret ☕${NC}\n"
 ansible-playbook "$DOTFILES_DIR/main.yml" "$@"
 
-popd > /dev/null 2>&1 
+popd 2>&1 > /dev/null
 
 if ! [[ -f "$IS_FIRST_RUN" ]]; then
     echo -e "${CHECK_MARK} ${GREEN}First run complete!${NC}"

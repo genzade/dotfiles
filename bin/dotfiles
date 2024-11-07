@@ -1,0 +1,173 @@
+#!/usr/bin/env bash
+
+# color codes
+# BLACK='\033[00;30m'
+# BLUE='\033[00;34m'
+CYAN='\033[00;36m'
+GREEN='\033[00;32m'
+LBLACK='\033[01;30m'
+# LBLUE='\033[01;34m'
+# LCYAN='\033[01;36m'
+LGREEN='\033[01;32m'
+# LIGHTGRAY='\033[00;37m'
+# LPURPLE='\033[01;35m'
+LRED='\033[01;31m'
+# LYELLOW='\033[01;33m'
+NC='\033[0m'
+OVERWRITE='\e[1A\e[K'
+# PURPLE='\033[00;35m'
+RED='\033[00;31m'
+# RESTORE='\033[0m'
+SEA="\\033[38;5;49m"
+# WHITE='\033[01;37m'
+# YELLOW='\033[00;33m'
+
+#emoji codes
+ARROW="${SEA}\xE2\x96\xB6${NC}"
+# BOOK="${RED}\xF0\x9F\x93\x8B${NC}"
+CHECK_MARK="${GREEN}\xE2\x9C\x94${NC}"
+# CLOCK="${GREEN}\xE2\x8C\x9B${NC}"
+# HOT="${ORANGE}\xF0\x9F\x94\xA5${NC}"
+# PIN="${RED}\xF0\x9F\x93\x8C${NC}"
+# RIGHT_ANGLE="${GREEN}\xE2\x88\x9F${NC}"
+# WARNING="${RED}\xF0\x9F\x9A\xA8${NC}"
+# X_MARK="${RED}\xE2\x9C\x96${NC}"
+
+set -e
+
+OS=""
+DOTFILES_LOG="$HOME/.dotfiles.log"
+DOTFILES_DIR="$HOME/dotfiles"
+SSH_DIR="$HOME/.ssh"
+IS_FIRST_RUN="$HOME/.dotfiles_run"
+
+function __task {
+    # if _task is called while a task was set, complete the previous
+    if [[ $TASK != "" ]]; then
+        printf "${OVERWRITE}${LGREEN} [✓]  ${LGREEN}${TASK}\n"
+    fi
+    # set new task title and print
+    TASK=$1
+    printf "${LBLACK} [ ]  ${TASK} \n${LRED}"
+}
+
+# _cmd performs commands with error checking
+function _cmd {
+    #create log if it doesn't exist
+    if ! [[ -f $DOTFILES_LOG ]]; then
+        touch "$DOTFILES_LOG"
+    fi
+    # shellcheck disable=SC2188
+    > "$DOTFILES_LOG"
+    # hide stdout, on error we print and exit
+    if eval "$1" 1> /dev/null 2> "$DOTFILES_LOG"; then
+        return 0 # success
+    fi
+    # read error from log and add spacing
+    printf "${OVERWRITE}${LRED} [X]  ${TASK}${LRED}\n"
+    while read line; do
+        printf "      ${line}\n"
+    done < "$DOTFILES_LOG"
+    printf "\n"
+    # remove log file
+    rm "$DOTFILES_LOG"
+    # exit installation
+    exit 1
+}
+
+function _clear_task {
+    TASK=""
+}
+
+function _task_done {
+    printf "${OVERWRITE}${LGREEN} [✓]  ${LGREEN}${TASK}\n"
+    _clear_task
+}
+
+function macos_setup() {
+    if ! [ -x "$(command -v xcode-select)" ]; then
+        __task "Installing xcode"
+        _cmd "xcode-select --install"
+    fi
+    if ! [ -x "$(command -v brew)" ]; then
+        __task "Installing Homebrew"
+        _cmd "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+    fi
+    if ! [ -x "$(command -v git)" ]; then
+        __task "Installing Git"
+        _cmd "brew install git"
+    fi
+    if ! [ -x "$(command -v ansible)" ]; then
+        __task "Installing Ansible"
+        _cmd "brew install ansible"
+    fi
+}
+
+update_ansible_galaxy() {
+    local os=$1
+    local os_requirements=""
+    __task "Updating Ansible Galaxy"
+    if [ -f "$DOTFILES_DIR/requirements/$os.yml" ]; then
+        __task "${OVERWRITE}Updating Ansible Galaxy with OS Config: $os"
+        os_requirements="$DOTFILES_DIR/requirements/$os.yml"
+    fi
+    _cmd "ansible-galaxy install -r $DOTFILES_DIR/requirements/common.yml $os_requirements"
+}
+
+if [ -x "$(command -v uname)" ]; then
+    OS=$(uname -s)
+fi
+
+__task "Loading Setup for detected OS: $OS"
+# using case statement to support multiple OS in the future
+# TODO: remove comment after adding support for other OS
+case $OS in
+  # ubuntu)
+  #   ubuntu_setup
+  #   ;;
+  # arch)
+  #   arch_setup
+  #   ;;
+  Darwin)
+    macos_setup
+    ;;
+  *)
+    __task "Unsupported OS"
+    _cmd "echo 'Unsupported OS'"
+    ;;
+esac
+
+if ! [[ -f "$SSH_DIR/authorized_keys" ]]; then
+    __task "Generating SSH keys"
+    _cmd "mkdir -p $SSH_DIR"
+    _cmd "chmod 700 $SSH_DIR"
+    _cmd "ssh-keygen -b 4096 -t rsa -f $SSH_DIR/id_rsa -N '' -C $USER@$HOST"
+    _cmd "cat $SSH_DIR/id_rsa.pub >> $SSH_DIR/authorized_keys"
+fi
+
+if ! [[ -d "$DOTFILES_DIR" ]]; then
+    __task "Cloning repository"
+    _cmd "git clone --quiet --recurse-submodules https://github.com/genzade/dotfiles.git $DOTFILES_DIR"
+else
+    __task "Updating repository"
+    _cmd "git -C $DOTFILES_DIR pull --quiet"
+fi
+
+
+pushd "$DOTFILES_DIR" > /dev/null 2>&1
+firefox > /dev/null 2>&1
+
+update_ansible_galaxy "$OS"
+
+printf "${OVERWRITE}${LGREEN} [✓]  ${LGREEN}Running playbook with vault secret ☕${NC}\n"
+ansible-playbook "$DOTFILES_DIR/main.yml" "$@"
+
+popd > /dev/null 2>&1 
+
+if ! [[ -f "$IS_FIRST_RUN" ]]; then
+    echo -e "${CHECK_MARK} ${GREEN}First run complete!${NC}"
+    echo -e "${ARROW} ${CYAN}Please reboot your computer to complete the setup.${NC}"
+    touch "$IS_FIRST_RUN"
+fi
+
+# vi:ft=sh:

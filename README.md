@@ -19,7 +19,7 @@ To install this on a fresh macbook
 run
 
 ```shell
-$ bash -c "$(curl -fsSL https://raw.githubusercontent.com/genzade/dotfiles/main/bin/dotfiles)"
+$ bash -c "$(curl -fsSL https://raw.githubusercontent.com/genzade/dotfiles/master/bin/dotfiles)"
 ```
 
 ```shell

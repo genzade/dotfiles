@@ -155,7 +155,6 @@ fi
 
 
 pushd "$DOTFILES_DIR" > /dev/null 2>&1
-firefox > /dev/null 2>&1
 
 update_ansible_galaxy "$OS"
 

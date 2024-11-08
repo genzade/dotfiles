@@ -9,9 +9,389 @@
     state: present
   with_items:
     - jq
-# - name: "System | MacOSX | Enable Passwordless Sudo"
-#   ansible.builtin.template:
-#     src: user-sudo.j2
-#     dest: /private/etc/sudoers.d/{{ ansible_env['USER'] }}
-#     mode: "0440"
-#   become: true
+# Dock Settings
+- name: Dock - Enabling dock autohide
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: autohide
+    type: bool
+    value: true
+  notify: Kill Dock
+- name: Dock - Configure size of the dock
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: tilesize
+    type: int
+    value: 38
+  notify: Kill Dock
+- name: Dock - Magnify dock items
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: magnification
+    type: bool
+    value: true
+  notify: Kill Dock
+- name: Dock - Configure size when enlarged
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: largesize
+    type: int
+    value: 74
+  notify: Kill Dock
+- name: Dock - Configure dock position
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: orientation
+    type: string
+    value: bottom
+  notify: Kill Dock
+- name: Dock - Configure dock animation
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: mineffect
+    type: string
+    value: genie
+  notify: Kill Dock
+- name: Dock - Minimize windows into applicaiton icon
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: minimize-to-application
+    type: bool
+    value: false
+  notify: Kill Dock
+- name: Dock - Show recent apps in dock
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: show-recents
+    type: bool
+    value: false
+  notify: Kill Dock
+- name: Dock - Configure persistent dock items
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: persistent-apps
+    type: array
+    value: []
+  notify: Kill Dock
+- name: Dock - Don’t automatically rearrange Spaces based on most recent use
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: mru-spaces
+    type: bool
+    value: false
+  notify: Kill Dock
+# Finder Settings
+- name: Finder - enable quit option for finder
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: QuitMenuItem
+    type: bool
+    value: true
+  notify: Restart Finder
+# UI Settings
+- name: UI - Set action for double click on titlebar
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleActionOnDoubleClick
+    type: string
+    value: Maximize # "Maximize", "Minimize".
+  notify: Kill SystemUIServer
+- name: UI - Set a blazingly fast keyboard repeat rate
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: KeyRepeat
+    type: int
+    value: 1 # pre-migration value 2 # TODO: remove comment
+  notify: Kill SystemUIServer
+- name: UI - Set a blazingly fast keyboard repeat rate (2)
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: InitialKeyRepeat
+    type: int
+    value: 10 # pre-migration value 15 # TODO: remove comment
+  notify: Kill SystemUIServer
+- name: "UI - Set track speed (min: 1.0, max: 5.0)"
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.trackpad.scaling
+    type: float
+    value: 2.5
+  notify: Kill SystemUIServer
+- name: "UI - Set mouse speed (min: 1.0, max: 5.0)"
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.mouse.scaling
+    type: float
+    value: 4.5
+  notify: Kill SystemUIServer
+- name: UI - Auto-hide top menu bar
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: _HIHideMenuBar
+    type: bool
+    value: true
+  notify: Kill SystemUIServer
+- name: UI - Enable subpixel font rendering on non-Apple LCDs
+  community.general.osx_defaults:
+    key: AppleFontSmoothing
+    host: currentHost
+    type: int
+    value: 1
+    state: present
+  notify: Kill SystemUIServer
+- name: UI - Enable font smoothing
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: CGFontRenderingFontSmoothingDisabled
+    type: bool
+    value: false
+  notify: Kill SystemUIServer
+# Menu Settings
+- name: Menu - Configuring menu bar clock format
+  community.general.osx_defaults:
+    domain: com.apple.menuextra.clock
+    key: DateFormat
+    type: string
+    value: EEE MMM d  j:mm a"
+  notify: Kill SystemUIServer
+# Trackpad Settings
+- name: Trackpad - Set force click haptic feedback
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: ActuateDetents
+    type: integer
+    value: 1
+  notify: Kill SystemUIServer
+- name: Trackpad - configure built-in trackpad click type
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: Clicking
+    type: integer
+    value: 1
+  notify: Kill SystemUIServer
+- name: Trackpad - configure built-in trackpad drag lock
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: DragLock
+    type: integer
+    value: 0
+  notify: Kill SystemUIServer
+- name: Trackpad - configure built-in trackpad dragging
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: Dragging
+    type: integer
+    value: 1
+  notify: Kill SystemUIServer
+- name: Trackpad - Configure first click
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: FirstClickThreshold
+    type: integer
+    value: 1
+  notify: Kill SystemUIServer
+- name: Trackpad - Configure second click
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: SecondClickThreshold
+    type: integer
+    value: 1
+  notify: Kill SystemUIServer
+- name: Trackpad - Enable force click
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: ForceSuppressed
+    type: bool
+    value: false
+  notify: Kill SystemUIServer
+- name: Trackpad - Configure corner secondary click
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadCornerSecondaryClick
+    type: int
+    value: 0
+  notify: Kill SystemUIServer
+- name: Trackpad - Built-in trackpad 5 finger pinch
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadFiveFingerPinchGesture
+    type: integer
+    value: 2
+  notify: Kill SystemUIServer
+- name: Trackpad - Built-in trackpad four finger horizontal swipe gesture
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadFourFingerHorizSwipeGesture
+    type: integer
+    value: 2
+  notify: Kill SystemUIServer
+- name: Trackpad - Built-in trackpad four finger pinch gesture
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadFourFingerPinchGesture
+    type: integer
+    value: 2
+  notify: Kill SystemUIServer
+- name: Trackpad - Built-in trackpad four finger vertical swipe gesture
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadFourFingerVertSwipeGesture
+    type: integer
+    value: 2
+  notify: Kill SystemUIServer
+- name: Trackpad - Built-in trackpad hand resting
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadHandResting
+    type: integer
+    value: 1
+  notify: Kill SystemUIServer
+- name: Trackpad - Built-in trackpad horizontal scroll
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadHorizScroll
+    type: integer
+    value: 1
+  notify: Kill SystemUIServer
+- name: Trackpad - Built-in trackpad momentum scroll
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadMomentumScroll
+    type: integer
+    value: 1
+  notify: Kill SystemUIServer
+- name: Trackpad - Built-in trackpad pinch gesture
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadPinch
+    type: integer
+    value: 1
+  notify: Kill SystemUIServer
+- name: Trackpad - Built-in trackpad right click
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadRightClick
+    type: integer
+    value: 1
+  notify: Kill SystemUIServer
+- name: Trackpad - Built-in trackpad rotate
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadRotate
+    type: integer
+    value: 1
+  notify: Kill SystemUIServer
+- name: Trackpad - Built-in trackpad rotate
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadScroll
+    type: integer
+    value: 1
+  notify: Kill SystemUIServer
+- name: Trackpad - Built-in trackpad three finger drag
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadThreeFingerDrag
+    type: integer
+    value: 0
+  notify: Kill SystemUIServer
+- name: Trackpad - Built-in trackpad three finger horizontal swipe gesture
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadThreeFingerHorizSwipeGesture
+    type: integer
+    value: 1
+  notify: Kill SystemUIServer
+- name: Trackpad - Built-in trackpad three finger tap gesture
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadThreeFingerTapGesture
+    type: integer
+    value: 0
+  notify: Kill SystemUIServer
+- name: Trackpad - Built-in trackpad three finger vertical swipe gesture
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadThreeFingerVertSwipeGesture
+    type: integer
+    value: 2
+  notify: Kill SystemUIServer
+- name: Trackpad - Built-in trackpad two finger double tap gesture
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadTwoFingerDoubleTapGesture
+    type: integer
+    value: 1
+  notify: Kill SystemUIServer
+- name: Trackpad - Built-in trackpad two finger right edge swipe gesture
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadTwoFingerFromRightEdgeSwipeGesture
+    type: integer
+    value: 3
+  notify: Kill SystemUIServer
+  # Mouse Settings
+- name: Мouse - Configure button division
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchMouse
+    key: MouseButtonDivision
+    type: int
+    value: 55
+- name: Mouse - Run in two button mode
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchMouse
+    key: MouseButtonMode
+    type: string
+    value: TwoButton
+- name: Мouse - Configure horizontal scroll
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchMouse
+    key: MouseHorizontalScroll
+    type: int
+    value: 1
+- name: Мouse - Configure momentum scroll
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchMouse
+    key: MouseMomentumScroll
+    type: int
+    value: 1
+- name: Мouse - Enable one finger double tap gesture for zoom
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchMouse
+    key: MouseOneFingerDoubleTapGesture
+    type: int
+    value: 1
+- name: Мouse - Enable two finger double tap gesture
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchMouse
+    key: MouseTwoFingerDoubleTapGesture
+    type: int
+    value: 3
+- name: Мouse - Enable two finger horizontal swipe gesture
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchMouse
+    key: MouseTwoFingerHorizSwipeGesture
+    type: int
+    value: 2
+- name: Мouse - Configure vertical scroll
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchMouse
+    key: MouseVerticalScroll
+    type: int
+    value: 1
+# Util Settings
+- name: Util - Save screenshots to a directory
+  community.general.osx_defaults:
+    domain: com.apple.screencapture
+    key: location
+    type: string
+    value: "{{ ansible_env.HOME }}/Documents/Screenshots"
+  notify: Kill SystemUIServer
+- name: Util - Disable Airplay Receiver to free up port 5000 used in development
+  community.general.osx_defaults:
+    domain: com.apple.controlcenter
+    host: currentHost
+    key: AirplayRecieverEnabled
+    type: int
+    value: 2
+  notify: Kill SystemUIServer

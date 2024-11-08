@@ -9,6 +9,7 @@
     state: present
   with_items:
     - jq
+    - stow
 # Dock Settings
 - name: Dock - Enabling dock autohide
   community.general.osx_defaults:

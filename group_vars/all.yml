@@ -37,6 +37,7 @@ default_roles:
   # - raycast
   # # - ruby
   # # - rust
+  - ripgrep
   # - slides
   # - spotify
   # - ssh

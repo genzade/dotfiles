@@ -1,0 +1,10 @@
+---
+- name: "ZSH | MacOSX | Install Zsh"
+  community.general.homebrew:
+    name: zsh
+    state: present
+  notify: Change Shell
+- name: "ZSH | MacOSX | Install Zinit"
+  community.general.homebrew:
+    name: zinit
+    state: present

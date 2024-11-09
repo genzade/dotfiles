@@ -54,7 +54,8 @@ default_roles:
   # - whalebrew
   # # - zellij
   - zoxide
-  # - zsh
+  - zsh
+username: "genzade"
 git_user_name: "genzade"
 op:
   git:

@@ -1,0 +1,4 @@
+---
+- name: Add ASDF Plugins
+  ansible.builtin.command: "asdf plugin add {{ item.name }} {{ item.repo }}"
+  with_items: '{{ asdf_plugins }}'

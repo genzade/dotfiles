@@ -2,6 +2,11 @@
 - name: DotFiles Config
   hosts: localhost
   connection: local
+  pre_tasks:
+    - name: Create Config Files
+      ansible.builtin.import_tasks: pre_tasks/create_config_files.yml
+      tags:
+        - always
   tasks:
     - name: Set roles
       ansible.builtin.set_fact:

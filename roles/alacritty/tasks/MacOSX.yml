@@ -1,0 +1,28 @@
+---
+- name: "Alacritty | MacOSX | Install Alacritty"
+  community.general.homebrew_cask:
+    name: alacritty
+    state: present
+  # block:
+  #   - name: "Alacritty | MacOSX | Clone Alacritty repo"
+  #     ansible.builtin.git:
+  #       repo: https://github.com/alacritty/alacritty.git
+  #       dest: /tmp/alacritty
+  #       clone: true
+  #       update: true
+  #       depth: 1
+  #   - name: "Alacritty | MacOSX | Build Alacritty"
+  #     ansible.builtin.command:
+  #       cmd: "cargo build --release"
+  #     args:
+  #       chdir: /tmp/alacritty
+  #   - name: "Alacritty | MacOSX | Package App"
+  #     ansible.builtin.command:
+  #       cmd: "make app"
+  #     args:
+  #       chdir: /tmp/alacritty
+  #   - name: "Alacritty | MacOSX | Copy to Applications"
+  #     ansible.builtin.command:
+  #       cmd: "cp -r target/release/osx/Alacritty.app /Applications/"
+  #     args:
+  #       chdir: /tmp/alacritty

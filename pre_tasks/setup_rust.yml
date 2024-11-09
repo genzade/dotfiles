@@ -1,0 +1,16 @@
+---
+- name: Setup Rust
+  block:
+    - name: Check if cargo is installed
+      ansible.builtin.command: which cargo
+      register: cargo_check
+      changed_when: false
+      failed_when: false
+    - name: Install Rust using rustup if cargo is not installed
+      ansible.builtin.shell: "curl https://sh.rustup.rs -sSf | sh -s -- -y"
+      when: cargo_check.rc != 0
+    - name: Source the cargo environment if cargo was just installed
+      ansible.builtin.shell: "source {{ ansible_env.HOME }}/.cargo/env"
+      args:
+        executable: /bin/bash
+      when: cargo_check.rc != 0

@@ -7,6 +7,10 @@
       ansible.builtin.import_tasks: pre_tasks/create_config_files.yml
       tags:
         - always
+    - name: Setup Rust
+      ansible.builtin.import_tasks: pre_tasks/setup_rust.yml
+      tags:
+        - always
   tasks:
     - name: Set roles
       ansible.builtin.set_fact:

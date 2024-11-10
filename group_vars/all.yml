@@ -13,6 +13,7 @@ default_roles:
   - docker
   # - flatpak
   # - fonts
+  - fonts
   - fzf
   # - gh
   # - git

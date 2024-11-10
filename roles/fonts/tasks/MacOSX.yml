@@ -1,0 +1,12 @@
+---
+- name: "Fonts | MacOSX | Install Nerd Fonts"
+  community.general.homebrew_cask:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - font-cousine-nerd-font
+    - font-devicons
+    - font-hack-nerd-font
+    - font-monoid-nerd-font
+    - font-space-mono-nerd-font
+    - font-victor-mono-nerd-font

@@ -1,0 +1,5 @@
+---
+- name: Git | Link Gitconfig
+  ansible.builtin.command:
+    cmd: stow --target={{ ansible_env.HOME }} git --verbose=2
+    chdir: "{{ ansible_env.HOME }}/dotfiles"

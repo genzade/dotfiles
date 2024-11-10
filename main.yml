@@ -7,8 +7,8 @@
       ansible.builtin.import_tasks: pre_tasks/create_config_files.yml
       tags:
         - always
-    - name: Setup Rust
-      ansible.builtin.import_tasks: pre_tasks/setup_rust.yml
+    - name: Setup Git
+      ansible.builtin.import_tasks: pre_tasks/setup_git.yml
       tags:
         - always
   tasks:

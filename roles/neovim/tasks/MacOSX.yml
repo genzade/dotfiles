@@ -1,0 +1,5 @@
+---
+- name: "Neovim | MacOSX | Install Neovim"
+  community.general.homebrew:
+    name: neovim
+    state: present

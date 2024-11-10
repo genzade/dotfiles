@@ -8,8 +8,12 @@
     name: "{{ item }}"
     state: present
   with_items:
+    - git-delta
+    - git-lfs
     - jq
     - stow
+    - tig
+    - tree
 # Dock Settings
 - name: Dock - Enabling dock autohide
   community.general.osx_defaults:

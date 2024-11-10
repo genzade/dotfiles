@@ -134,7 +134,7 @@
     domain: NSGlobalDomain
     key: _HIHideMenuBar
     type: bool
-    value: true
+    value: false
   notify: Kill SystemUIServer
 - name: UI - Enable subpixel font rendering on non-Apple LCDs
   community.general.osx_defaults:

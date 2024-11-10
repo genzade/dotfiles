@@ -21,6 +21,7 @@ default_roles:
   # - helm
   # - k8s
   # - k9s
+  - karabiner
   # - kitty
   - lazygit
   # - lsd

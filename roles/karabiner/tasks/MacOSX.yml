@@ -1,0 +1,5 @@
+---
+- name: "Karabiner-Elements | MacOSX | Install Karabiner-Elements"
+  community.general.homebrew_cask:
+    name: karabiner-elements
+    state: present

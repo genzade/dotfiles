@@ -1,0 +1,5 @@
+---
+- name: "PGCLI | MacOSX | Install PGCLI"
+  community.general.homebrew:
+    name: pgcli
+    state: latest

@@ -52,7 +52,7 @@ default_roles:
   # - terragrunt
   # - tldr
   # - tmate
-  # - tmux
+  - tmux
   # # - tshark
   # - warp
   # - whalebrew

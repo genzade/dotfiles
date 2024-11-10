@@ -1,0 +1,5 @@
+---
+- name: "Tmux | MacOSX | Install Tmux"
+  community.general.homebrew:
+    name: tmux
+    state: latest

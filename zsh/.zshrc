@@ -155,3 +155,4 @@ export PATH=$PATH:$(go env GOPATH)/bin
 
 export PATH="/usr/local/sbin:$PATH"
 
+eval "$(zoxide init zsh)"

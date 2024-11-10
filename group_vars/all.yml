@@ -17,7 +17,7 @@ default_roles:
   # - gh
   # - git
   # - go
-  # - hammerspoon
+  - hammerspoon
   # - helm
   # - k8s
   # - k9s

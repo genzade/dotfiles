@@ -1,0 +1,5 @@
+---
+- name: "Aerospace | MacOSX | Install Aerospace"
+  community.general.homebrew_cask:
+    name: nikitabobko/tap/aerospace
+    state: latest

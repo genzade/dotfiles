@@ -8,7 +8,7 @@
   when: distribution_config.stat.exists
 - name: "{{ role_name }} | Run Tasks: {{ ansible_distribution }} | Link dotfiles config"
   ansible.builtin.command:
-    cmd: stow --target={{ ansible_env.HOME }} {{ role_name }} --ignore=plugins --ignore=configs --verbose=2
+    cmd: stow --target={{ ansible_env.HOME }} {{ role_name }} --verbose=2
     chdir: "{{ ansible_env.HOME }}/dotfiles"
   register: result
   changed_when: 'result.stderr is search("LINK: ")'

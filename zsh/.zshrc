@@ -1,3 +1,11 @@
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+# Download zinit if not present
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
+
 HISTFILE=$HOME/.zsh_history
 
 # # tweaking settings
@@ -13,19 +21,23 @@ setopt SHARE_HISTORY
 
 # setopt HIST_EXPIRE_DUPS_FIRST
 # setopt HIST_FCNTL_LOCK
-# setopt HIST_FIND_NO_DUPS
 
-# setopt HIST_IGNORE_ALL_DUPS
+# erase duplicates in history
+setopt HIST_IGNORE_ALL_DUPS
 
 # Don't save duplicate lines
 setopt HIST_IGNORE_DUPS  
 # Don't save when prefixed with space
 setopt HIST_IGNORE_SPACE 
 # setopt HIST_REDUCE_BLANKS
-# setopt HIST_SAVE_NO_DUPS
+
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_FIND_NO_DUPS
+
 # setopt HIST_VERIFY
 
-# setopt APPEND_HISTORY
+# Append to history file, don't overwrite it
+setopt APPEND_HISTORY
 # setopt EXTENDED_HISTORY
 # setopt INC_APPEND_HISTORY
 
@@ -35,21 +47,7 @@ setopt HIST_IGNORE_SPACE
 # setopt MENU_COMPLETE
 # setopt COMPLETE_ALIASES
 
-# zstyle ':completion:*:default' list-colors "${(s.:.)LS_COLORS}"
-# zstyle ':completion:*' menu select
-
 # PLUGINS
-
-if [[ $(uname -p) == 'arm' ]]; then # M1 macOS
-  source /opt/homebrew/opt/zinit/zinit.zsh
-else
-  # shellcheck disable=SC1094
-  source /usr/local/opt/zinit/zinit.zsh
-fi
-
-## Install zinit if have not
-# type zinit >/dev/null 2>&1 || \
-#   sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 
 # theme
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
@@ -74,6 +72,9 @@ zinit snippet OMZP::fzf
 
 # zsh completion
 zinit light zsh-users/zsh-completions
+
+# fzf tab
+zinit light Aloxaf/fzf-tab
 
 # PLUGINS
 
@@ -119,6 +120,11 @@ fi
 alias vi="nvim"
 alias vim="nvim"
 alias brow='arch --x86_64 /usr/local/homebrew/bin/brew'
+alias ls="ls --color=auto"
+
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # MY FUNCTIONS
 # shellcheck disable=SC1091

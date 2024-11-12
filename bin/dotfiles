@@ -101,6 +101,9 @@ function macos_setup() {
         __task "Installing Ansible"
         _cmd "brew install ansible"
     fi
+    if ! [ -x "$(command -v stow)" ]; then
+        _cmd "brew install stow"
+    fi
 }
 
 update_ansible_galaxy() {

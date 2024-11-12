@@ -8,3 +8,8 @@
   community.general.homebrew:
     name: zinit
     state: present
+- name: "ZSH | MacOSX | Set zsh as default shell"
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    shell: /bin/zsh
+  become: true

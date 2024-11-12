@@ -104,6 +104,16 @@ function macos_setup() {
     if ! [ -x "$(command -v stow)" ]; then
         _cmd "brew install stow"
     fi
+    # install asdf if not installed
+    if ! [ -x "$(command -v asdf)" ]; then
+        __task "Installing and setup asdf"
+
+        if ! [ -d "$HOME/.asdf" ]; then
+            __task "Cloning asdf repository"
+            _cmd "git clone --depth 1 https://github.com/asdf-vm/asdf.git $HOME/.asdf"
+        fi
+        _cmd "source $HOME/.asdf/asdf.sh"
+    fi
 }
 
 update_ansible_galaxy() {
@@ -153,7 +163,7 @@ if ! [[ -f "$SSH_DIR/ed25519" ]]; then
 fi
 
 if ! [[ -d "$DOTFILES_DIR" ]]; then
-    __task "Cloning repository"
+    __task "Cloning dotfiles repository"
     _cmd "git clone --quiet --recurse-submodules https://github.com/genzade/dotfiles.git $DOTFILES_DIR"
 else
     __task "Updating repository"

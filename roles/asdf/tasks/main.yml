@@ -13,10 +13,9 @@
   register: result
   changed_when: 'result.stderr is search("LINK: ")'
   become: false
-- block:
-    - name: "{{ role_name }} | {{ ansible_distribution }} | Add ASDF {{ item.name }} Plugin"
-      ansible.builtin.command: "asdf plugin add {{ item.name }} {{ item.repo }}"
-      with_items: '{{ asdf_plugins }}'
+- name: "{{ role_name }} | {{ ansible_distribution }} | Add ASDF {{ item.name }} Plugin"
+  ansible.builtin.command: "asdf plugin add {{ item.name }} {{ item.repo }}"
+  with_items: '{{ asdf_plugins }}'
 - name: "{{ role_name }} | {{ ansible_distribution }} | Install Plugins"
   ansible.builtin.command:
     cmd: asdf install

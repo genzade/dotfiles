@@ -1,5 +1,8 @@
 ---
 - name: "Neovim | MacOSX | Install Neovim"
   community.general.homebrew:
-    name: neovim
+    name: "{{ item }}"
     state: present
+  with_items:
+    - luarocks
+    - neovim

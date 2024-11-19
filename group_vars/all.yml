@@ -79,8 +79,8 @@ asdf_plugins:
     repo: https://github.com/asdf-vm/asdf-nodejs.git
   - name: ruby
     repo: https://github.com/asdf-vm/asdf-ruby.git
-  - name: python
-    repo: https://github.com/asdf-community/asdf-python.git
+  # - name: python
+  #   repo: https://github.com/asdf-community/asdf-python.git
   - name: yarn
     repo: https://github.com/twuni/asdf-yarn.git
   - name: golang

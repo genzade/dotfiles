@@ -1,0 +1,89 @@
+
+[[keyboard.bindings]]
+chars = "#"
+key = "Key3"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bj"
+key = "J"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bk"
+key = "K"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bu"
+key = "U"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bx"
+key = "X"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B[9;5u"
+key = "Tab"
+mods = "Control"
+
+[terminal]
+
+[cursor]
+blink_interval = 500
+
+[cursor.style]
+blinking = "Always"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 17
+
+[font.bold]
+family = "VictorMono Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "VictorMono Nerd Font"
+style = "Bold Italic"
+
+[font.glyph_offset]
+x = 0
+y = 1
+
+[font.italic]
+family = "VictorMono Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "VictorMono Nerd Font"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 0
+
+[mouse]
+hide_when_typing = true
+
+[terminal.shell]
+args = ["--login"]
+program = "/bin/zsh"
+
+[window]
+decorations = "buttonless"
+opacity = 0.95
+startup_mode = "Maximized"
+
+[window.padding]
+x = 2
+y = 2
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[keyboard]

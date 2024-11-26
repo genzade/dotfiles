@@ -28,8 +28,19 @@
   conflictstyle = diff3
 
 [diff]
-    colorMoved = default
-    submodule = log
+  colorMoved = default
+  submodule = log
+  tool = nvimdiff
+[difftool "nvimdiff"]
+  cmd = nvim -d $LOCAL $REMOTE -c 'wincmd w' -c 'wincmd L'
+
+[merge]
+  tool = nvimdiff4
+  prompt = false
+
+[mergetool "nvimdiff4"]
+  cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f

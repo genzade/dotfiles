@@ -144,11 +144,11 @@ compinit
 
 zinit cdreplay -q
 
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] \
-  && [ -s "$BASE16_SHELL/profile_helper.sh" ] \
-    && source "$BASE16_SHELL/profile_helper.sh"
+# # Base16 Shell
+# BASE16_SHELL="$HOME/.config/base16-shell/"
+# [ -n "$PS1" ] \
+#   && [ -s "$BASE16_SHELL/profile_helper.sh" ] \
+#     && source "$BASE16_SHELL/profile_helper.sh"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 

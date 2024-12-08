@@ -1,22 +1,11 @@
 # keep window name fixed
 set-window-option -g automatic-rename off
 
-# modes
-# set mode-style "fg=red,bg=blue"
-# set mode-style "fg=colour196, bg=colour238"
-
-
-set-window-option -g clock-mode-colour colour135
 set-window-option -g mode-style "fg=colour196,bg=colour238"
-# set -g mode-style "fg=#b8b8b8,bg=#383838"
-# set-option -g mode-style "bg=colour238"
-set-option -g mode-style bold
-
 set-window-option -g window-status-style "fg=colour138"
 set-window-option -g window-status-style "bg=colour235"
 set-window-option -g window-status-style none
 set-window-option -g window-status-format ' #I#[fg=colour237]:#[fg=colour250]#W#[fg=colour244]#F '
-
 set-window-option -g window-status-bell-style "fg=colour255"
 set-window-option -g window-status-bell-style "bg=colour1"
 set-window-option -g window-status-bell-style bold

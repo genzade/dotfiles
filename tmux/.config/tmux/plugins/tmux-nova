@@ -50,12 +50,16 @@ set-option -g @nova-segment-session "#{session_name}"
 set-option -g @nova-segment-session-colors "$seg_a"
 
 ## ZOOMED
-set-option -g @nova-segment-zoomed "#{?window_zoomed_flag,ZOOMED,}"
+set-option -g @nova-segment-zoomed "#{?window_zoomed_flag, ,}"
 set-option -g @nova-segment-zoomed-colors "$seg_b1"
 
-## PREFIX
-set-option -g @nova-segment-prefix "#{?client_prefix,PREFIX,}"
-set-option -g @nova-segment-prefix-colors "$seg_b2"
+# ## PREFIX
+# set-option -g @nova-segment-prefix "#{?client_prefix, ,}"
+# # set-option -g @nova-segment-prefix-colors "$seg_b2"
+# set-option -g @nova-segment-prefix-colors "#104a1b"
+
+set -g @nova-segment-mode "#{?client_prefix,󰰘 , }"
+set -g @nova-segment-mode-colors "#{?client_prefix,#f06372,#20202a} #104a1b"
 
 ## CPU
 set-option -g @cpu_percentage_format "%3.1f%%"
@@ -66,31 +70,31 @@ set-option -g @nova-segment-cpu "  #{cpu_percentage}"
 set-option -g @nova-segment-cpu-colors "$seg_b3"
 
 ## RAM
-set -g @nova-segment-ram "󰍛 #{ram_percentage}"
-set -g @nova-segment-ram-colors "$seg_b3"
+set-option -g @nova-segment-ram "󰍛 #{ram_percentage}"
+set-option -g @nova-segment-ram-colors "$seg_b3"
 
 ## BATTERY
 # WIP battery icon
 # set-option -g @batt_icon_status_charging '↑'
 # set-option -g @batt_icon_status_discharging '↓'
 
-set-option -g @nova-segment-battery " #{battery_icon} #{battery_percentage} "
-set-option -g @nova-segment-battery-colors "$seg_b4"
+# set-option -g @nova-segment-battery " #{battery_icon} #{battery_percentage} "
+# set-option -g @nova-segment-battery-colors "$seg_b4"
 
 ## TIME
-set-option -g @nova-segment-time "  %H:%M"
-set-option -g @nova-segment-time-colors "$seg_b5"
+# set-option -g @nova-segment-time "  %H:%M"
+# set-option -g @nova-segment-time-colors "$seg_b5"
 
 ## DATE
-set-option -g @nova-segment-date "📅 %%d-%%m-%%y"
-set-option -g @nova-segment-date-colors "$seg_b6"
+# set-option -g @nova-segment-date "📅 %%d-%%m-%%y"
+# set-option -g @nova-segment-date-colors "$seg_b6"
 
 ## WHOAMI
-set-option -g @nova-segment-whoami "🖥 #(whoami)"
-set-option -g @nova-segment-whoami-colors "$seg_a"
+# set-option -g @nova-segment-whoami "🖥 #(whoami)"
+# # set-option -g @nova-segment-whoami-colors "$seg_a"
 
 ## SEGMENTS
 set-option -g @nova-segments-0-left "session"
-set-option -g @nova-segments-0-right "zoomed prefix cpu ram battery time date whoami"
+set-option -g @nova-segments-0-right "zoomed cpu ram mode"
 
 # vim:ft=tmux

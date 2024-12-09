@@ -70,7 +70,7 @@ fvi() {
   vim $(
     fzf \
       --header="------ Choose file to open in $EDITOR" \
-      --preview="less {}" \
+      --preview="if [[ -f {} ]];then bat --style=full --color=always {};elif [[ -d {} ]];then tree -C -L 2 {} | head -200;else echo {}; fi" \
       --bind "ctrl-d:preview-page-down,ctrl-u:preview-page-up" \
       --pointer=" "
   )

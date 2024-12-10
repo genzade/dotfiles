@@ -5,84 +5,60 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d "$ZINIT_HOME"/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
-HISTFILE=$HOME/.zsh_history
-
-# # tweaking settings
-
-# HISTSIZE=2147483647
-# SAVEHIST=$HISTSIZE
-
-# Share history between sessions
-setopt SHARE_HISTORY     
-
-# # # Beep in ZLE when a widget attempts to access a history entry which isn’t there.
-# # setopt HIST_BEEP
-
-# setopt HIST_EXPIRE_DUPS_FIRST
-# setopt HIST_FCNTL_LOCK
-
-# erase duplicates in history
-setopt HIST_IGNORE_ALL_DUPS
-
-# Don't save duplicate lines
-setopt HIST_IGNORE_DUPS  
-# Don't save when prefixed with space
-setopt HIST_IGNORE_SPACE 
-# setopt HIST_REDUCE_BLANKS
-
-setopt HIST_SAVE_NO_DUPS
-setopt HIST_FIND_NO_DUPS
-
-# setopt HIST_VERIFY
-
-# Append to history file, don't overwrite it
-setopt APPEND_HISTORY
-# setopt EXTENDED_HISTORY
-# setopt INC_APPEND_HISTORY
-
-# setopt BRACE_CCL
-# setopt LONG_LIST_JOBS
-# setopt AUTO_LIST
-# setopt MENU_COMPLETE
-# setopt COMPLETE_ALIASES
-
 # PLUGINS
 
 # theme
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
 
-# autosuggestions
-zinit light zsh-users/zsh-autosuggestions
-
-# syntax highlighting
-zinit light zdharma/fast-syntax-highlighting
-
-# fzf tab
-# zinit light Aloxaf/fzf-tab
-
-# vi mode
-zinit ice depth=1
-zinit light jeffreytse/zsh-vi-mode
-
-# For postponing loading `fzf`
-zinit ice lucid wait
-zinit snippet OMZP::fzf
-
-# zsh completion
-zinit light zsh-users/zsh-completions
-
-# fzf tab
+zinit ice lucid wait for 'fzf-tab'
 zinit light Aloxaf/fzf-tab
 
-# PLUGINS
+autoload -Uz compinit && compinit # initialise completions with ZSH's compinit
 
-# alacritty setup
-fpath+=${ZDOTDIR:-~}/.zsh_functions
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma/fast-syntax-highlighting
+zinit light zsh-users/zsh-completions
 
-# fzf fuzzy finder (all hail https://github.com/junegunn)
-# shellcheck disable=SC1091
-[ -f "$HOME"/.fzf.zsh ] && source "$HOME"/.fzf.zsh
+# vi mode
+zinit ice depth=1 ; zinit light jeffreytse/zsh-vi-mode
+
+# For postponing loading `fzf`
+zinit ice lucid wait ; zinit snippet OMZP::fzf
+
+zinit cdreplay -q
+
+zle_highlight+=(paste:none)
+
+HISTFILE=$HOME/.zsh_history
+
+setopt SHARE_HISTORY # Share history between sessions
+setopt HIST_IGNORE_ALL_DUPS # erase duplicates in history
+setopt HIST_IGNORE_DUPS  # Don't save duplicate lines
+setopt HIST_IGNORE_SPACE # Don't save when prefixed with space
+setopt HIST_SAVE_NO_DUPS # Don't save duplicates
+setopt HIST_FIND_NO_DUPS # Don't find duplicates
+setopt APPEND_HISTORY # Append to history file, don't overwrite it
+
+# Completion
+setopt AUTO_MENU
+setopt ALWAYS_TO_END
+setopt COMPLETE_IN_WORD
+unsetopt FLOW_CONTROL
+unsetopt MENU_COMPLETE
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
+# # alacritty setup
+# fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+# # shellcheck disable=SC1091
+# [ -f "$HOME"/.fzf.zsh ] && source "$HOME"/.fzf.zsh
 
 # ripgrep + fzf
 
@@ -91,23 +67,14 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 # --hidden: Search hidden files and folders
 # --follow: Follow symlinks
 # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
-export FZF_DEFAULT_COMMAND='rg --files --follow --glob "!.git/*"'
-
+export FZF_DEFAULT_COMMAND='rg --files --follow --hidden --glob "!.git/*"'
 export TERM="tmux-256color"
-
-# Editor of choice
-export EDITOR='nvim'
+export EDITOR='nvim' # Editor of choice
 export GIT_EDITOR="$EDITOR"
-
-# Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=13
-
-# Increase history size
 export SAVEHIST=100000
 export HISTSIZE=100000
-
 export QMK_HOME="$HOME"/.config/qmk_firmware
-
 export PKG_CONFIG_PATH="$(brew --prefix)/opt/ncurses/lib/pkgconfig"
 
 if [[ "$(uname -s)" == "Darwin" ]]; then
@@ -121,27 +88,15 @@ alias vim="nvim"
 alias brow='arch --x86_64 /usr/local/homebrew/bin/brew'
 alias ls="ls --color=auto"
 
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-
-# MY FUNCTIONS
 # shellcheck disable=SC1091
-source "$HOME"/dotfiles/zsh/config/my-functions.zsh
+source "$HOME"/dotfiles/zsh/config/my-functions.zsh # MY FUNCTIONS
 
-# asdf
 # shellcheck disable=SC1091
 source "$HOME"/.asdf/asdf.sh
 
-# append completions to fpath
-# shellcheck disable=SC2206
-fpath=("$HOME"/.zsh/completion $fpath)
-
-# initialise completions with ZSH's compinit
-autoload -Uz compinit
-compinit
-
-zinit cdreplay -q
+# # append completions to fpath
+# # shellcheck disable=SC2206
+# fpath=("$HOME"/.zsh/completion $fpath)
 
 # # Base16 Shell
 # BASE16_SHELL="$HOME/.config/base16-shell/"
@@ -160,4 +115,5 @@ export PATH=$PATH:$(go env GOPATH)/bin
 
 export PATH="/usr/local/sbin:$PATH"
 
+eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"

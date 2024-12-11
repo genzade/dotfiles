@@ -1,10 +1,10 @@
 # Make a directory and change into it in one command
-mkcd () {
+mkcd() {
   mkdir -p "$@" && cd "$@"
 }
 
 # quickly resolve merge conflicts, opens files in vim buffer
-vimfix () {
+vimfix() {
   vim $(git status | grep 'both modified' | cut -d: -f2)
 }
 
@@ -21,7 +21,7 @@ gcgb() {
   git checkout $(
     git branch --sort=-committerdate | fzf \
       --header="------- Checkout branch" \
-      --preview "git diff --color=always {1} "  \
+      --preview "git diff --color=always {1} " \
       --bind "ctrl-d:preview-page-down,ctrl-u:preview-page-up" \
       --pointer=" "
   )
@@ -31,7 +31,7 @@ gbD() {
   git branch -D $(
     git branch --sort=-committerdate | fzf \
       --header="------- Delete branch" \
-      --preview "git diff --color=always {1} "  \
+      --preview "git diff --color=always {1} " \
       --bind "ctrl-d:preview-page-down,ctrl-u:preview-page-up" \
       --pointer=" "
   )
@@ -67,23 +67,17 @@ gd() {
 }
 
 fvi() {
-  vim $(
+  $EDITOR $(
     fzf \
       --header="------ Choose file to open in $EDITOR" \
+      --multi \
       --preview="if [[ -f {} ]];then bat --style=full --color=always {};elif [[ -d {} ]];then tree -C -L 2 {} | head -200;else echo {}; fi" \
+      --tmux \
       --bind "ctrl-d:preview-page-down,ctrl-u:preview-page-up" \
       --pointer=" "
   )
 }
 
 s() {
-  source ~/.zshrc
-}
-
-lzg() {
-  lazygit
-}
-
-lzd() {
-  lazydocker
+  source "$ZSHRC"
 }

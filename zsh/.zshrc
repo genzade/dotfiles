@@ -76,6 +76,7 @@ export SAVEHIST=100000
 export HISTSIZE=100000
 export QMK_HOME="$HOME"/.config/qmk_firmware
 export PKG_CONFIG_PATH="$(brew --prefix)/opt/ncurses/lib/pkgconfig"
+export ZSHRC="$HOME"/.zshrc
 
 if [[ "$(uname -s)" == "Darwin" ]]; then
   # check this article
@@ -83,10 +84,12 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   export TERMINFO_DIRS=$TERMINFO_DIRS:$HOME/.local/share/terminfo
 fi
 
-alias vi="nvim"
-alias vim="nvim"
-alias brow='arch --x86_64 /usr/local/homebrew/bin/brew'
+alias vi="$EDITOR"
+alias vim="$EDITOR"
+alias brow="arch --x86_64 /usr/local/homebrew/bin/brew"
 alias ls="ls --color=auto"
+alias lzg="lazygit"
+alias lzd="lazydocker"
 
 # shellcheck disable=SC1091
 source "$HOME"/dotfiles/zsh/config/my-functions.zsh # MY FUNCTIONS

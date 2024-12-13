@@ -31,6 +31,7 @@ gbD() {
   git branch -D $(
     git branch --sort=-committerdate | fzf \
       --header="------- Delete branch" \
+      --multi \
       --preview "git diff --color=always {1} " \
       --bind "ctrl-d:preview-page-down,ctrl-u:preview-page-up" \
       --pointer=" "

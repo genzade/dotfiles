@@ -73,7 +73,7 @@ fvi() {
       --header="------ Choose file to open in $EDITOR" \
       --multi \
       --preview="if [[ -f {} ]];then bat --style=full --color=always {};elif [[ -d {} ]];then tree -C -L 2 {} | head -200;else echo {}; fi" \
-      --tmux \
+      --tmux 80% \
       --bind "ctrl-d:preview-page-down,ctrl-u:preview-page-up" \
       --pointer=" "
   )

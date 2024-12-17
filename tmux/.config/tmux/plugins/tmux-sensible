@@ -1,0 +1,6 @@
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+set-option -gu default-command
+set-option -g default-shell /bin/zsh
+
+# vim:ft=tmux

@@ -59,4 +59,7 @@ set-option -g allow-passthrough on
 set-option -g renumber-windows on
 # bind-key C-s run "for i in $(tmux lsw|awk -F: '{print $1}'); do tmux movew -s \$i; done"
 
+# pass along these xterm-style key sequences to programs running inside tmux
+set-option -gw xterm-keys on
+
 # vim:ft=tmux

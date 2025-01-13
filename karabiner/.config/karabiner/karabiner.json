@@ -2,11 +2,11 @@
     "profiles": [
         {
             "complex_modifications": {
-                "parameters" : {
-                    "basic.simultaneous_threshold_milliseconds" : 50,
-                    "basic.to_delayed_action_delay_milliseconds" : 250,
-                    "basic.to_if_alone_timeout_milliseconds" : 500,
-                    "basic.to_if_held_down_threshold_milliseconds" : 500
+                "parameters": {
+                    "basic.simultaneous_threshold_milliseconds": 50,
+                    "basic.to_delayed_action_delay_milliseconds": 500,
+                    "basic.to_if_alone_timeout_milliseconds": 1000,
+                    "basic.to_if_held_down_threshold_milliseconds": 500
                 },
                 "rules": [
                     {
@@ -30,7 +30,9 @@
                                 "description": "Avoid starting sysdiagnose with the built-in macOS shortcut cmd+shift+option+ctrl+,",
                                 "from": {
                                     "key_code": "comma",
-                                    "modifiers": { "mandatory": ["command", "shift", "option", "control"] }
+                                    "modifiers": {
+                                        "mandatory": ["command", "shift", "option", "control"]
+                                    }
                                 },
                                 "to": [],
                                 "type": "basic"
@@ -39,7 +41,9 @@
                                 "description": "Avoid starting sysdiagnose with the built-in macOS shortcut cmd+shift+option+ctrl+.",
                                 "from": {
                                     "key_code": "period",
-                                    "modifiers": { "mandatory": ["command", "shift", "option", "control"] }
+                                    "modifiers": {
+                                        "mandatory": ["command", "shift", "option", "control"]
+                                    }
                                 },
                                 "to": [],
                                 "type": "basic"
@@ -48,7 +52,9 @@
                                 "from": {
                                     "description": "Avoid starting sysdiagnose with the built-in macOS shortcut cmd+shift+option+ctrl+/",
                                     "key_code": "slash",
-                                    "modifiers": { "mandatory": ["command", "shift", "option", "control"] }
+                                    "modifiers": {
+                                        "mandatory": ["command", "shift", "option", "control"]
+                                    }
                                 },
                                 "to": [],
                                 "type": "basic"
@@ -57,7 +63,9 @@
                                 "from": {
                                     "description": "Avoid opening spelling and grammar app with the built-in macOS shortcut cmd+shift+option+ctrl+;",
                                     "key_code": "semicolon",
-                                    "modifiers": { "mandatory": ["command", "shift", "option", "control"] }
+                                    "modifiers": {
+                                        "mandatory": ["command", "shift", "option", "control"]
+                                    }
                                 },
                                 "to": [],
                                 "type": "basic"
@@ -70,7 +78,14 @@
                             {
                                 "from": {
                                     "key_code": "h",
-                                    "modifiers": { "mandatory": ["left_shift", "left_command", "left_control", "left_option"] }
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_shift",
+                                            "left_command",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
                                 },
                                 "to": [{ "key_code": "left_arrow" }],
                                 "type": "basic"
@@ -78,7 +93,14 @@
                             {
                                 "from": {
                                     "key_code": "j",
-                                    "modifiers": { "mandatory": ["left_shift", "left_command", "left_control", "left_option"] }
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_shift",
+                                            "left_command",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
                                 },
                                 "to": [{ "key_code": "down_arrow" }],
                                 "type": "basic"
@@ -86,7 +108,14 @@
                             {
                                 "from": {
                                     "key_code": "k",
-                                    "modifiers": { "mandatory": ["left_shift", "left_command", "left_control", "left_option"] }
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_shift",
+                                            "left_command",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
                                 },
                                 "to": [{ "key_code": "up_arrow" }],
                                 "type": "basic"
@@ -94,7 +123,14 @@
                             {
                                 "from": {
                                     "key_code": "l",
-                                    "modifiers": { "mandatory": ["left_shift", "left_command", "left_control", "left_option"] }
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_shift",
+                                            "left_command",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
                                 },
                                 "to": [{ "key_code": "right_arrow" }],
                                 "type": "basic"
@@ -110,12 +146,12 @@
                                     "key_code": "a",
                                     "modifiers": {}
                                 },
+                                "parameters": {
+                                    "basic.to_if_alone_timeout_milliseconds": 120,
+                                    "basic.to_if_held_down_threshold_milliseconds": 180
+                                },
                                 "to": [{ "key_code": "left_control" }],
                                 "to_if_alone": [{ "key_code": "a" }],
-                                "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 250,
-                                    "basic.to_if_held_down_threshold_milliseconds": 150
-                                },
                                 "type": "basic"
                             },
                             {
@@ -125,8 +161,8 @@
                                     "modifiers": {}
                                 },
                                 "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 250,
-                                    "basic.to_if_held_down_threshold_milliseconds": 150
+                                    "basic.to_if_alone_timeout_milliseconds": 120,
+                                    "basic.to_if_held_down_threshold_milliseconds": 180
                                 },
                                 "to": [{ "key_code": "right_control" }],
                                 "to_if_alone": [{ "key_code": "semicolon" }],
@@ -139,8 +175,8 @@
                                     "modifiers": {}
                                 },
                                 "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 250,
-                                    "basic.to_if_held_down_threshold_milliseconds": 150
+                                    "basic.to_if_alone_timeout_milliseconds": 120,
+                                    "basic.to_if_held_down_threshold_milliseconds": 180
                                 },
                                 "to": [{ "key_code": "left_command" }],
                                 "to_if_alone": [{ "key_code": "s" }],
@@ -153,8 +189,8 @@
                                     "modifiers": {}
                                 },
                                 "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 250,
-                                    "basic.to_if_held_down_threshold_milliseconds": 150
+                                    "basic.to_if_alone_timeout_milliseconds": 120,
+                                    "basic.to_if_held_down_threshold_milliseconds": 180
                                 },
                                 "to": [{ "key_code": "right_command" }],
                                 "to_if_alone": [{ "key_code": "l" }],
@@ -167,8 +203,8 @@
                                     "modifiers": {}
                                 },
                                 "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 250,
-                                    "basic.to_if_held_down_threshold_milliseconds": 150
+                                    "basic.to_if_alone_timeout_milliseconds": 120,
+                                    "basic.to_if_held_down_threshold_milliseconds": 180
                                 },
                                 "to": [{ "key_code": "left_shift" }],
                                 "to_if_alone": [{ "key_code": "d" }],
@@ -181,8 +217,8 @@
                                     "modifiers": {}
                                 },
                                 "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 250,
-                                    "basic.to_if_held_down_threshold_milliseconds": 150
+                                    "basic.to_if_alone_timeout_milliseconds": 120,
+                                    "basic.to_if_held_down_threshold_milliseconds": 180
                                 },
                                 "to": [{ "key_code": "right_shift" }],
                                 "to_if_alone": [{ "key_code": "k" }],
@@ -195,8 +231,8 @@
                                     "modifiers": {}
                                 },
                                 "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 250,
-                                    "basic.to_if_held_down_threshold_milliseconds": 150
+                                    "basic.to_if_alone_timeout_milliseconds": 120,
+                                    "basic.to_if_held_down_threshold_milliseconds": 180
                                 },
                                 "to": [{ "key_code": "left_option" }],
                                 "to_if_alone": [{ "key_code": "f" }],
@@ -209,11 +245,33 @@
                                     "modifiers": {}
                                 },
                                 "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 250,
-                                    "basic.to_if_held_down_threshold_milliseconds": 150
+                                    "basic.to_if_alone_timeout_milliseconds": 120,
+                                    "basic.to_if_held_down_threshold_milliseconds": 180
                                 },
                                 "to": [{ "key_code": "right_option" }],
                                 "to_if_alone": [{ "key_code": "j" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Home Row Modification combinations",
+                        "manipulators": [
+                            {
+                                "description": "Change 'a' to 'left CTRL' when held and 'a' when tapped",
+                                "from": {
+                                    "modifiers": {},
+                                    "simultaneous": [
+                                        { "key_code": "d" },
+                                        { "key_code": "s" }
+                                    ]
+                                },
+                                "to_if_held_down": [
+                                    {
+                                        "key_code": "left_command",
+                                        "modifiers": ["left_shift"]
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]

@@ -82,3 +82,8 @@ fvi() {
 s() {
   source "$ZSHRC"
 }
+
+tvim() {
+  # for running a separate instance of neovim with its own config, for testing purposes only
+  NVIM_APPNAME='tvim' nvim "$@"
+}

@@ -158,7 +158,8 @@ if ! [[ -f "$SSH_DIR/id_ed25519" ]]; then
         _cmd "touch $SSH_DIR/config"
         _cmd "echo \"Host *\n AddKeysToAgent yes\n UseKeychain yes\n IdentityFile $SSH_DIR/id_ed25519\" | tee $SSH_DIR/config"
         _cmd "ssh-add --apple-use-keychain $SSH_DIR/id_ed25519"
-        printf "${CYAN}run 'pbcopy < ${SSH_DIR}/id_ed25519.pub' and paste that into GitHub${NC}\n"
+        # printf "${CYAN}run 'pbcopy < ${SSH_DIR}/id_ed25519.pub' and paste that into GitHub${NC}\n"
+        printf "%s\n" "${CYAN}run 'pbcopy < ${SSH_DIR}/id_ed25519.pub' and paste that into GitHub${NC}\n"
     fi
 fi
 

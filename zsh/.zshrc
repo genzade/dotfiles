@@ -118,5 +118,12 @@ export PATH=$PATH:$(go env GOPATH)/bin
 
 export PATH="/usr/local/sbin:$PATH"
 
+# Add LUA_PATH to the environment ensuring the lua version is set since
+# luarocks from homebrew uses lua 5.4 by default so would otherwise add the
+# wrong path
+if which luarocks >/dev/null; then
+  eval "$(luarocks --lua-version=5.1 path)"
+fi
+
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"

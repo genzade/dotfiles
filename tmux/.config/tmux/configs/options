@@ -62,4 +62,7 @@ set-option -g renumber-windows on
 # pass along these xterm-style key sequences to programs running inside tmux
 set-option -gw xterm-keys on
 
+set-option -gu default-command
+set-option -g default-shell "$SHELL"
+
 # vim:ft=tmux

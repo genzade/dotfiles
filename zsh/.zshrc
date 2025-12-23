@@ -94,8 +94,8 @@ alias lzd="lazydocker"
 # shellcheck disable=SC1091
 source "$HOME"/dotfiles/zsh/config/my-functions.zsh # MY FUNCTIONS
 
-# shellcheck disable=SC1091
-source "$HOME"/.asdf/asdf.sh
+# # shellcheck disable=SC1091
+# source "$HOME"/.asdf/asdf.sh
 
 # # append completions to fpath
 # # shellcheck disable=SC2206
@@ -113,10 +113,14 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # shellcheck disable=SC1091
 [ -e "$HOME"/.zshrc.local ] && source "$HOME"/.zshrc.local
 
-# Add `GOPATH/bin` directory to your `PATH` environment variable so you can run Go programs anywhere.
-export PATH=$PATH:$(go env GOPATH)/bin
+# # Add `GOPATH/bin` directory to your `PATH` environment variable so you can run Go programs anywhere.
+# export PATH=$PATH:$(go env GOPATH)/bin
 
 export PATH="/usr/local/sbin:$PATH"
+
+export PATH="$HOME/bin:$PATH"
+export ASDF_DATA_DIR="$HOME/.asdf"
+export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
 # Add LUA_PATH to the environment ensuring the lua version is set since
 # luarocks from homebrew uses lua 5.4 by default so would otherwise add the

@@ -1,9 +1,7 @@
 ---
-- name: Check if asdf is available
-  ansible.builtin.stat:
-    path: "{{ ansible_env.HOME }}/.asdf/asdf.sh"
-  register: asdf_exists
-- name: "gpg | MacOSX | Install gpg"
+- name: "ASDF | MacOSX | Install asdf"
   community.general.homebrew:
-    name: gpg
+    name: "{{ item }}"
     state: present
+  with_items:
+    - asdf

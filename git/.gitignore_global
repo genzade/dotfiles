@@ -8,3 +8,6 @@ node_modules
 .irb_history
 .rdbg_history
 **/pry_history
+
+// project specific neovim config
+.nvim.lua

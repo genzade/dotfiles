@@ -1,6 +1,6 @@
 # Make a directory and change into it in one command
 mkcd() {
-  mkdir -p "$@" && cd "$@"
+  mkdir -p -- "$@" && cd -- "$@" || return
 }
 
 # quickly resolve merge conflicts, opens files in vim buffer
@@ -18,36 +18,46 @@ prompt_context() {
 # choose which branch to checkout/delete with fuzzy-finder (fzf)
 # make sure junegunn's awesome fzf plugin is installed
 gcgb() {
-  git checkout $(
+  local branch
+  branch=$(
     git branch --sort=-committerdate | fzf \
       --header="------- Checkout branch" \
-      --preview "git diff --color=always {1} " \
-      --bind "ctrl-d:preview-page-down,ctrl-u:preview-page-up" \
+      --preview="git diff --color=always {1}" \
+      --bind="ctrl-d:preview-page-down,ctrl-u:preview-page-up" \
       --pointer=" "
   )
+  [ -n "$branch" ] && git checkout "${branch//[[:space:]]/}"
 }
 
 gbD() {
-  git branch -D $(
-    git branch --sort=-committerdate | fzf \
+  # Select branches to delete using fzf
+  local branches
+  branches="$(
+    git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/heads/ | fzf \
       --header="------- Delete branch" \
       --multi \
-      --preview "git diff --color=always {1} " \
+      --preview "git diff --color=always {1}" \
       --bind "ctrl-d:preview-page-down,ctrl-u:preview-page-up" \
       --pointer=" "
-  )
+  )"
+  # Only delete if a branch was selected
+  [ -n "$branches" ] && git branch -D "$branches"
 }
 
 rbsme() {
-  local branch="${1:-main}"
-  # TODO: consider changing to this
-  # local branch="$(git branch -rl '*/HEAD' | awk -F/ '{print $NF}')"
+  # Determine the branch to use: argument, or default branch if not provided
+  local branch="${1:-$(git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null | awk -F/ '{print $2}')}"
+  [ -z "$branch" ] && branch="main"
 
-  git checkout "$branch" &&
-    git pull &&
-    git rev-parse HEAD | tr -d '\n' | pbcopy &&
-    git checkout - &&
-    git rebase -i $(pbpaste)
+  # Checkout branch and pull latest changes
+  git checkout "$branch" && git pull || return 1
+
+  # Save current commit hash
+  local commit_hash
+  commit_hash=$(git rev-parse HEAD) || return 1
+
+  # Return to previous branch and start interactive rebase
+  git checkout - && git rebase -i "$commit_hash"
 }
 
 # git checkout helper
@@ -67,16 +77,29 @@ gd() {
   git diff "$@"
 }
 
+# Fuzzy-find and open files in $EDITOR with preview
+_fzf_preview() {
+  if [ -f {} ]; then
+    bat --style=full --color=always {}
+  elif [ -d {} ]; then
+    tree -C -L 2 {} | head -200
+  else
+    echo {}
+  fi
+}
+
 fvi() {
-  $EDITOR $(
+  local file
+  file="$(
     fzf \
       --header="------ Choose file to open in $EDITOR" \
       --multi \
-      --preview="if [[ -f {} ]];then bat --style=full --color=always {};elif [[ -d {} ]];then tree -C -L 2 {} | head -200;else echo {}; fi" \
+      --preview=" _fzf_preview()" \
       --tmux 80% \
       --bind "ctrl-d:preview-page-down,ctrl-u:preview-page-up" \
       --pointer=" "
-  )
+  )" || return
+  [ -n "$file" ] && "$EDITOR" "$file"
 }
 
 s() {

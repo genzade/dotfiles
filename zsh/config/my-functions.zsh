@@ -77,24 +77,13 @@ gd() {
   git diff "$@"
 }
 
-# Fuzzy-find and open files in $EDITOR with preview
-_fzf_preview() {
-  if [ -f {} ]; then
-    bat --style=full --color=always {}
-  elif [ -d {} ]; then
-    tree -C -L 2 {} | head -200
-  else
-    echo {}
-  fi
-}
-
 fvi() {
   local file
   file="$(
     fzf \
       --header="------ Choose file to open in $EDITOR" \
       --multi \
-      --preview=" _fzf_preview()" \
+      --preview="[[ -f {} ]] && bat --style=full --color=always {} || ([[ -d {} ]] && tree -C -L 2 {} | head -200 || echo {})" \
       --tmux 80% \
       --bind "ctrl-d:preview-page-down,ctrl-u:preview-page-up" \
       --pointer=" "

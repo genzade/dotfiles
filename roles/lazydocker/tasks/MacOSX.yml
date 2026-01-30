@@ -1,0 +1,5 @@
+---
+- name: "Lazydocker | MacOSX | Install Lazydocker"
+  community.general.homebrew:
+    name: lazydocker
+    state: present

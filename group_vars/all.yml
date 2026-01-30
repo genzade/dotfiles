@@ -26,6 +26,7 @@ default_roles:
   - karabiner
   # - kitty
   - lazygit
+  - lazydocker
   # - lsd
   # - lua
   # - nala

@@ -58,16 +58,16 @@ function _cmd {
         touch "$DOTFILES_LOG"
     fi
     # shellcheck disable=SC2188
-    > "$DOTFILES_LOG"
+    >"$DOTFILES_LOG"
     # hide stdout, on error we print and exit
-    if eval "$1" 1> /dev/null 2> "$DOTFILES_LOG"; then
+    if eval "$1" 1>/dev/null 2>"$DOTFILES_LOG"; then
         return 0 # success
     fi
     # read error from log and add spacing
     printf "${OVERWRITE}${LRED} [X]  ${TASK}${LRED}\n"
     while read line; do
         printf "      ${line}\n"
-    done < "$DOTFILES_LOG"
+    done <"$DOTFILES_LOG"
     printf "\n"
     # remove log file
     rm "$DOTFILES_LOG"
@@ -130,16 +130,16 @@ __task "Loading Setup for detected OS: $OS"
 # using case statement to support multiple OS in the future
 # TODO: remove comment after adding support for other OS
 case $OS in
-  # ubuntu)
-  #   ubuntu_setup
-  #   ;;
-  # arch)
-  #   arch_setup
-  #   ;;
-  Darwin)
+# ubuntu)
+#   ubuntu_setup
+#   ;;
+# arch)
+#   arch_setup
+#   ;;
+Darwin)
     macos_setup
     ;;
-  *)
+*)
     __task "Unsupported OS"
     _cmd "echo 'Unsupported OS'"
     ;;
@@ -166,14 +166,13 @@ else
     _cmd "git -C $DOTFILES_DIR pull --quiet"
 fi
 
-
-pushd "$DOTFILES_DIR" 2>&1 > /dev/null
+pushd "$DOTFILES_DIR" 2>&1 >/dev/null
 update_ansible_galaxy "$OS"
 
 printf "${OVERWRITE}${LGREEN} [✓]  ${LGREEN}Running playbook with vault secret ☕${NC}\n"
 ansible-playbook "$DOTFILES_DIR/main.yml" "$@"
 
-popd 2>&1 > /dev/null
+popd 2>&1 >/dev/null
 
 if ! [[ -f "$IS_FIRST_RUN" ]]; then
     echo -e "${CHECK_MARK} ${GREEN}First run complete!${NC}"

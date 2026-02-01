@@ -60,6 +60,14 @@ rbsme() {
   git checkout - && git rebase -i "$commit_hash"
 }
 
+# checkout default branch
+gcb() {
+  local default_branch
+  default_branch=$(git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null | awk -F/ '{print $2}')
+  [ -z "$default_branch" ] && default_branch="main"
+  git checkout "$default_branch"
+}
+
 # git checkout helper
 gco() {
   git checkout "$@"

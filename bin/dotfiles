@@ -107,12 +107,7 @@ function macos_setup() {
     # install asdf if not installed
     if ! [ -x "$(command -v asdf)" ]; then
         __task "Installing and setup asdf"
-
-        if ! [ -d "$HOME/.asdf" ]; then
-            __task "Cloning asdf repository"
-            _cmd "git clone --depth 1 https://github.com/asdf-vm/asdf.git $HOME/.asdf"
-        fi
-        _cmd "source $HOME/.asdf/asdf.sh"
+        _cmd "brew install asdf"
     fi
 }
 

@@ -1,15 +1,15 @@
 ---
-- name: "{{ role_name }} | Checking for Distribution Config: {{ ansible_distribution }}"
+- name: "{{ role_name }} | Checking for Distribution Config: {{ ansible_facts['distribution'] }}"
   ansible.builtin.stat:
-    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+    path: "{{ role_path }}/tasks/{{ ansible_facts['distribution'] }}.yml"
   register: distribution_config
-- name: "{{ role_name }} | Run Tasks: {{ ansible_distribution }}"
-  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+- name: "{{ role_name }} | Run Tasks: {{ ansible_facts['distribution'] }}"
+  ansible.builtin.include_tasks: "{{ ansible_facts['distribution'] }}.yml"
   when: distribution_config.stat.exists
-- name: "{{ role_name }} | Run Tasks: {{ ansible_distribution }} | Link dotfiles config"
+- name: "{{ role_name }} | Run Tasks: {{ ansible_facts['distribution'] }} | Link dotfiles config"
   ansible.builtin.command:
-    cmd: stow --target={{ ansible_env.HOME }} hammerspoon --verbose=2
-    chdir: "{{ ansible_env.HOME }}/dotfiles"
+    cmd: stow --target={{ ansible_facts['env']['HOME'] }} hammerspoon --verbose=2
+    chdir: "{{ ansible_facts['env']['HOME'] }}/dotfiles"
   register: result
   changed_when: 'result.stderr is search("LINK: ")'
   become: false

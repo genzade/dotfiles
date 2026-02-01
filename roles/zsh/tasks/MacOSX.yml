@@ -10,5 +10,5 @@
     state: present
 - name: "ZSH | MacOSX | Set zsh as default shell"
   ansible.builtin.user:
-    name: "{{ ansible_user_id }}"
+    name: "{{ ansible_facts['user_id'] }}"
     shell: /bin/zsh

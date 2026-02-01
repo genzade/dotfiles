@@ -1,7 +1,7 @@
 ---
 - name: Create Config Files
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.config"
+    path: "{{ ansible_facts['env']['HOME'] }}/.config"
     state: directory
     mode: "0755"
   register: xdg_config

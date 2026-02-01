@@ -1,8 +1,8 @@
 ---
 - name: Git | Link Gitconfig
   ansible.builtin.command:
-    cmd: stow --target={{ ansible_env.HOME }} git --verbose=2
-    chdir: "{{ ansible_env.HOME }}/dotfiles"
+    cmd: stow --target={{ ansible_facts['env']['HOME'] }} git --verbose=2
+    chdir: "{{ ansible_facts['env']['HOME'] }}/dotfiles"
   register: result
   changed_when: 'result.stderr is search("LINK: ")'
   become: false

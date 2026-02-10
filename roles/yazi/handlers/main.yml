@@ -1,0 +1,31 @@
+---
+- name: "YAZI | Check if flavor already exists"
+  ansible.builtin.stat:
+    path: "{{ ansible_facts['user_id'] }}/.config/yazi/flavors/monokai.yazi/flavor.toml"
+  register: yazi_flavor_check
+  listen: YAZI post install
+  ignore_errors: true
+
+- name: "YAZI | Install YAZI flavor via ya pkg"
+  ansible.builtin.command:
+    cmd: ya pkg add malick-tammal/monokai
+  ignore_errors: true
+  listen: YAZI post install
+  when: not yazi_flavor_check.stat.exists
+
+- name: "YAZI | Check if YAZI plugin directory exists"
+  ansible.builtin.stat:
+    path: "{{ ansible_facts['user_id'] }}/.config/yazi/plugins/{{ item.name }}.yazi"
+  with_items:
+    - name: git
+      remote: yazi-rs/plugins:git
+  register: plugin_stat
+  listen: YAZI post install
+  ignore_errors: true
+
+- name: "YAZI | Install YAZI plugins via ya pkg"
+  ansible.builtin.command:
+    cmd: "ya pkg add {{ item.item.remote }}"
+  with_items: "{{ plugin_stat.results }}"
+  when: not item.stat.exists
+  ignore_errors: true

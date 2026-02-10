@@ -1,0 +1,46 @@
+---
+- name: "{{ role_name }} | Checking for Distribution Config: {{ ansible_facts['distribution'] }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_facts['distribution'] }}.yml"
+  register: distribution_config
+- name: "{{ role_name }} | Run Tasks: {{ ansible_facts['distribution'] }}"
+  ansible.builtin.include_tasks: "{{ ansible_facts['distribution'] }}.yml"
+  when: distribution_config.stat.exists
+- name: "{{ role_name }} | Run Tasks: {{ ansible_facts['distribution'] }} | Link dotfiles config"
+  ansible.builtin.command:
+    cmd: stow --target={{ ansible_facts['env']['HOME'] }} {{ role_name }} --verbose=2
+    chdir: "{{ ansible_facts['env']['HOME'] }}/dotfiles"
+  register: result
+  changed_when: 'result.stderr is search("LINK: ")'
+  become: false
+
+# Hack because YAZI does not have a plugin manager
+- name: "YAZI Post Install | Check if flavor already exists"
+  ansible.builtin.stat:
+    path: "{{ ansible_facts['user_id'] }}/.config/yazi/flavors/monokai.yazi/flavor.toml"
+  register: yazi_flavor_check
+  ignore_errors: true
+
+- name: "YAZI Post Install | Install YAZI flavor via ya pkg"
+  ansible.builtin.command:
+    cmd: ya pkg add malick-tammal/monokai
+  ignore_errors: true
+  when: not yazi_flavor_check.stat.exists
+
+- name: "YAZI Post Install | Check if YAZI plugin directory exists"
+  ansible.builtin.stat:
+    path: "{{ ansible_facts['user_id'] }}/.config/yazi/plugins/{{ item.name }}.yazi"
+  with_items:
+    - name: git
+      remote: yazi-rs/plugins:git
+    - name: full-border
+      remote: yazi-rs/plugins:full-border
+  register: plugin_stat
+  ignore_errors: true
+
+- name: "YAZI Post Install | Install YAZI plugins via ya pkg"
+  ansible.builtin.command:
+    cmd: "ya pkg add {{ item.item.remote }}"
+  with_items: "{{ plugin_stat.results }}"
+  when: not item.stat.exists
+  ignore_errors: true

@@ -56,6 +56,7 @@ default_roles:
   # - tldr
   # - tmate
   - tmux
+  - yazi
   # # - tshark
   # - warp
   # - whalebrew

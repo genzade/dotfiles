@@ -10,3 +10,6 @@ tags
 .notes.*
 notes.*
 notes/*
+yazi/.config/yazi/flavors/
+yazi/.config/yazi/plugins/
+yazi/.config/yazi/package.toml

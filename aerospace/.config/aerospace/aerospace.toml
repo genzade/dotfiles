@@ -229,3 +229,7 @@ run = 'move-node-to-workspace S'
 [[on-window-detected]]
 if.app-id = 'org.alacritty'
 run = 'move-node-to-workspace T'
+
+[[on-window-detected]]
+if.app-id = 'com.okta.mobile'
+run = 'move-node-to-workspace O'

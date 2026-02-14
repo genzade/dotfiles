@@ -1,0 +1,17 @@
+---
+- name: "SketchyBar | MacOSX | Tap SketchyBar"
+  community.general.homebrew_tap:
+    name: FelixKratz/formulae
+
+- name: "SketchyBar | MacOSX | Install SketchyBar"
+  community.general.homebrew:
+    name: felixkratz/formulae/sketchybar
+    state: installed
+
+- name: Start SketchyBar service
+  become: false
+  ansible.builtin.shell: |
+    brew services stop sketchybar || true && brew services start sketchybar
+  register: sketchybar_service
+  changed_when: "'Successfully started' in sketchybar_service.stdout"
+  failed_when: false

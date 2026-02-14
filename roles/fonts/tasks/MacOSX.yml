@@ -10,3 +10,11 @@
     - font-monoid-nerd-font
     - font-space-mono-nerd-font
     - font-victor-mono-nerd-font
+    - font-sketchybar-app-font
+# - name: "Fonts | MacOSX | Install SF Pro and SF Symbols"
+#   community.general.homebrew_cask:
+#     name: "{{ item }}"
+#     state: present
+#   with_items:
+#     - font-sf-pro
+#     - sf-symbols

@@ -5,7 +5,7 @@ mkcd() {
 
 # quickly resolve merge conflicts, opens files in vim buffer
 vimfix() {
-  vim $(git status | grep 'both modified' | cut -d: -f2)
+  vim "$(git status | grep 'both modified' | cut -d: -f2)"
 }
 
 # Redefine prompt_context for hiding user@hostname
@@ -36,12 +36,15 @@ gbD() {
     git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/heads/ | fzf \
       --header="------- Delete branch" \
       --multi \
-      --preview "git diff --color=always {1}" \
+      --preview "git log --oneline --color=always {1}" \
       --bind "ctrl-d:preview-page-down,ctrl-u:preview-page-up" \
       --pointer=" "
   )"
-  # Only delete if a branch was selected
-  [ -n "$branches" ] && git branch -D "$branches"
+  # Only delete if branches were selected
+  if [ -n "$branches" ]; then
+    # Delete each selected branch
+    echo "$branches" | xargs -n 1 git branch -D
+  fi
 }
 
 rbsme() {
@@ -92,7 +95,7 @@ fvi() {
       --header="------ Choose file to open in $EDITOR" \
       --multi \
       --preview="[[ -f {} ]] && bat --style=full --color=always {} || ([[ -d {} ]] && tree -C -L 2 {} | head -200 || echo {})" \
-      --tmux 80% \
+      --tmux 90% \
       --bind "ctrl-d:preview-page-down,ctrl-u:preview-page-up" \
       --pointer=" "
   )" || return

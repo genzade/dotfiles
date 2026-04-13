@@ -55,6 +55,7 @@ default_roles:
   # - terragrunt
   # - tldr
   # - tmate
+  - sketchybar
   - tmux
   - yazi
   # # - tshark

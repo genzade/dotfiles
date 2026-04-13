@@ -118,7 +118,7 @@
   community.general.osx_defaults:
     domain: NSGlobalDomain
     key: com.apple.trackpad.scaling
-    type: float
+    type: string
     value: 2.5
   notify: Kill SystemUIServer
 - name: "UI - Set mouse speed (min: 1.0, max: 5.0)"
@@ -205,8 +205,8 @@
   community.general.osx_defaults:
     domain: com.apple.AppleMultitouchTrackpad
     key: ForceSuppressed
-    type: bool
-    value: false
+    type: int
+    value: 1
   notify: Kill SystemUIServer
 - name: Trackpad - Configure corner secondary click
   community.general.osx_defaults:

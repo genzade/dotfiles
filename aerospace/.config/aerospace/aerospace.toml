@@ -13,7 +13,7 @@ after-login-command = []
 # Run Sketchybar together with AeroSpace
 # sketchybar has a built-in detection of already running process,
 # so it won't be run twice on AeroSpace restart
-after-startup-command = ['exec-and-forget sketchybar']
+after-startup-command = ['exec-and-forget brew services restart sketchybar']
 
 # Notify Sketchybar about workspace change
 exec-on-workspace-change = [
@@ -73,7 +73,7 @@ automatically-unhide-macos-hidden-apps = false
    outer.bottom     = 10
    outer.left       = 10
    outer.right      = 10
-   outer.top        = 10
+   outer.top        = 35
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -219,6 +219,10 @@ automatically-unhide-macos-hidden-apps = false
 [[on-window-detected]]
    if.app-id = 'com.google.Chrome'
    run       = 'move-node-to-workspace B'
+
+[[on-window-detected]]
+   if.app-id = 'com.anthropic.claudefordesktop'
+   run       = 'move-node-to-workspace C'
 
 [[on-window-detected]]
    if.app-id = 'com.electron.dockerdesktop'

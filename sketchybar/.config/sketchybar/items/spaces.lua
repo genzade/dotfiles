@@ -166,13 +166,13 @@ local function create_space(workspace, monitor)
       },
 
       string = workspace,
-      padding_left = 15,
-      padding_right = 8,
+      padding_left = 10,
+      padding_right = 5,
       color = colors.white,
       highlight_color = colors.red,
     },
     label = {
-      padding_right = 20,
+      padding_right = 10,
       color = colors.grey,
       highlight_color = colors.red,
       -- font = 'sketchybar-app-font:Regular:16.0',
@@ -383,13 +383,13 @@ local spaces_indicator = sbar.add('item', 'spaces.indicator', {
   padding_right = 0,
   icon = {
     padding_left = 8,
-    padding_right = 9,
+    padding_right = 3,
     color = colors.grey,
     string = icons.switch.on,
   },
   label = {
     width = 0,
-    padding_left = 0,
+    padding_left = 3,
     padding_right = 8,
     string = 'Spaces',
     color = colors.bg1,
